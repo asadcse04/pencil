@@ -1,0 +1,74 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" 
+                xmlns:h="http://java.sun.com/jsf/html"  
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:ui="http://java.sun.com/jsf/facelets">
+
+
+
+    <p:panelGrid columns="2" styleClass="panelGrid">
+        
+     
+            
+       
+                
+            <p:pieChart id="sample" value="#{balanceReportController.pieModel}" legendPosition="w"  title="Balance Report" style="width:400px;height:300px" />
+
+                
+            <p:dataGrid columns="1" value="#{balanceReportController.balanceList}" var="p" style="border: none">
+                    
+                    <p:panelGrid styleClass="panelGrid" >
+                        
+                        <p:row>
+                            <p:column colspan="2" styleClass="header" style="text-align: center">
+                               Balance Information    
+                            </p:column>   
+                        </p:row> 
+                        
+                        
+                        <p:row>
+                            <p:column styleClass="label">
+                                <h:outputLabel value="Cash"/>  
+                            </p:column><p:column>
+                                <h:outputLabel value="#{p.cashBalance}"/>
+                            </p:column>
+                        </p:row>
+                        
+                          <p:row>
+                            <p:column styleClass="label">
+                                <h:outputLabel value="Bank"/>  
+                            </p:column><p:column>
+                                <h:outputLabel value="#{p.bankBalance}"/>
+                            </p:column>
+                        </p:row>
+                        
+                          <p:row>
+                            <p:column styleClass="label">
+                                <h:outputLabel value="Check"/>  
+                            </p:column><p:column>
+                                <h:outputLabel value="#{p.checkBalance}"/>
+                            </p:column>
+                        </p:row>
+                        
+                        
+                          <p:row>
+                            <p:column styleClass="label">
+                                <h:outputLabel value="Total"/>  
+                            </p:column><p:column>
+                                <h:outputLabel value="#{p.totalBalance}" styleClass="red"/>
+                            </p:column>
+                        </p:row>
+                        
+                        
+                    </p:panelGrid>
+                
+                </p:dataGrid>
+        
+
+    
+    
+    </p:panelGrid>
+
+
+
+</ui:composition>
+
