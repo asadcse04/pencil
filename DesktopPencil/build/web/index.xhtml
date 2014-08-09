@@ -101,7 +101,29 @@
                         <p:menuitem value="Fee Collection" onclick="PF('stdsrc').show();" icon="ui-icon-script"></p:menuitem> 
 
 
-                    </p:submenu>    
+                    </p:submenu> 
+
+                    <p:submenu icon="ui-icon-note" label="Payroll">
+
+                        <p:submenu icon="ui-icon-note" label="Payroll Setup">
+
+                            <p:menuitem value="Payroll Startup" onclick="PF('salarystart').show();" icon="ui-icon-script"></p:menuitem> 
+
+                        </p:submenu>    
+
+                    </p:submenu>
+
+                    <p:submenu icon="ui-icon-note" label="General Accounts">
+
+                        <p:submenu icon="ui-icon-note" label="Account Setup">
+
+                            <p:menuitem value="Transection Startup" onclick="PF('transectionstart').show();" icon="ui-icon-script"></p:menuitem> 
+
+                            <p:menuitem value="Bank Startup" onclick="PF('bankstart').show();" icon="ui-icon-script"></p:menuitem> 
+
+                        </p:submenu>    
+
+                    </p:submenu>
 
                 </p:submenu> 
 
@@ -212,7 +234,7 @@
                     <p:menuitem value="OutLook User" onclick="PF('UserPanel').show();" icon="ui-icon-person"></p:menuitem>      
                     <p:menuitem value="LogOut" onclick="PF('').show();" icon="ui-icon-eject"></p:menuitem>  
                 </p:submenu> 
-                
+
                 <p:submenu icon="" label="Facility">
                     <p:submenu icon="" label="Transport">
                         <p:submenu icon="" label="Transport Setup">
@@ -234,7 +256,7 @@
                     </p:submenu>
 
                 </p:submenu> 
-                
+
 
 
             </p:menubar>
@@ -546,6 +568,28 @@
     </p:dialog>
 
 
+    <p:dialog header="Payroll Startup" draggable="true" widgetVar="salarystart" width="100%" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
+
+        <ui:include src="/SalaryStartUp/SalaryStartUpImpl.xhtml" />          
+
+    </p:dialog>
+
+    <p:dialog header="Transection Startup" draggable="true" widgetVar="transectionstart" width="100%" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
+
+        <ui:include src="/Transection/TransectionStartup/TransectionStartupImpl.xhtml"/>          
+
+    </p:dialog>
+
+     <p:dialog header="Bank Startup" draggable="true" widgetVar="bankstart" height="700px" width="100%" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
+       
+         <ui:include src="/Transection/BankStartUp/BankStartUpImpl.xhtml"/>          
+    
+   </p:dialog>
+
+
+
+
+
     <p:dialog header="Transport Startup" draggable="true" width="100%" height="768" widgetVar="transportStartup" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
         <ui:include src="/Facility/Transport/TransportSetup/TransportStartup/TransportStartup.xhtml" />          
     </p:dialog>
@@ -553,11 +597,11 @@
     <p:dialog header="Driver" draggable="true" width="100%" height="768" widgetVar="Driver" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
         <ui:include src="/Facility/Transport/TransportSetup/AddDriver/DriverLayout.xhtml" />          
     </p:dialog>
-    
+
     <p:dialog header="Hostel" draggable="true" width="100%" height="768" widgetVar="hostel" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
         <ui:include src="/Facility/Hostel/HostelSetup/HostelStartup/HostelLayout.xhtml" />          
     </p:dialog>
-    
+
     <p:dialog header="Library" draggable="true" width="100%" height="768" widgetVar="library" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
         <ui:include src="/Facility/Library/LibrarySetup/LibraryStartup/LibraryLayout.xhtml" />          
     </p:dialog>
