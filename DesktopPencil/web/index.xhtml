@@ -133,6 +133,21 @@
                         <p:menuitem value="Exam Configure" onclick="PF('examConfigure').show();" icon="ui-icon-pin-s"/>  
                         <p:menuitem value="MeritList Generate" onclick="PF('meritList').show();" icon="ui-icon-pin-s"/> 
                     </p:submenu>
+                    
+                     <p:submenu icon="ui-icon-note" label="Report">
+                    
+                    <p:menuitem value="Balance Status" onclick="PF('BalanceReportDig').show();" icon="ui-icon-contact"></p:menuitem>   
+
+                    <p:menuitem value="Bank Status" onclick="PF('BankReportDig').show();" icon="ui-icon-contact"></p:menuitem>   
+                    
+                    <p:menuitem value="Cash Status" onclick="PF('CashReportDig').show();" icon="ui-icon-contact"></p:menuitem>   
+
+                    <p:menuitem value="Pass Fail Report" onclick="PF('PassFailReportDig').show();" icon="ui-icon-contact"></p:menuitem>   
+
+                    <p:menuitem value="Grade Wise Report" onclick="PF('GradeWiseReportDig').show();" icon="ui-icon-contact"></p:menuitem>   
+                    
+                    
+                    </p:submenu>
 
                     <p:submenu icon="ui-icon-person" label="Student">
                         <p:menuitem value="Elective Subject" onclick="PF('subjectAssign').show();" icon="ui-icon-tag"></p:menuitem>   
@@ -376,7 +391,43 @@
     <p:dialog header="User Panel" draggable="true" widgetVar="UserPanel" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
         <ui:include src="/UserPanel/SystemUser.xhtml" /> 
     </p:dialog>
+    
+    
+    <!--******************************************************Report*****************************************************************************-->
 
+
+      <p:dialog header="Balance Report Status" height="700px" draggable="true" widgetVar="BalanceReportDig" width="100%" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
+       
+         <ui:include src="/Report/BalanceStatusReport.xhtml"/>          
+    
+   </p:dialog>
+    
+                                    
+   <p:dialog header="Bank Report Status" height="700px" draggable="true" widgetVar="BankReportDig" width="100%" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
+       
+         <ui:include src="/Report/BankStatusReport.xhtml"/>          
+    
+   </p:dialog>
+    
+    
+     <p:dialog header="Cash Report" height="700px" draggable="true" widgetVar="CashReportDig" width="100%" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
+       
+         <ui:include src="/Report/cashReport.xhtml"/>          
+    
+   </p:dialog>
+    
+     <p:dialog header="Pass Fail Report" height="700px" draggable="true" widgetVar="PassFailReportDig" width="100%" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
+       
+         <ui:include src="/Report/PassFailReport.xhtml"/>          
+    
+   </p:dialog>
+    
+    
+     <p:dialog header="Grade Wise Report" height="700px" draggable="true" widgetVar="GradeWiseReportDig" width="100%" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
+       
+         <ui:include src="/Report/GradeWiseReport.xhtml"/>          
+    
+   </p:dialog>
 
 
 </html>
