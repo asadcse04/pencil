@@ -6,6 +6,9 @@
 
 package com.pencil.Accounts.Report.BankStatus;
 
+import com.pencil.Accounts.BankAccount.BankAccount;
+import com.pencil.Accounts.BankAccount.BankAccountService;
+import com.pencil.Accounts.BankAccount.BankAccountServiceImpl;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
