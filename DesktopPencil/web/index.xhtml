@@ -134,7 +134,15 @@
                         <p:menuitem value="MeritList Generate" onclick="PF('meritList').show();" icon="ui-icon-pin-s"/> 
                     </p:submenu>
                     
-                     <p:submenu icon="ui-icon-note" label="Report">
+               
+
+                    <p:submenu icon="ui-icon-person" label="Student">
+                        <p:menuitem value="Elective Subject" onclick="PF('subjectAssign').show();" icon="ui-icon-tag"></p:menuitem>   
+                    </p:submenu>
+
+                </p:submenu> 
+                
+                      <p:submenu icon="ui-icon-note" label="Report">
                     
                     <p:menuitem value="Balance Status" onclick="PF('BalanceReportDig').show();" icon="ui-icon-contact"></p:menuitem>   
 
@@ -148,12 +156,6 @@
                     
                     
                     </p:submenu>
-
-                    <p:submenu icon="ui-icon-person" label="Student">
-                        <p:menuitem value="Elective Subject" onclick="PF('subjectAssign').show();" icon="ui-icon-tag"></p:menuitem>   
-                    </p:submenu>
-
-                </p:submenu> 
 
                 <p:submenu icon="ui-icon-lightbulb" label="Exam">            
                     <p:menuitem value="Exam Mark Submit" onclick="PF('markSubmit').show();" icon="ui-icon-lightbulb"></p:menuitem>  
