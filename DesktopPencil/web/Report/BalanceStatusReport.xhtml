@@ -4,71 +4,51 @@
                 xmlns:ui="http://java.sun.com/jsf/facelets">
 
 
+    <center>
+        <p:panelGrid columns="1" styleClass="panelGrid" style="border: #ffffff">
 
-    <p:panelGrid columns="2" styleClass="panelGrid">
+
+            <p:dataTable value="#{balanceReportController.balanceList}" var="p" style="border: none; width: 650px; text-align: right" >
+
+
+
+
+
+                <p:column headerText="Cash Balance">
+                    <h:outputLabel value="#{p.cashBalance}"/>
+                </p:column>
+
+                <p:column headerText="Bank Balance">
+                    <h:outputLabel value="#{p.bankBalance}"/>
+                </p:column>
+
+
         
-     
+                <p:column headerText="Check Balnce">
+                        <h:outputLabel value="#{p.checkBalance}"/>
+                    </p:column>
             
-       
-                
-            <p:pieChart id="sample" value="#{balanceReportController.pieModel}" legendPosition="w"  title="Balance Report" style="width:400px;height:300px" />
-
-                
-            <p:dataGrid columns="1" value="#{balanceReportController.balanceList}" var="p" style="border: none">
-                    
-                    <p:panelGrid styleClass="panelGrid" >
-                        
-                        <p:row>
-                            <p:column colspan="2" styleClass="header" style="text-align: center">
-                               Balance Information    
-                            </p:column>   
-                        </p:row> 
-                        
-                        
-                        <p:row>
-                            <p:column styleClass="label">
-                                <h:outputLabel value="Cash"/>  
-                            </p:column><p:column>
-                                <h:outputLabel value="#{p.cashBalance}"/>
-                            </p:column>
-                        </p:row>
-                        
-                          <p:row>
-                            <p:column styleClass="label">
-                                <h:outputLabel value="Bank"/>  
-                            </p:column><p:column>
-                                <h:outputLabel value="#{p.bankBalance}"/>
-                            </p:column>
-                        </p:row>
-                        
-                          <p:row>
-                            <p:column styleClass="label">
-                                <h:outputLabel value="Check"/>  
-                            </p:column><p:column>
-                                <h:outputLabel value="#{p.checkBalance}"/>
-                            </p:column>
-                        </p:row>
-                        
-                        
-                          <p:row>
-                            <p:column styleClass="label">
-                                <h:outputLabel value="Total"/>  
-                            </p:column><p:column>
-                                <h:outputLabel value="#{p.totalBalance}" styleClass="red"/>
-                            </p:column>
-                        </p:row>
-                        
-                        
-                    </p:panelGrid>
-                
-                </p:dataGrid>
-        
-
-    
-    
-    </p:panelGrid>
 
 
+                <p:column headerText="Total Balance">
+                        <h:outputLabel value="#{p.totalBalance}" styleClass="red"/>
+                </p:column>
+              
+
+
+
+
+            </p:dataTable>
+
+
+
+
+            <p:pieChart id="sample" value="#{balanceReportController.pieModel}" legendPosition="w"  title="Balance Report" style="width:550px;height:400px" />
+
+
+        </p:panelGrid>
+
+    </center>
 
 </ui:composition>
 

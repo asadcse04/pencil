@@ -11,7 +11,7 @@
         <p:row> 
             <p:column>
                 
-                <p:pieChart id="sample2" value="#{bankStatusController.getPieModel()}" legendPosition="w"  title="Bank Report" style="width:400px;height:300px" />
+                <p:pieChart id="sample2" value="#{bankStatusController.getPieModel()}" legendPosition="w"  title="Bank Report" style="width:500px;height:400px" />
 
             </p:column>
             
@@ -19,16 +19,9 @@
                 
                 <h:form>
                 
-                <p:dataTable id="tbl" value="#{bankStatusController.bankAccountList}" var="bc"  style="width: 300px">
+                <p:dataTable id="tbl" value="#{bankStatusController.bankAccountList}" var="bc"  style="width: 400px">
                    
-                  
-                    
-                    <f:facet name="header">
-                    Latest Bank Balance Information
-                    </f:facet>
-                    
-               
-                    
+          
                     <p:column>
                         <f:facet name="header">Bank Name</f:facet>
                         <h:outputLabel value="#{bc.bankName}"/>
