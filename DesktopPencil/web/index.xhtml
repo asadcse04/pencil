@@ -81,6 +81,32 @@
                     </p:submenu>                       
                 </p:submenu>
 
+
+
+
+                <p:submenu icon="ui-icon-person" label="Accounts">
+
+                    <p:submenu icon="ui-icon-note" label="Student Accounts">
+
+                        <p:submenu icon="ui-icon-note" label="Fee Setup">
+
+                            <p:menuitem value="Fee Start up" onclick="PF('feestart').show();" icon="ui-icon-script"></p:menuitem> 
+
+                            <p:menuitem value="Fee Create" onclick="PF('createfee').show();" icon="ui-icon-script"></p:menuitem> 
+
+                            <p:menuitem value="Fee Configure" onclick="PF('feeconfig').show();" icon="ui-icon-script"></p:menuitem> 
+
+                        </p:submenu> 
+
+                        <p:menuitem value="Fee Collection" onclick="PF('stdsrc').show();" icon="ui-icon-script"></p:menuitem> 
+
+
+                    </p:submenu>    
+
+                </p:submenu> 
+
+
+
                 <p:submenu icon="ui-icon-person" label="Information">            
                     <p:menuitem value="Student" onclick="PF('studentView').show();" icon="ui-icon-person"></p:menuitem>                   
                     <p:menuitem value="Teacher" onclick="PF('teacherView').show();" icon="ui-icon-person"></p:menuitem>
@@ -158,9 +184,14 @@
 
                     </p:submenu> 
 
+
                     <p:submenu icon="ui-icon-lightbulb" label="Account Report">
 
+                        <p:menuitem value="Cash Report" onclick="PF('CashReportDig').show();" icon="ui-icon-tag"></p:menuitem>   
 
+                        <p:menuitem value="Bank Report Status" onclick="PF('BankReportDig').show();" icon="ui-icon-tag"></p:menuitem>   
+
+                        <p:menuitem value="Balance Report" onclick="PF('BalanceReportDig').show();" icon="ui-icon-tag"></p:menuitem>   
 
 
                     </p:submenu> 
@@ -433,6 +464,66 @@
         <ui:include src="/Report/PassFailReport.xhtml"/>          
 
     </p:dialog>
+
+
+
+    <p:dialog header="Cash Report" height="700px" draggable="true" widgetVar="CashReportDig" width="100%" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
+
+        <ui:include src="/Report/cashReport.xhtml"/>          
+
+    </p:dialog>
+
+    <p:dialog header="Bank Report Status" height="700px" draggable="true" widgetVar="BankReportDig" width="100%" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
+
+        <ui:include src="/Report/BankStatusReport.xhtml"/>          
+
+    </p:dialog>
+
+    <p:dialog header="Balance Report Status" height="700px" draggable="true" widgetVar="BalanceReportDig" width="100%" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
+
+        <ui:include src="/Report/BalanceStatusReport.xhtml"/>          
+
+    </p:dialog>
+
+
+
+    <!--*****************************Accounts Dialog***************************-->
+
+
+    <p:dialog header="Fee Startup" draggable="true" widgetVar="feestart" width="100%" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
+
+        <ui:include src="/FeeStartUp/FeeStartUpImpl.xhtml" />          
+
+    </p:dialog>
+
+
+    <p:dialog header="Fee Create" draggable="true" widgetVar="createfee" width="100%" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
+
+        <ui:include src="/FeeStartUp/FeeImpl.xhtml" />          
+
+    </p:dialog>
+
+
+    <p:dialog header="Fee Configure" draggable="true" widgetVar="feeconfig" width="100%" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
+
+        <ui:include src="/FeeStartUp/FeeConfigImpl.xhtml" />          
+
+    </p:dialog>
+
+    <p:dialog header="Student Search" height="700px" draggable="true" widgetVar="stdsrc" width="100%" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
+
+        <ui:include src="/FeeCollection/FeeCollectionStep1Impl.xhtml"/>          
+
+    </p:dialog>
+
+    <p:dialog header="Collect Fee" height="700px" draggable="true" widgetVar="feecollection" width="100%" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
+
+        <ui:include src="/FeeCollection/FeeCollectionStep2Impl.xhtml"/>          
+
+    </p:dialog>
+
+
+
 
 
 
