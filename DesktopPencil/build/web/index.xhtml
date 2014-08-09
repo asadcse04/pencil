@@ -142,22 +142,34 @@
 
                 </p:submenu> 
                 
+           <!--************************************************************Report****************************************-->     
+                
                    <p:submenu icon="ui-icon-note" label="Report">
-                    
-                    <p:menuitem value="Balance Status" onclick="PF('BalanceReportDig').show();" icon="ui-icon-contact"></p:menuitem>   
+                       
+                   <p:submenu icon="ui-icon-note" label="Accounts Report">
+                       
+                       <p:menuitem value="Balance Status" onclick="PF('BalanceReportDig').show();" icon="ui-icon-contact"></p:menuitem>   
 
-                    <p:menuitem value="Bank Status" onclick="PF('BankReportDig').show();" icon="ui-icon-contact"></p:menuitem>   
+                       <p:menuitem value="Bank Status" onclick="PF('BankReportDig').show();" icon="ui-icon-contact"></p:menuitem>   
                     
-                    <p:menuitem value="Cash Status" onclick="PF('CashReportDig').show();" icon="ui-icon-contact"></p:menuitem>   
-
+                       <p:menuitem value="Cash Status" onclick="PF('CashReportDig').show();" icon="ui-icon-contact"></p:menuitem>     
+                     
+                   </p:submenu>    
+                       
+                       
+                    <p:submenu icon="ui-icon-note" label="Exam Report">
+                         
                     <p:menuitem value="Pass Fail Report" onclick="PF('PassFailReportDig').show();" icon="ui-icon-contact"></p:menuitem>   
 
                     <p:menuitem value="Grade Wise Report" onclick="PF('GradeWiseReportDig').show();" icon="ui-icon-contact"></p:menuitem>   
                     
-                    
                     </p:submenu>
 
-                <p:submenu icon="ui-icon-lightbulb" label="Exam">            
+                    </p:submenu>
+
+                
+           
+           <p:submenu icon="ui-icon-lightbulb" label="Exam">            
                     <p:menuitem value="Exam Mark Submit" onclick="PF('markSubmit').show();" icon="ui-icon-lightbulb"></p:menuitem>  
                     <p:menuitem value="Exam Mark Update" onclick="PF('markUpdate').show();" icon="ui-icon-lightbulb"></p:menuitem>  
                     <p:menuitem value="Print Mark Sheet" onclick="PF('markSheetPrint').show();" icon="ui-icon-lightbulb"></p:menuitem>
