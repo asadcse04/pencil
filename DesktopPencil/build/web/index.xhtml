@@ -213,6 +213,27 @@
                     <p:menuitem value="LogOut" onclick="PF('').show();" icon="ui-icon-eject"></p:menuitem>  
                 </p:submenu> 
                 
+                <p:submenu icon="" label="Facility">
+                    <p:submenu icon="" label="Transport">
+                        <p:submenu icon="" label="Transport Setup">
+                            <p:menuitem value="Transpotr Startup" onclick="PF('transportStartup').show();" icon="ui-icon-gear"/>
+                            <p:menuitem value="Driver" onclick="PF('Driver').show();" icon="ui-icon-gear"/>
+                        </p:submenu>
+                    </p:submenu>
+
+                    <p:submenu label="Hostel">
+                        <p:submenu label="Hostel Setup">
+                            <p:menuitem value="Hostel Startup" onclick="PF('hostel').show();" icon="ui-icon-gear"/>
+                        </p:submenu>
+                    </p:submenu>
+
+                    <p:submenu label="Library">
+                        <p:submenu label="Library Setup">
+                            <p:menuitem value="Library Startup" onclick="PF('library').show();" icon="ui-icon-gear"/>
+                        </p:submenu>
+                    </p:submenu>
+
+                </p:submenu> 
                 
 
 
@@ -525,6 +546,21 @@
     </p:dialog>
 
 
+    <p:dialog header="Transport Startup" draggable="true" width="100%" height="768" widgetVar="transportStartup" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
+        <ui:include src="/Facility/Transport/TransportSetup/TransportStartup/TransportStartup.xhtml" />          
+    </p:dialog>
+
+    <p:dialog header="Driver" draggable="true" width="100%" height="768" widgetVar="Driver" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
+        <ui:include src="/Facility/Transport/TransportSetup/AddDriver/DriverLayout.xhtml" />          
+    </p:dialog>
+    
+    <p:dialog header="Hostel" draggable="true" width="100%" height="768" widgetVar="hostel" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
+        <ui:include src="/Facility/Hostel/HostelSetup/HostelStartup/HostelLayout.xhtml" />          
+    </p:dialog>
+    
+    <p:dialog header="Library" draggable="true" width="100%" height="768" widgetVar="library" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
+        <ui:include src="/Facility/Library/LibrarySetup/LibraryStartup/LibraryLayout.xhtml" />          
+    </p:dialog>
 
 
 
