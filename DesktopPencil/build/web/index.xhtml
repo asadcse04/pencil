@@ -81,37 +81,25 @@
                     </p:submenu>                       
                 </p:submenu>
 
-
-
-
                 <p:submenu icon="ui-icon-person" label="Accounts">
 
                     <p:submenu icon="ui-icon-note" label="Student Accounts">
 
                         <p:submenu icon="ui-icon-note" label="Fee Setup">
-
                             <p:menuitem value="Fee Start up" onclick="PF('feestart').show();" icon="ui-icon-script"></p:menuitem> 
-
                             <p:menuitem value="Fee Create" onclick="PF('createfee').show();" icon="ui-icon-script"></p:menuitem> 
-
                             <p:menuitem value="Fee Configure" onclick="PF('feeconfig').show();" icon="ui-icon-script"></p:menuitem> 
-
                         </p:submenu> 
 
                         <p:menuitem value="Fee Collection" onclick="PF('stdsrc').show();" icon="ui-icon-script"></p:menuitem> 
-
 
                     </p:submenu> 
 
                     <p:submenu icon="ui-icon-note" label="Payroll">
 
                         <p:submenu icon="ui-icon-note" label="Payroll Setup">
-
                             <p:menuitem value="Payroll Startup" onclick="PF('salarystart').show();" icon="ui-icon-script"></p:menuitem> 
-
                             <p:menuitem value="Payroll Create" onclick="PF('salarycreate').show();" icon="ui-icon-script"></p:menuitem> 
-
-
                         </p:submenu>    
 
                     </p:submenu>
@@ -119,22 +107,14 @@
                     <p:submenu icon="ui-icon-note" label="General Accounts">
 
                         <p:submenu icon="ui-icon-note" label="Account Setup">
-
                             <p:menuitem value="Transection Startup" onclick="PF('transectionstart').show();" icon="ui-icon-script"></p:menuitem> 
-
                             <p:menuitem value="Bank Startup" onclick="PF('bankstart').show();" icon="ui-icon-script"></p:menuitem> 
-
                         </p:submenu>
 
-
                         <p:submenu icon="ui-icon-note" label="Create Transection">
-
                             <p:menuitem value="Income Transection" onclick="PF('income').show();" icon="ui-icon-script"></p:menuitem> 
-
                             <p:menuitem value="Expense Transection" onclick="PF('expense').show();" icon="ui-icon-script"></p:menuitem> 
-
                             <p:menuitem value="Bank Transection" onclick="PF('bank').show();" icon="ui-icon-script"></p:menuitem> 
-
                         </p:submenu>
 
                     </p:submenu>
@@ -174,7 +154,9 @@
 
 
                 <p:submenu icon="ui-icon-wrench" label="Settings">  
+                    
                     <p:submenu icon="ui-icon-gear" label="Core Settings">
+                        <p:menuitem value="Institute Setup" onclick="PF('instituteSetup').show();" icon="ui-icon-tag"/>
                         <p:menuitem value="Start Up" onclick="PF('startUp').show();" icon="ui-icon-tag"/>
                         <p:menuitem value="Subject Configure" onclick="PF('subjectConfigure').show();" icon="ui-icon-pin-s"/>
                         <p:menuitem value="Book List" onclick="PF('subjectUpdate').show();" icon="ui-icon-document"/> 
@@ -365,6 +347,11 @@
 
 
     <!-- ******************************************Setting Start Here************************************************** -->
+    
+       <!-- ......................Institute Setup........................... -->
+    <p:dialog header="Institute Setup" draggable="true" width="auto" height="auto" widgetVar="instituteSetup" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
+        <ui:include src="/Settings/CoreSetting/InstituteSetup/InstituteSetup.xhtml" /> 
+    </p:dialog>
 
     <!-- ......................Start Up Insert and Update................... -->
     <p:dialog header="Start Up" draggable="true" width="100%" height="768" widgetVar="startUp" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
