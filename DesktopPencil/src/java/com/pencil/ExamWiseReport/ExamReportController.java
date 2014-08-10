@@ -114,6 +114,7 @@ public class ExamReportController implements Serializable {
     public void exam_pass_fail_report_List()
     {
         this.exam_pass_fail_report_List=examReportService.ExamPassFailReport(this.exCnfID,this.scCnfID);
+        
     }
     
    //---------------Subject Wise grading-----------------

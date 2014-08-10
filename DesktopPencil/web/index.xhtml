@@ -78,7 +78,29 @@
                     <p:submenu icon="ui-icon-person" label="Teacher">
                         <p:menuitem value="Registration" onclick="PF('teacherRegistration').show();" icon="ui-icon-contact"></p:menuitem> 
                         <p:menuitem value="Update" onclick="PF('teacherUpdate').show();" icon="ui-icon-script"></p:menuitem> 
-                    </p:submenu>                       
+                    </p:submenu> 
+
+
+                    <p:submenu icon="ui-icon-note" label="Gallery">
+
+                        <p:submenu icon="ui-icon-note" label="Principle">
+                            <p:menuitem value="Principle Add" onclick="PF('principleadd').show();" icon="ui-icon-contact"></p:menuitem> 
+                            <p:menuitem value="Principle Update" onclick="PF('principleupdate').show();" icon="ui-icon-contact"></p:menuitem> 
+                        </p:submenu>
+                        
+                        <p:submenu icon="ui-icon-note" label="Committee">
+                            <p:menuitem value="Committee Add" onclick="PF('committeeadd').show();" icon="ui-icon-contact"></p:menuitem> 
+                            <p:menuitem value="Committee Update" onclick="PF('committeeupdate').show();" icon="ui-icon-contact"></p:menuitem> 
+                        </p:submenu>
+                    
+                        <p:submenu icon="ui-icon-note" label="Photo">
+                            <p:menuitem value="Photo Add" onclick="PF('photoadd').show();" icon="ui-icon-contact"></p:menuitem> 
+                            <p:menuitem value="Photo Update" onclick="PF('photoupdate').show();" icon="ui-icon-contact"></p:menuitem> 
+                        </p:submenu>
+                        
+                    </p:submenu>
+
+
                 </p:submenu>
 
 
@@ -187,7 +209,7 @@
                         <p:menuitem value="Book List" onclick="PF('subjectUpdate').show();" icon="ui-icon-document"/> 
                         <p:menuitem value="Class Configure" onclick="PF('classConfigure').show();" icon="ui-icon-pin-s"/> 
                     </p:submenu>
-                    
+
                     <p:submenu icon="ui-icon-lightbulb" label="Stuff">
                         <p:menuitem value="Assign Designation" onclick="PF('designationAssign').show();" icon="ui-icon-tag"/>  
                     </p:submenu>
@@ -346,6 +368,35 @@
 
     <!-- *****************************************************Insert End Here********************************************************** -->
 
+    <!-- **********************************************Gallery Start Here******************************** -->
+
+
+    <p:dialog header="Principle" draggable="true" widgetVar="principleadd" width="40%" height="auto;" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">     
+        <ui:include src="/Gallery/Principle/PrincipleImpl.xhtml" />              
+    </p:dialog> 
+
+    <p:dialog header="Principle Edit" draggable="true" widgetVar="principleupdate" width="auto" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">      
+        <ui:include src="/Gallery/Principle/PrincipleUpdate.xhtml" />          
+    </p:dialog>
+    
+     <p:dialog header="Committee" draggable="true" widgetVar="committeeadd" width="40%" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">  
+        <ui:include src="/Gallery/Committee/CommitteeImpl.xhtml" />          
+    </p:dialog>
+
+    <p:dialog header="Committee Update" draggable="true" widgetVar="committeeupdate" width="auto" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">   
+        <ui:include src="/Gallery/Committee/CommitteeUpdate.xhtml" />           
+    </p:dialog>
+    
+    <p:dialog header="Photo Gallery" draggable="true" widgetVar="photoadd" width="40%" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">    
+        <ui:include src="/Gallery/Photo/PhotoImpl.xhtml" />            
+    </p:dialog> 
+
+    <p:dialog header="Photo Gallery Update" draggable="true" widgetVar="photoupdate" width="auto" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">     
+        <ui:include src="/Gallery/Photo/PhotoUpdate.xhtml" />            
+    </p:dialog>
+
+    <!-- **********************************************Gallery End Here******************************** -->
+
 
     <!--*********************************Information View Student And Teacher Start******************************************* -->
 
@@ -383,9 +434,9 @@
     <p:dialog header="Class Configure" draggable="true" widgetVar="classConfigure" width="100%" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
         <ui:include src="/Settings/CoreSetting/ClassConfig/ClassConfig.xhtml" /> 
     </p:dialog>
-    
+
     <!-- ..........................Designation Assign.......................... -->
-    
+
     <p:dialog header="Designation Assign" draggable="true" width="100%" height="768" widgetVar="designationAssign" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
         <ui:include src="/Settings/DesignationAssign/DesignationAssign.xhtml" />       
     </p:dialog>
@@ -626,12 +677,12 @@
         <ui:include src="/Transection/ExpenseStartUpImpl.xhtml"/>          
 
     </p:dialog>
-    
+
     <p:dialog header="Bank Transection" height="700px" draggable="true" widgetVar="bank" width="100%" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
-       
-         <ui:include src="/Transection/BankTransectionStartUpImpl.xhtml"/>          
-    
-   </p:dialog>
+
+        <ui:include src="/Transection/BankTransectionStartUpImpl.xhtml"/>          
+
+    </p:dialog>
 
 
 
