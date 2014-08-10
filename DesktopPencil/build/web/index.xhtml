@@ -143,6 +143,10 @@
                         <p:menuitem value="Book List" onclick="PF('subjectUpdate').show();" icon="ui-icon-document"/> 
                         <p:menuitem value="Class Configure" onclick="PF('classConfigure').show();" icon="ui-icon-pin-s"/> 
                     </p:submenu>
+                    
+                    <p:submenu icon="ui-icon-lightbulb" label="Stuff">
+                        <p:menuitem value="Assign Designation" onclick="PF('designationAssign').show();" icon="ui-icon-tag"/>  
+                    </p:submenu>
 
                     <p:submenu icon="ui-icon-copy" label="Routine">
                         <p:submenu icon="ui-icon-copy" label="Class Routine">
@@ -354,6 +358,12 @@
     <!-- ..........................Class Configure.......................... -->
     <p:dialog header="Class Configure" draggable="true" widgetVar="classConfigure" width="100%" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
         <ui:include src="/Settings/CoreSetting/ClassConfig/ClassConfig.xhtml" /> 
+    </p:dialog>
+    
+    <!-- ..........................Designation Assign.......................... -->
+    
+    <p:dialog header="Designation Assign" draggable="true" width="100%" height="768" widgetVar="designationAssign" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
+        <ui:include src="/Settings/DesignationAssign/DesignationAssign.xhtml" />       
     </p:dialog>
 
     <!-- ..........................Assign Routine........................... -->
