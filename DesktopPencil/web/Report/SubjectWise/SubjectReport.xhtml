@@ -8,7 +8,7 @@
 
         <p:layoutUnit position="west" size="25%">
 
-            <h:form id="student_srch_frm">
+            <h:form id="student_subject_wise_frm">
 
                 <center>
 
@@ -124,13 +124,13 @@
 
                             </p:column>
 
-                            <p:ajax event="change" update="student_result_list_btn" listener="#{subjectReportController.Ex_Cnf_ID}"/>
+                            <p:ajax event="change" update="subject_wise_result_list_btn" listener="#{subjectReportController.Ex_Cnf_ID}"/>
 
                         </p:selectOneMenu>
 
                     </p:panelGrid>
 
-                    <p:commandButton id="student_result_list_btn" value="Search" update="student_srch_frm,:st_mark_list_tbl_frm" actionListener="#{subjectReportController.subject_report_List}"  disabled="#{subjectReportController.exCnfID eq 0}"  icon="ui-icon-search"  style="margin-top:7px;"/>
+                    <p:commandButton id="subject_wise_result_list_btn" value="Search" update="student_subject_wise_frm,:st_mark_subj_list_tbl_frm" actionListener="#{subjectReportController.subject_report_List}"  disabled="#{subjectReportController.exCnfID eq 0}"  icon="ui-icon-search"  style="margin-top:7px;"/>
 
                 </center>
 
@@ -141,7 +141,7 @@
         
         <p:layoutUnit position="center">
 
-        <h:form id="st_mark_list_tbl_frm">
+        <h:form id="st_mark_subj_list_tbl_frm">
 
             <p:growl autoUpdate="true" showDetail="true"/> 
 
@@ -205,7 +205,7 @@
 
             <h:commandButton value="Print" type="button" style="margin-top: 10px;"> 
 
-                    <p:printer target="st_mark_list_tbl_frm" />
+                    <p:printer target="st_mark_subj_list_tbl_frm" />
 
            </h:commandButton>
 </p:layoutUnit>
