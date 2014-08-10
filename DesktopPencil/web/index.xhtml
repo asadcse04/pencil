@@ -87,19 +87,27 @@
                             <p:menuitem value="Principle Add" onclick="PF('principleadd').show();" icon="ui-icon-contact"></p:menuitem> 
                             <p:menuitem value="Principle Update" onclick="PF('principleupdate').show();" icon="ui-icon-contact"></p:menuitem> 
                         </p:submenu>
-                        
+
                         <p:submenu icon="ui-icon-note" label="Committee">
                             <p:menuitem value="Committee Add" onclick="PF('committeeadd').show();" icon="ui-icon-contact"></p:menuitem> 
                             <p:menuitem value="Committee Update" onclick="PF('committeeupdate').show();" icon="ui-icon-contact"></p:menuitem> 
                         </p:submenu>
-                    
+
                         <p:submenu icon="ui-icon-note" label="Photo">
                             <p:menuitem value="Photo Add" onclick="PF('photoadd').show();" icon="ui-icon-contact"></p:menuitem> 
                             <p:menuitem value="Photo Update" onclick="PF('photoupdate').show();" icon="ui-icon-contact"></p:menuitem> 
                         </p:submenu>
-                        
+
                     </p:submenu>
 
+
+                    <p:submenu icon="ui-icon-note" label="Notice">
+
+                        <p:menuitem value="Notice Add" onclick="PF('noticeadd').show();" icon="ui-icon-contact"></p:menuitem> 
+
+                        <p:menuitem value="Notice Update" onclick="PF('noticeupdate').show();" icon="ui-icon-contact"></p:menuitem> 
+
+                    </p:submenu>
 
                 </p:submenu>
 
@@ -366,6 +374,8 @@
         <ui:include src="/Registration/Teacher/Teacher.xhtml" />          
     </p:dialog>
 
+
+
     <!-- *****************************************************Insert End Here********************************************************** -->
 
     <!-- **********************************************Gallery Start Here******************************** -->
@@ -378,15 +388,15 @@
     <p:dialog header="Principle Edit" draggable="true" widgetVar="principleupdate" width="auto" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">      
         <ui:include src="/Gallery/Principle/PrincipleUpdate.xhtml" />          
     </p:dialog>
-    
-     <p:dialog header="Committee" draggable="true" widgetVar="committeeadd" width="40%" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">  
+
+    <p:dialog header="Committee" draggable="true" widgetVar="committeeadd" width="40%" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">  
         <ui:include src="/Gallery/Committee/CommitteeImpl.xhtml" />          
     </p:dialog>
 
     <p:dialog header="Committee Update" draggable="true" widgetVar="committeeupdate" width="auto" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">   
         <ui:include src="/Gallery/Committee/CommitteeUpdate.xhtml" />           
     </p:dialog>
-    
+
     <p:dialog header="Photo Gallery" draggable="true" widgetVar="photoadd" width="40%" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">    
         <ui:include src="/Gallery/Photo/PhotoImpl.xhtml" />            
     </p:dialog> 
@@ -396,6 +406,17 @@
     </p:dialog>
 
     <!-- **********************************************Gallery End Here******************************** -->
+
+    <!-- ......................Notice Add and update Start.......................... -->
+    <p:dialog header="Add Notice" draggable="true" widgetVar="noticeadd" height="800px" width="100%" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">   
+        <ui:include src="/Notice/NoticeStartUp/NoticeStartUpImpl.xhtml" />              
+    </p:dialog>
+
+    <p:dialog header="Update Notice" draggable="true" widgetVar="noticeupdate" height="800px" width="100%" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">     
+        <ui:include src="/Notice/NoticeStartUp/NoticeUpdateImpl.xhtml" />             
+    </p:dialog>
+
+    <!-- ......................Notice Add and update End.......................... -->
 
 
     <!--*********************************Information View Student And Teacher Start******************************************* -->
