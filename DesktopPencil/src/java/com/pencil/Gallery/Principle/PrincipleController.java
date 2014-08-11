@@ -95,45 +95,7 @@ public class PrincipleController {
        this.principle=null;
    }
 
-//    public void updatePrinciple() 
-//    {
-//
-//        FacesContext context = FacesContext.getCurrentInstance();
-//
-//        if (this.photoFile != null) {
-//
-//            this.principle.setImgpath(this.photoFile.getFileName());
-//
-//            if (servicedao.updatePrinciple(this.principle)) {
-//
-//                uploadService.uploadImg("principleImage", principle.getId()+"_"+photoFile.getFileName(), photoFile);
-//
-//                context.addMessage(null, new FacesMessage("Successful Principle Update complete...", "..."));
-//
-//                this.principle = null;
-//
-//            } else {
-//
-//                context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Principle Photo Update failed...!", ""));
-//
-//            }
-//
-//        } else {
-//
-//            if (this.servicedao.updatePrinciple(this.principle)) {
-//
-//                context.addMessage(null, new FacesMessage("Successful... Principle Information Update complete...", "..."));
-//
-//                this.principle = null;
-//
-//            } else {
-//
-//                context.addMessage(null, new FacesMessage("Failed... Principle Information Update Failed...", "..."));
-//            }
-//
-//        }
-//
-//    }
+
 
     public Principle getPrinciple() {
 

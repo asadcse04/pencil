@@ -141,7 +141,7 @@ public class TeacherServiceImpl implements Serializable,TeacherService
                 System.out.println(e);
             }
             
-            tchr=null;
+           // tchr=null;
         }
         
         return false;
