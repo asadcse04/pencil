@@ -18,8 +18,6 @@ public interface PhotoService {
     
      public boolean updatePhoto(Photo photo);
     
-  
-    
-    public List<Photo> photoList();
+     public List<Photo> photoList();
     
 }

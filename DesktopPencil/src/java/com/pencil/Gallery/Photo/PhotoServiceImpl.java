@@ -184,7 +184,7 @@ public class PhotoServiceImpl implements PhotoService{
           
           prst.setString(3,photo.getAbout());
           
-          prst.setString(4,photo.getId()+"_"+photo.getImgpath());
+          prst.setString(4,photo.getImgpath());
           
           prst.setString(5,photo.getId());
   
