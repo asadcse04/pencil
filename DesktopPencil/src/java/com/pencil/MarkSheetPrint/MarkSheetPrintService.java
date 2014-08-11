@@ -14,9 +14,9 @@ import java.util.List;
  */
 public interface MarkSheetPrintService
 {
-     public List<MarkSheetPrint> student_Info_List();
+     public List<MarkSheetPrint> student_Info_List(int ExcnfID);
      
-     public List<MarkSheetPrint> mark_sheet_List(String studentID);
+     public List<MarkSheetPrint> mark_sheet_List(String studentID,int ExCnfID);
      
-     public List<MarkSheetPrint>mark_sheet_finalGrade(String studentID);
+     public List<MarkSheetPrint> mark_sheet_finalGrade(String studentID,int ExcnfID);
 }
