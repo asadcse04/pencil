@@ -81,6 +81,11 @@
                         <p:menuitem value="Registration" onclick="PF('teacherRegistration').show();" icon="ui-icon-contact"></p:menuitem> 
                         <p:menuitem value="Update" onclick="PF('teacherUpdate').show();" icon="ui-icon-script"></p:menuitem> 
                     </p:submenu>
+                    
+                    <p:submenu icon="ui-icon-person" label="Staff">
+                        <p:menuitem value="Registration" onclick="PF('stuffRegistration').show();" icon="ui-icon-bookmark"></p:menuitem> 
+                        <p:menuitem value="Update" onclick="PF('stuffUpdate').show();" icon="ui-icon-script"></p:menuitem> 
+                    </p:submenu> 
 
 
                     <p:submenu icon="ui-icon-note" label="Gallery">
@@ -399,6 +404,16 @@
     <p:dialog header="Teacher Update" draggable="true" width="73%" widgetVar="teacherUpdate" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
         <ui:include src="/Registration/Teacher/Teacher.xhtml" />          
     </p:dialog>
+    
+    <!-- ..................Stuff Registration and update.................... -->
+    <p:dialog header="Stuff Registration" draggable="true" widgetVar="stuffRegistration" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
+        <ui:include src="/Registration/Stuff/StuffRegistration.xhtml" />          
+    </p:dialog>
+
+    <p:dialog header="Stuff Update" draggable="true" width="73%" widgetVar="stuffUpdate" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
+        <ui:include src="/Registration/Stuff/Stuff.xhtml" />          
+    </p:dialog>
+
 
 
     <!-- **********************************************Gallery Start Here******************************** -->
