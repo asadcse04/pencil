@@ -108,7 +108,7 @@ public class StudentAttendance_Service_Impl implements Serializable,StudentAtten
         
         int i=0;
         
-        try
+        try 
         {
             prst=con.prepareStatement("select 1 from student_attendence where AttendanceDate=? and StudentID=?");
             

@@ -11,7 +11,7 @@ import java.io.Serializable;
  * @author Mahfuj
  */
 public class StudentAttendanceReport implements Serializable
-{
+{ 
     private String studentID;
     
     private String StudentName;
