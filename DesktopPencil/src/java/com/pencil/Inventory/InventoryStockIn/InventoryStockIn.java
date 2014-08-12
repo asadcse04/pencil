@@ -1,5 +1,6 @@
 package com.pencil.Inventory.InventoryStockIn;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /*
@@ -12,7 +13,7 @@ import java.util.Date;
  *
  * @author SHOHUG-SQ
  */
-public class InventoryStockIn {
+public class InventoryStockIn implements Serializable{
     
     private int inventoryItemID;
     
@@ -41,6 +42,8 @@ public class InventoryStockIn {
     private String inventoryTypeName;
     
     private String inventoryItemName;
+    
+    private double grandTotal;
 
     public InventoryStockIn() {
     }
@@ -54,6 +57,17 @@ public class InventoryStockIn {
         this.userID = userID;
         
     }
+
+    public InventoryStockIn(String inventoryItemName,double unitPrice,double quantity,double totalPrice ) {
+        this.quantity = quantity;
+        this.unitPrice = unitPrice;
+        this.totalPrice = totalPrice;
+        this.inventoryItemName = inventoryItemName;
+    }
+    
+    
+    
+    
     
     public double stockInTotalPrice() {
         
@@ -176,6 +190,16 @@ public class InventoryStockIn {
     public void setPrice(double price) {
         this.price = price;
     }
+
+    public double getGrandTotal() {
+        return grandTotal;
+    }
+
+    public void setGrandTotal(double grandTotal) {
+        this.grandTotal = grandTotal;
+    }
+    
+    
     
     
 }

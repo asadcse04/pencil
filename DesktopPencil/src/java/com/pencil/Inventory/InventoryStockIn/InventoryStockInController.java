@@ -85,7 +85,7 @@ public class InventoryStockInController implements Serializable{
     
      int i=map.size();
        
-     map.put(++i, new InventoryStockIn(this.inventoryStockIn.getInventoryItemID(),this.inventoryStockIn.getInventoryStockIN(),this.inventoryStockIn.getNote(),this.inventoryStockIn.getCreateDate(),this.inventoryStockIn.getInventoryItemName(),this.inventoryStockIn.getUserID()));
+     map.put(++i, new InventoryStockIn(this.inventoryStockIn.getInventoryItemName(),this.inventoryStockIn.getUnitPrice(),this.inventoryStockIn.getQuantity(),this.inventoryStockIn.getTotalPrice()));
  
      //item.addAll((Collection<? extends InventoryStockIn>) inventoryStockIn);
      
@@ -100,12 +100,15 @@ public class InventoryStockInController implements Serializable{
     }
     
     /////////////////////////////
-    public static double calPrice(){
+    public  double calPrice(){
         double totalPrice=0.0d;
         Iterator<InventoryStockIn> ite=item.iterator();
         while(ite.hasNext()){
             totalPrice+=ite.next().getTotalPrice();
         }
+        
+        this.inventoryStockIn.setGrandTotal(totalPrice);
+     
         return totalPrice;
     }
     
@@ -134,7 +137,7 @@ public class InventoryStockInController implements Serializable{
     {
         FacesContext context = FacesContext.getCurrentInstance();
         
-        if(inventoryStockIndao.createInventoryStockIn(this.inventoryStockIn))
+        if(inventoryStockIndao.createInventoryStockIn(this.inventoryStockIn, this.inventoryPayment))
         {
             this.inventoryStockInData=inventoryStockIndao.inventoryStockInList();
             

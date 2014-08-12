@@ -22,7 +22,7 @@ import java.util.List;
 public class InventoryStockInServiceImpl implements Serializable,InventoryStockInService {
 
     @Override
-    public boolean createInventoryStockIn(InventoryStockIn inventoryStockIn) {
+    public boolean createInventoryStockIn(InventoryStockIn inventoryStockIn, InventoryPayment inventoryPayment) {
         
         DB_Connection o=new DB_Connection(); 
        
@@ -36,8 +36,13 @@ public class InventoryStockInServiceImpl implements Serializable,InventoryStockI
         {
   
             prst = con.prepareStatement("");
-            
+//            
+//            prst.setString(1, inventoryPayment.getStockType());
+//            prst.setString(2, null);
+//            
             rs = prst.executeQuery();
+            
+            
                         
         }
         catch(SQLException e)

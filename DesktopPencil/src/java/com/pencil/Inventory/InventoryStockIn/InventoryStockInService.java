@@ -14,9 +14,11 @@ import java.util.List;
  */
 public interface InventoryStockInService {
     
-    public boolean createInventoryStockIn(InventoryStockIn inventoryStockIn);
+    public boolean createInventoryStockIn(InventoryStockIn inventoryStockIn, InventoryPayment inventoryPayment);
     
     public boolean updateInventoryStockIn(InventoryStockIn inventoryStockIn_obj);
     
     List<InventoryStockIn> inventoryStockInList();
+
+    
 }
