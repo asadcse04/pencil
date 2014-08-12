@@ -180,6 +180,7 @@
 
                 <p:submenu icon="ui-icon-person" label="Information">     
                      <p:submenu icon="ui-icon-person" label="Student">
+                        <p:menuitem value="Find A Student" onclick="PF('findStudent').show();" icon="ui-icon-person"></p:menuitem>   
                         <p:menuitem value="At A Glance" onclick="PF('at_A_Glance').show();" icon="ui-icon-person"></p:menuitem>   
                         <p:menuitem value="Basic Info" onclick="PF('studentView').show();" icon="ui-icon-person"></p:menuitem>    
                     </p:submenu>
@@ -454,7 +455,11 @@
 
 
     <!--*********************************Information View Student And Teacher Start******************************************* -->
-
+ 
+    <p:dialog header="Find A Student" draggable="true" widgetVar="findStudent" width="auto" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">     
+        <ui:include src="/Information/Student/FindStudent.xhtml" />            
+    </p:dialog>
+    
     <p:dialog header="Search The Student At A Glance" draggable="true" widgetVar="at_A_Glance" width="auto" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">     
         <ui:include src="/Information/Student/At_A_Glance/At_A_Glance.xhtml" />            
     </p:dialog>

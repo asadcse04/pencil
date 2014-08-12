@@ -14,7 +14,7 @@
 
                 <p:inputText id="search" value="#{at_A_GlanceController.studentSearch.studentID}"/> <p:commandButton value="Search" id="btsearch" action="#{at_A_GlanceController.viewStudentInfo}" update="grl nm gn fn gm ay shft cl sec dept roll" icon="ui-icon-search"/> <br /><br /><br />
 
-                <p:watermark  value="Search student by ID" for="search" id="name_watermark" />
+                <p:watermark  value="Search by student ID" for="search" id="name_watermark" />
 
                 <p:tooltip for="btsearch" showEffect="slide" hideEffect="slide" value="Search student by ID" />
 
@@ -37,9 +37,12 @@
         <p:layoutUnit position="center">
 
             <br /><br />
-            <p:commandButton value="Result"></p:commandButton>
-            <p:commandButton value="Account"></p:commandButton>
-            <p:commandButton value="Attendance"></p:commandButton>
+            <p:commandButton value="Personal Info"></p:commandButton>
+            <p:commandButton value="Previous Info"></p:commandButton>
+            <p:commandButton value="Result Info"></p:commandButton>
+              <br /><br />
+            <p:commandButton value="Account Info"></p:commandButton>
+            <p:commandButton value="Attendance Info"></p:commandButton>
 
         </p:layoutUnit>
 
