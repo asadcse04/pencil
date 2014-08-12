@@ -7,55 +7,59 @@
 
     <p:layout style="min-width:1000px;min-height:420px;">
 
-        <p:layoutUnit position="west" size="30%"> 
+        <p:layoutUnit position="west" size="30%" style="border: none"> 
 
             <h:form id="insert_noticecat_frm">
-                <p:growl id="grl" autoUpdate="true" sticky="false" />
+
+                <p:growl id="grl" autoUpdate="false" sticky="false" />
+
                 <center>
-                    <p:panelGrid styleClass="panelGrid">                       
-                        <p:row>
-                            <p:column colspan="2" styleClass="header"> Create Notice Category</p:column>
-                        </p:row>
 
-                        <p:row>
-                            <p:column>
-                                <h:outputLabel value="*" styleClass="red"/>
-                                <h:outputLabel value="Category Name"/>
-                            </p:column><p:column>
-                                <p:inputText  value="#{noticeCategoryController.noticeCategory.categoryname}" styleClass="inputText" required="true" requiredMessage="Plese Enter Category Name."/>
-                            </p:column>
-                        </p:row>
 
-                        <p:row>
-                            <p:column>
-                                <h:outputLabel value="*" styleClass="red"/>
-                                <h:outputLabel value="Display Color"/>
-                            </p:column><p:column>
-                                <p:selectOneMenu value="#{noticeCategoryController.noticeCategory.color}" styleClass="inputCombo" style="width: 165px;" required="true" requiredMessage="Please Select Color.">
-                                    <f:selectItem itemLabel="Select color" itemValue=""/>
-                                    <f:selectItems value="#{noticeCategoryController.displaycolor}"/>
-                                </p:selectOneMenu>
-                            </p:column>
-                        </p:row>
+                    <p:panelGrid columns="2">
 
-                        <p:row>
-                            <p:column>                            
-                                <h:outputLabel value="Note"/>
-                            </p:column><p:column>
-                                <p:inputText value="#{noticeCategoryController.noticeCategory.note}" styleClass="inputText"/>
-                            </p:column>
-                        </p:row>
-                    </p:panelGrid>      
-                    
-                    <p:commandButton value="Add" actionListener="#{noticeCategoryController.addNoticeCategory()}" update="grl :notice_pub_strt_tb:noticecat_frm" icon="ui-icon-check" style="margin-top: 8px;"/>
+                        <f:facet name="header">
+
+                            Create Notice Category
+
+                        </f:facet>
+
+                        
+                        <h:outputLabel value="Category Name*"/>
+
+                        <p:inputText  value="#{noticeCategoryController.noticeCategory.categoryname}" required="true" requiredMessage="Category Name is Required"/>
+
+                     
+                        <h:outputLabel value="Display Color"/>
+
+                        <p:selectOneMenu value="#{noticeCategoryController.noticeCategory.color}" style="width: 140px;" required="true" requiredMessage="Color is required">
+                        
+                            <f:selectItem itemLabel="Select color" itemValue=""/>
+                            
+                            <f:selectItems value="#{noticeCategoryController.displaycolor}"/>
+                        
+                        </p:selectOneMenu>
+
+
+                        <h:outputLabel value="Noe"/>
+                        
+                        <p:inputText value="#{noticeCategoryController.noticeCategory.note}"/>
+                        
+                        <p:commandButton value="Add" actionListener="#{noticeCategoryController.addNoticeCategory()}" update="grl :notice_pub_strt_tb:noticecat_frm" icon="ui-icon-check" />
+
+                        <p:commandButton type="reset" value="Reset" icon="ui-icon-refresh" update="insert_noticecat_frm" />
+
+                    </p:panelGrid>
 
                 </center>
+
             </h:form>
+
         </p:layoutUnit>
 
 
 
-        <p:layoutUnit position="center">
+        <p:layoutUnit position="center" style="border: none">
 
             <h:form id="noticecat_frm">
 
@@ -63,18 +67,18 @@
 
                     <p:dataTable var="noticecatlist" value="#{noticeCategoryController.noticeCategoryList}">
 
-                        <p:column headerText="Category ID">
+                          <p:column headerText="Category ID">
 
-                            <h:outputLabel value="#{noticecatlist.categoryid}"/>
+                              <h:outputLabel value="#{noticecatlist.categoryid}"/>
 
                         </p:column>
-
+                        
                         <p:column headerText="Category Name">
 
                             <h:outputLabel value="#{noticecatlist.categoryname}"/>
 
                         </p:column>
-
+                        
                         <p:column headerText="Display Color" style="background: #{noticecatlist.color}">
 
                             <h:outputLabel /> 
@@ -86,7 +90,7 @@
                             <h:outputLabel value="#{noticecatlist.note}"/>
 
                         </p:column>
-
+            
                     </p:dataTable>
 
                 </center> 
