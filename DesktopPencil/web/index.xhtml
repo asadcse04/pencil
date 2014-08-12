@@ -81,7 +81,7 @@
                         <p:menuitem value="Registration" onclick="PF('teacherRegistration').show();" icon="ui-icon-contact"></p:menuitem> 
                         <p:menuitem value="Update" onclick="PF('teacherUpdate').show();" icon="ui-icon-script"></p:menuitem> 
                     </p:submenu>
-                    
+
                     <p:submenu icon="ui-icon-person" label="Staff">
                         <p:menuitem value="Registration" onclick="PF('stuffRegistration').show();" icon="ui-icon-bookmark"></p:menuitem> 
                         <p:menuitem value="Update" onclick="PF('stuffUpdate').show();" icon="ui-icon-script"></p:menuitem> 
@@ -179,12 +179,12 @@
 
 
                 <p:submenu icon="ui-icon-person" label="Information">     
-                     <p:submenu icon="ui-icon-person" label="Student">
+                    <p:submenu icon="ui-icon-person" label="Student">
                         <p:menuitem value="Find A Student" onclick="PF('findStudent').show();" icon="ui-icon-person"></p:menuitem>   
                         <p:menuitem value="At A Glance" onclick="PF('at_A_Glance').show();" icon="ui-icon-person"></p:menuitem>   
                         <p:menuitem value="Basic Info" onclick="PF('studentView').show();" icon="ui-icon-person"></p:menuitem>    
                     </p:submenu>
-                                  
+
                     <p:menuitem value="Teacher" onclick="PF('teacherView').show();" icon="ui-icon-person"></p:menuitem>
 
                 </p:submenu> 
@@ -265,6 +265,11 @@
                         <p:menuitem value="Elective Subject" onclick="PF('subjectAssign').show();" icon="ui-icon-tag"></p:menuitem>   
                     </p:submenu>
 
+                    <p:submenu icon="ui-icon-person" label="User">                  
+                        <p:menuitem value="Teacher" onclick="PF('forTeacher').show();" icon="ui-icon-person"></p:menuitem>      
+                        <p:menuitem value="Stuff" onclick="PF('forStuff').show();" icon="ui-icon-eject"></p:menuitem>  
+                    </p:submenu>
+
                 </p:submenu>
 
                 <p:submenu icon="ui-icon-lightbulb" label="Result">            
@@ -328,6 +333,12 @@
                     </p:submenu>
 
                 </p:submenu> 
+                
+                
+                <p:submenu label="Inventory">                  
+                    <p:menuitem value="Inventory Startup" onclick="PF('InventoryStartup').show();" icon="ui-icon-person"></p:menuitem>      
+                    <p:menuitem value="InventoryStockIn" onclick="PF('').show();" icon="ui-icon-eject"></p:menuitem>  
+                </p:submenu>
 
 
 
@@ -409,7 +420,7 @@
     <p:dialog header="Teacher Update" draggable="true" width="73%" widgetVar="teacherUpdate" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
         <ui:include src="/Registration/Teacher/Teacher.xhtml" />          
     </p:dialog>
-    
+
     <!-- ..................Stuff Registration and update.................... -->
     <p:dialog header="Stuff Registration" draggable="true" widgetVar="stuffRegistration" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
         <ui:include src="/Registration/Stuff/StuffRegistration.xhtml" />          
@@ -455,15 +466,15 @@
 
 
     <!--*********************************Information View Student And Teacher Start******************************************* -->
- 
+
     <p:dialog header="Find A Student" draggable="true" widgetVar="findStudent" width="auto" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">     
         <ui:include src="/Information/Student/FindStudent.xhtml" />            
     </p:dialog>
-    
+
     <p:dialog header="Search The Student At A Glance" draggable="true" widgetVar="at_A_Glance" width="auto" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">     
         <ui:include src="/Information/Student/At_A_Glance/At_A_Glance.xhtml" />            
     </p:dialog>
-    
+
     <p:dialog header="View Student" draggable="true" widgetVar="studentView" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
         <ui:include src="/Registration/Student/OutLookStudent_Impl.xhtml"/> 
     </p:dialog>
@@ -538,6 +549,15 @@
     <!-- ............................Elective Subject Assign........................... -->
     <p:dialog header="Elective Subject Assign" draggable="true" width="100%" height="auto;" widgetVar="subjectAssign" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
         <ui:include src="/Settings/Student/ElectiveSubjectSelection/Elective_Sbj_Reg_Impl.xhtml" />          
+    </p:dialog>
+
+    <!-- ............................User Type........................... -->
+    <p:dialog header="User Type For Teacher" draggable="true" width="100%" height="auto;" widgetVar="forTeacher" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
+        <ui:include src="/Settings/User/AssignUserType/AssignUserType.xhtml" />          
+    </p:dialog>
+
+    <p:dialog header="User Type For Stuff" draggable="true" width="100%" height="auto;" widgetVar="forStuff" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
+        <ui:include src="/Settings/User/AssignStuffType/AssignStuffType.xhtml" />          
     </p:dialog>
 
     <!-- ******************************************Setting End Here************************************************** -->
@@ -848,9 +868,9 @@
         <ui:include src="/Facility/Library/LibrarySetup/LibraryStartup/LibraryLayout.xhtml" />          
     </p:dialog>
 
-
-
-
+    <p:dialog header="InventoryStartup" draggable="true" width="100%" widgetVar="InventoryStartup" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
+        <ui:include src="/Inventory/InventoryStartup/InventoryStartupImpl.xhtml" />          
+    </p:dialog>
 
 
 </html>
