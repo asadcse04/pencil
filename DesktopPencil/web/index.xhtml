@@ -337,7 +337,7 @@
                 
                 <p:submenu label="Inventory">                  
                     <p:menuitem value="Inventory Startup" onclick="PF('InventoryStartup').show();" icon="ui-icon-person"></p:menuitem>      
-                    <p:menuitem value="InventoryStockIn" onclick="PF('').show();" icon="ui-icon-eject"></p:menuitem>  
+                    <p:menuitem value="InventoryStockIn" onclick="PF('InventoryStockIn').show();" icon="ui-icon-eject"></p:menuitem>  
                 </p:submenu>
 
 
@@ -871,6 +871,13 @@
     <p:dialog header="InventoryStartup" draggable="true" width="100%" widgetVar="InventoryStartup" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
         <ui:include src="/Inventory/InventoryStartup/InventoryStartupImpl.xhtml" />          
     </p:dialog>
+    
+    <p:dialog header="InventoryStockIn" draggable="true" width="100%" widgetVar="InventoryStockIn" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
+        <ui:include src="/Inventory/InventoryStockIN/InventoryStockInImpl.xhtml" />          
+    </p:dialog>
+
+
+
 
 
 </html>
