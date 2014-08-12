@@ -1,0 +1,48 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" 
+                xmlns:h="http://java.sun.com/jsf/html" 
+                xmlns:f="http://java.sun.com/jsf/core" 
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <p:layout styleClass="tabHeight" style="width: 1000px;">
+
+        <p:layoutUnit position="west" size="60%"> 
+
+            <h:form>
+
+                <p:growl id="grl" autoUpdate="true" sticky="false"/> 
+
+                <p:inputText id="search" value="#{at_A_GlanceController.studentSearch.studentID}"/> <p:commandButton value="Search" id="btsearch" action="#{at_A_GlanceController.viewStudentInfo}" update="grl nm gn fn gm ay shft cl sec dept roll" icon="ui-icon-search"/> <br /><br /><br />
+
+                <p:watermark  value="Search student by ID" for="search" id="name_watermark" />
+
+                <p:tooltip for="btsearch" showEffect="slide" hideEffect="slide" value="Search student by ID" />
+
+                Student Name       <p:spacer width="15px" height="20px"/>  :       <h:outputText id="nm" value="#{at_A_GlanceController.studentSearch.studentName}"/>    <br /><br />
+                Gender             <p:spacer width="57px" height="20px"/>  :       <h:outputText id="gn" value="#{at_A_GlanceController.studentSearch.gender}"/>         <br /><br />
+                Father's  Name     <p:spacer width="10px" height="20px"/>  :       <h:outputText id="fn" value="#{at_A_GlanceController.studentSearch.fatherName}"/>     <br /><br />
+                Guardian Mobile    <p:spacer width="0px"  height="20px"/>  :       <h:outputText id="gm" value="#{at_A_GlanceController.studentSearch.contactNo}"/>      <br /><br />
+
+                AcYear             <p:spacer width="60px" height="20px"/>  :       <h:outputText id="ay" value="#{at_A_GlanceController.studentSearch.academicYear}"/> <br /><br />
+                Class              <p:spacer width="71px" height="20px"/>  :       <h:outputText id="cl" value="#{at_A_GlanceController.studentSearch.className}"/>      <br /><br />
+                Department         <p:spacer width="31px" height="20px"/>  :       <h:outputText id="dept" value="#{at_A_GlanceController.studentSearch.deptName}"/>   <br /><br />
+                Shift              <p:spacer width="78px" height="20px"/>  :       <h:outputText id="shft" value="#{at_A_GlanceController.studentSearch.shiftName}"/>    <br /><br />
+                Section            <p:spacer width="60px" height="20px"/>  :       <h:outputText id="sec" value="#{at_A_GlanceController.studentSearch.sectionName}"/>   <br /><br />
+                Roll               <p:spacer width="82px" height="20px"/>  :       <h:outputText id="roll" value="#{at_A_GlanceController.studentSearch.studentRoll}"/>
+
+            </h:form>
+
+        </p:layoutUnit>
+
+        <p:layoutUnit position="center">
+
+            <br /><br />
+            <p:commandButton value="Result"></p:commandButton>
+            <p:commandButton value="Account"></p:commandButton>
+            <p:commandButton value="Attendance"></p:commandButton>
+
+        </p:layoutUnit>
+
+    </p:layout>
+
+</ui:composition>
