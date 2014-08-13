@@ -30,13 +30,23 @@ public class AssignStuffTypeServiceImpl implements AssignStuffTypeService, Seria
         PreparedStatement prst = null;
         try {
 
-            prst = con.prepareStatement("insert into assign_user_type values (null,?,?,?,null)");
+            prst = con.prepareStatement("insert into user values (?,?,?,null,?,?,?,?,?)");
 
-            prst.setString(1, assignUserType.getContactNo());
+            prst.setInt(1, assignUserType.getStuffID());
 
-            prst.setString(2, assignUserType.getUserType());
+            prst.setString(2, assignUserType.getStuffName());
             
-            prst.setString(3, assignUserType.getPassword());
+            prst.setString(3, assignUserType.getContactNo());
+            
+            prst.setString(4, assignUserType.getUserName());
+            
+            prst.setString(5, assignUserType.getPassword());
+            
+            prst.setString(6, assignUserType.getUserType());
+            
+            prst.setString(7, assignUserType.getUserTypeCode());
+            
+            prst.setString(8, assignUserType.getNote());
 
             prst.execute();
 
