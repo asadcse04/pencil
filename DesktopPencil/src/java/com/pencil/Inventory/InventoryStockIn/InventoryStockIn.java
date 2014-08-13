@@ -1,5 +1,6 @@
 package com.pencil.Inventory.InventoryStockIn;
 
+import java.beans.Transient;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -44,6 +45,8 @@ public class InventoryStockIn implements Serializable{
     private String inventoryItemName;
     
     private double grandTotal;
+    
+    private int serial=0;
 
     public InventoryStockIn() {
     }
@@ -198,6 +201,20 @@ public class InventoryStockIn implements Serializable{
     public void setGrandTotal(double grandTotal) {
         this.grandTotal = grandTotal;
     }
+
+    
+    @Transient
+    public int getSerial() {
+        
+        this.serial=serial+1;
+        return serial;
+    }
+
+    public void setSerial(int serial) {
+        this.serial = serial;
+    }
+    
+    
     
     
     
