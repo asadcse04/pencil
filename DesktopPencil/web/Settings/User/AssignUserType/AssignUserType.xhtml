@@ -33,10 +33,9 @@
                         </p:column>
 
                         <p:column headerText="Assign">
-                            <p:commandButton rendered="#{assignUserTypeController.checkMobileNo(userType)eq '1'}" process="@this" oncomplete="assignUserDialog.show()" update=":assignuser" icon="ui-icon-pencil" title="Assign User">  
+                            <p:commandButton oncomplete="assignUserDialog.show()" update=":assignuser" icon="ui-icon-pencil" title="Assign User">  
                                 <f:setPropertyActionListener value="#{userType}" target="#{assignUserTypeController.assignUserType}"/>   
-                            </p:commandButton> 
-                            <p:commandButton rendered="#{assignUserTypeController.checkMobileNo(userType) eq '0'}" process="@this" icon="ui-icon-check" />  
+                            </p:commandButton>
                         </p:column>
 
                     </p:dataTable> 
