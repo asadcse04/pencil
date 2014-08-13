@@ -250,7 +250,7 @@
                     </p:submenu>
 
                     <p:submenu icon="ui-icon-lightbulb" label="Stuff">
-                        <p:menuitem value="Assign Designation" onclick="PF('').show();" icon="ui-icon-tag"/>  
+                        <p:menuitem value="Assign Designation" onclick="PF('stuffDegAssign').show();" icon="ui-icon-tag"/>  
                     </p:submenu>
 
                     <p:submenu icon="ui-icon-copy" label="Routine">
@@ -523,6 +523,10 @@
 
     <p:dialog header="Designation Assign" draggable="true" width="100%" height="768" widgetVar="teacherDegAssign" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
         <ui:include src="/Settings/Teacher/DesignationAssign/DesignationAssign.xhtml" />       
+    </p:dialog>
+    
+    <p:dialog header="Designation Assign" draggable="true" width="100%" height="768" widgetVar="stuffDegAssign" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
+        <ui:include src="/Settings/Stuff/DesignationAssignStuff/DesignationAssignStuff.xhtml" />       
     </p:dialog>
 
     <!-- ..........................Assign Routine........................... -->
