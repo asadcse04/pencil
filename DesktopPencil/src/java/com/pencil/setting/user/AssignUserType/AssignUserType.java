@@ -20,10 +20,16 @@ public class AssignUserType implements Serializable {
     private String gender;
 
     private String contactNo;
+    
+    private String UserName;
+    
+    private String password;
 
     private String userType;
+    
+    private String userTypeCode;
 
-    private String password;
+    private String note;
 
     public AssignUserType() {
     }
@@ -82,6 +88,30 @@ public class AssignUserType implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getUserName() {
+        return UserName;
+    }
+
+    public void setUserName(String UserName) {
+        this.UserName = UserName;
+    }
+
+    public String getUserTypeCode() {
+        return userTypeCode;
+    }
+
+    public void setUserTypeCode(String userTypeCode) {
+        this.userTypeCode = userTypeCode;
+    }
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
     }
 
 }
