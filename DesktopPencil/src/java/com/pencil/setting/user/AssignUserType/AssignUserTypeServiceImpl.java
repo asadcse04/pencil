@@ -22,7 +22,7 @@ public class AssignUserTypeServiceImpl implements AssignUserTypeService, Seriali
 
     @Override
     public boolean addUserType(AssignUserType assignUserType) {
-         
+
         DB_Connection o = new DB_Connection();
 
         Connection con = o.getConnection();
@@ -35,17 +35,17 @@ public class AssignUserTypeServiceImpl implements AssignUserTypeService, Seriali
             prst.setInt(1, assignUserType.getTeacherID());
 
             prst.setString(2, assignUserType.getTeacherName());
-            
+
             prst.setString(3, assignUserType.getContactNo());
-            
+
             prst.setString(4, assignUserType.getUserName());
-            
+
             prst.setString(5, assignUserType.getPassword());
-            
+
             prst.setString(6, assignUserType.getUserType());
-            
+
             prst.setString(7, assignUserType.getUserTypeCode());
-            
+
             prst.setString(8, assignUserType.getNote());
 
             prst.execute();
@@ -55,26 +55,18 @@ public class AssignUserTypeServiceImpl implements AssignUserTypeService, Seriali
             con.close();
 
             return true;
-        } 
-        catch (SQLException e)
-        {
+        } catch (SQLException e) {
             System.out.println(e);
-        } 
-        finally
-        {
+        } finally {
             try {
 
-                if (prst != null) 
-                {
+                if (prst != null) {
                     prst.close();
                 }
-                if (con != null)
-                {
+                if (con != null) {
                     con.close();
                 }
-            } 
-            catch (SQLException e) 
-            {
+            } catch (SQLException e) {
                 System.out.println(e);
             }
         }
@@ -96,7 +88,8 @@ public class AssignUserTypeServiceImpl implements AssignUserTypeService, Seriali
 
         try {
 
-            prst = con.prepareStatement("select t.TeacherID, t.TeacherName, t.Gender, tc.ContactNo from teacher t, teacher_contact_info tc where t.TeacherID=tc.TeacherID ");
+            prst = con.prepareStatement("select t.TeacherID, t.TeacherName, t.Gender, tc.ContactNo from teacher t, teacher_contact_info tc\n"
+                    + " where t.TeacherID=tc.TeacherID and t.TeacherID not in(select id from user)");
 
             rs = prst.executeQuery();
 
@@ -145,7 +138,7 @@ public class AssignUserTypeServiceImpl implements AssignUserTypeService, Seriali
 
         try {
 
-            prst = con.prepareStatement("SELECT MobileNo FROM assign_user_type");
+            prst = con.prepareStatement("");
 
             rs = prst.executeQuery();
 
