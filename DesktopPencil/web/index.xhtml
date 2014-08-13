@@ -240,6 +240,14 @@
                         <p:menuitem value="Book List" onclick="PF('subjectUpdate').show();" icon="ui-icon-document"/> 
                         <p:menuitem value="Class Configure" onclick="PF('classConfigure').show();" icon="ui-icon-pin-s"/> 
                     </p:submenu>
+                                        
+                    <p:submenu icon="ui-icon-person" label="Student">
+                        <p:menuitem value="Elective Subject" onclick="PF('subjectAssign').show();" icon="ui-icon-tag"></p:menuitem>   
+                    </p:submenu>
+
+                    <p:submenu icon="ui-icon-person" label="Teacher">
+                        <p:menuitem value="Elective Subject" onclick="PF('teacherDegAssign').show();" icon="ui-icon-tag"></p:menuitem>   
+                    </p:submenu>
 
                     <p:submenu icon="ui-icon-lightbulb" label="Stuff">
                         <p:menuitem value="Assign Designation" onclick="PF('designationAssign').show();" icon="ui-icon-tag"/>  
@@ -259,10 +267,6 @@
                         <p:menuitem value="Exam Startup" onclick="PF('examStartup').show();" icon="ui-icon-tag"/>  
                         <p:menuitem value="Exam Configure" onclick="PF('examConfigure').show();" icon="ui-icon-pin-s"/>  
                         <p:menuitem value="MeritList Generate" onclick="PF('meritList').show();" icon="ui-icon-pin-s"/> 
-                    </p:submenu>
-
-                    <p:submenu icon="ui-icon-person" label="Student">
-                        <p:menuitem value="Elective Subject" onclick="PF('subjectAssign').show();" icon="ui-icon-tag"></p:menuitem>   
                     </p:submenu>
 
                     <p:submenu icon="ui-icon-person" label="User">                  
