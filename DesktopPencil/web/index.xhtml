@@ -256,6 +256,7 @@
                     </p:submenu>
 
                     <p:submenu icon="ui-icon-person" label="Teacher">
+                        <p:menuitem value="Create Designation" onclick="PF('designationcreate').show();" icon="ui-icon-tag"></p:menuitem>   
                         <p:menuitem value="Assign Designation" onclick="PF('teacherDegAssign').show();" icon="ui-icon-tag"></p:menuitem>   
                     </p:submenu>
 
@@ -312,7 +313,7 @@
                     <p:menuitem value="OutLook User" onclick="PF('UserPanel').show();" icon="ui-icon-person"></p:menuitem>      
                     <p:menuitem value="LogOut" onclick="PF('').show();" icon="ui-icon-eject"></p:menuitem>  
                 </p:submenu> 
-                
+
             </p:menubar>
 
 
@@ -508,6 +509,10 @@
     </p:dialog>
 
     <!-- ..........................Designation Assign.......................... -->
+
+    <p:dialog header="Create Designation" draggable="true" widgetVar="designationcreate" height="800px" width="100%" position="middle top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
+        <ui:include src="/Designation/DesignationStartUp/DesignationStartUpImpl.xhtml" />          
+    </p:dialog>
 
     <p:dialog header="Designation Assign" draggable="true" width="100%" height="768" widgetVar="teacherDegAssign" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
         <ui:include src="/Settings/Teacher/DesignationAssign/DesignationAssign.xhtml" />       
