@@ -86,6 +86,26 @@
                     </p:row>
 
                     <p:row>
+                        <p:column styleClass="label" >
+                            <h:outputLabel value="User Name"/>
+                            <h:outputLabel value="*" styleClass="red"/>
+                        </p:column>
+                        <p:column>
+                            <p:inputText value="#{assignStuffTypeController.assignUserType.userName}" styleClass="inputText" style="color: red;"/>
+                        </p:column>
+                    </p:row>
+                    
+                    <p:row>
+                        <p:column styleClass="label" >
+                            <h:outputLabel value="Enter Password"/>
+                            <h:outputLabel value="*" styleClass="red"/>
+                        </p:column>
+                        <p:column>
+                            <p:password  value="#{assignStuffTypeController.assignUserType.password}" styleClass="inputText" required="true" requiredMessage="Please Enter Password." />
+                        </p:column>
+                    </p:row>
+
+                    <p:row>
                         <p:column styleClass="label">
                             <h:outputLabel value="User Type"/>
                             <h:outputLabel value="*" styleClass="red"/>
@@ -94,31 +114,19 @@
                             <p:selectOneMenu value="#{assignStuffTypeController.assignUserType.userType}" styleClass="inputCombo" style="width: 165px;" required="true" requiredMessage="Please Select A Category.">
                                 <f:selectItem itemLabel="Select Category" itemValue=""/>
                                 <f:selectItem itemLabel="Admin" itemValue="Admin"/>
-                                <f:selectItem itemLabel="Stuff" itemValue="Stuff"/>
+                                <f:selectItem itemLabel="Stuff" itemValue="Teacher"/>
                             </p:selectOneMenu>
                         </p:column>
                     </p:row>
-
+                    
                     <p:row>
                         <p:column styleClass="label" >
-                            <h:outputLabel value="Enter Password"/>
-                            <h:outputLabel value="*" styleClass="red"/>
+                            <h:outputLabel value="Note"/>
                         </p:column>
                         <p:column>
-                            <p:password id="p1" match="p2" value="#{assignStuffTypeController.assignUserType.password}" styleClass="inputText" required="true" requiredMessage="Please Enter Password." validatorMessage="Password does not match "/>
+                            <p:inputText  value="#{assignStuffTypeController.assignUserType.note}" styleClass="inputText" />
                         </p:column>
                     </p:row>
-
-                    <p:row>
-                        <p:column styleClass="label" >
-                            <h:outputLabel value="Password Re-Type"/>
-                            <h:outputLabel value="*" styleClass="red"/>
-                        </p:column>
-                        <p:column>
-                            <p:password id="p2" value="#{assignStuffTypeController.rePassword}" styleClass="inputText" required="true" requiredMessage="Password Re-Type."/>
-                        </p:column>
-                    </p:row>
-
                 </p:panelGrid>
 
                 <p:commandButton value="Add" actionListener="#{assignStuffTypeController.insertStuffType()}" update=" :assignStufffType" icon="ui-icon-check" oncomplete="assignStuffDialog.hide();" style="margin-top: 8px;"/>
