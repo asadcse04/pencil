@@ -216,14 +216,14 @@
                     </p:submenu> 
                 </p:submenu> 
 
-                <p:submenu label="Inventory">                  
+                <p:submenu icon="ui-icon-suitcase" label="Inventory">                  
                     <p:menuitem value="Inventory Startup" onclick="PF('InventoryStartup').show();" ></p:menuitem>      
                     <p:menuitem value="InventoryStockIn" onclick="PF('InventoryStockIn').show();" ></p:menuitem>  
                 </p:submenu>
 
-                <p:submenu icon="" label="Facility">
-                    <p:submenu icon="" label="Transport">
-                        <p:submenu icon="" label="Transport Setup">
+                <p:submenu icon="ui-icon-video" label="Facility">
+                    <p:submenu  label="Transport">
+                        <p:submenu label="Transport Setup">
                             <p:menuitem value="Transpotr Startup" onclick="PF('transportStartup').show();" icon="ui-icon-gear"/>
                             <p:menuitem value="Driver" onclick="PF('Driver').show();" icon="ui-icon-gear"/>
                         </p:submenu>
@@ -315,10 +315,7 @@
                 </p:submenu> 
 
             </p:menubar>
-
-
             <!-- ********************Main Menu bar End Here************************ -->   
-
 
             <!-- ...................Right Mouse Click Menus...................... -->   
             <p:contextMenu>
@@ -326,7 +323,6 @@
                 <p:menuitem value="Update" icon="ui-icon-disk"/>
                 <p:menuitem value="Delete" icon="ui-icon-close"/>
             </p:contextMenu>
-
             <!-- ....................Bottom Dock Hover Toggle Menus.................... --> 
             <p:dock>
                 <p:menuitem value="Student Registration" icon="/images/desktopTool/Student.png" onclick="PF('studentRegistration').show();"/>
@@ -336,7 +332,6 @@
                 <p:menuitem value="SMS" icon="/images/desktopTool/Sms.png" onclick="PF('').show();"/>
                 <p:menuitem value="" icon="/images/macosx/ichat.png" onclick="PF('').show();"/>
             </p:dock>
-
             <!-- ...................Right Side Stack Toggle Menus..................... --> 
             <p:stack icon="/images/stack/stack.png">
                 <p:menuitem value="Student Fee" icon="/images/stack/Student-Fees.png"/>
@@ -402,10 +397,7 @@
         <ui:include src="/Registration/Stuff/Stuff.xhtml" />          
     </p:dialog>
 
-
-
     <!-- **********************************************Gallery Start Here******************************** -->
-
 
     <p:dialog header="Principle" draggable="true" widgetVar="principleadd" width="40%" height="auto;" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">     
         <ui:include src="/Gallery/Principle/PrincipleImpl.xhtml" />              
@@ -431,33 +423,19 @@
         <ui:include src="/Gallery/Photo/PhotoUpdate.xhtml" />            
     </p:dialog>
 
-
     <!-- **********************************************Gallery End Here******************************** -->
-
 
     <!-- **********************************************Notice Start Here******************************** -->
 
     <p:dialog header="Add Notice" draggable="true" widgetVar="noticeadd" height="800px" width="100%" position="middle top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
-
         <ui:include src="/Notice/NoticeStartUp/NoticeStartUpImpl.xhtml" />          
-
     </p:dialog>
 
     <p:dialog header="Update Notice" draggable="true" widgetVar="noticeupdate" height="800px" width="100%" position="middle top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
-
         <ui:include src="/Notice/NoticeStartUp/NoticeUpdateImpl.xhtml" />          
-
     </p:dialog>
-
-
     <!-- **********************************************Notice End Here******************************** -->
-
-
-
-
     <!-- *****************************************************Insert End Here********************************************************** -->
-
-
     <!--*********************************Information View Student And Teacher Start******************************************* -->
 
     <p:dialog header="Find A Student" draggable="true" widgetVar="findStudent" width="auto" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">     
@@ -475,14 +453,9 @@
     <p:dialog header="View Teacher" draggable="true" widgetVar="teacherView" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
         <ui:include src="/Registration/Teacher/OutLookTeacherImpl.xhtml"/> 
     </p:dialog>
-
-
     <!--*********************************Information View Student And Teacher End******************************************* -->
 
-
-
     <!-- ******************************************Setting Start Here************************************************** -->
-
     <!-- ......................Institute Setup........................... -->
     <p:dialog header="Institute Setup" draggable="true" width="auto" height="auto" widgetVar="instituteSetup" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
         <ui:include src="/Settings/CoreSetting/InstituteSetup/InstituteSetup.xhtml" /> 
@@ -509,7 +482,6 @@
     </p:dialog>
 
     <!-- ..........................Designation Assign.......................... -->
-
     <p:dialog header="Create Designation" draggable="true" widgetVar="designationcreate" height="800px" width="100%" position="middle top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
         <ui:include src="/Designation/DesignationStartUp/DesignationStartUpImpl.xhtml" />          
     </p:dialog>
@@ -560,10 +532,7 @@
     <p:dialog header="User Type For Stuff" draggable="true" width="100%" height="auto;" widgetVar="forStuff" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
         <ui:include src="/Settings/User/AssignStuffType/AssignStuffType.xhtml" />          
     </p:dialog>
-
     <!-- ******************************************Setting End Here************************************************** -->
-
-
 
     <!--**********************************************************Exam******************************************-->
     <p:dialog header="Exam Mark Submit" draggable="true" widgetVar="markSubmit" width="100%" height="590" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">    
@@ -609,14 +578,9 @@
     <p:dialog header="To Teacher" draggable="true" widgetVar="toTeacherSMS" width="100%" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">    
         <ui:include src="/Registration/Teacher/BulkSms/SendSmsTeacherImpl.xhtml" />            
     </p:dialog>  
-
-
     <!-- ******************************************************SMS Penal End Here***************************************************** -->
 
-
-
     <!--*************************************************Student Attendance and Teacher Attendance Start Here************************************* -->
-
     <!-- ............................Take Student Attendance........................... -->
     <p:dialog header="Take Student Attendance" draggable="true" width="100%" widgetVar="studentAttendance" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
         <ui:include src="/Attendance/TakeAttendance/StudentAttendance.xhtml" /> 
@@ -636,13 +600,10 @@
     <p:dialog header="Teacher Attendance Sheet" draggable="true" width="100%" widgetVar="teacherAttendanceSheet" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
         <ui:include src="/Attendance/AttendanceSheet/TcrAttendanceSheetImpl.xhtml" /> 
     </p:dialog>
-
     <!--*************************************************Student Attendance and Teacher Attendance End Here************************************* -->
 
 
-
     <!-- ************************************************** Routine View Start Here*****************************************************-->
-
     <!-- ...........................Day Wise View............................--> 
     <p:dialog header="Day Wise View" draggable="true" width="100%" widgetVar="dayWiseView" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
         <ui:include src="/Routine/ViewDayWise/ViewDayRoutine.xhtml" /> 
@@ -655,12 +616,9 @@
 
     <!-- ************************************************** Routine View End Here*****************************************************-->
 
-
-
     <p:dialog header="User Panel" draggable="true" widgetVar="UserPanel" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
         <ui:include src="/UserPanel/SystemUser.xhtml" /> 
     </p:dialog>
-
 
     <!--*****************************Report Dialog***************************-->
 
@@ -674,185 +632,113 @@
     </p:dialog>
 
     <p:dialog header="Grade Wise Report" height="700px" draggable="true" widgetVar="GradeWiseReportDig" width="100%" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
-
         <ui:include src="/Report/GradeWiseReport.xhtml"/>          
-
     </p:dialog>
 
     <p:dialog header="Pass Fail Report" height="700px" draggable="true" widgetVar="PassFailReportDig" width="100%" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
-
         <ui:include src="/Report/PassFailReport.xhtml"/>          
-
     </p:dialog>
 
-
-
     <p:dialog header="Cash Report" height="700px" draggable="true" widgetVar="CashReportDig" width="100%" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
-
         <ui:include src="/Report/cashReport.xhtml"/>          
-
     </p:dialog>
 
     <p:dialog header="Bank Report Status" height="700px" draggable="true" widgetVar="BankReportDig" width="100%" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
-
         <ui:include src="/Report/BankStatusReport.xhtml"/>          
-
     </p:dialog>
 
     <p:dialog header="Balance Report Status" height="700px" draggable="true" widgetVar="BalanceReportDig" width="100%" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
-
         <ui:include src="/Report/BalanceStatusReport.xhtml"/>          
-
     </p:dialog>
-
-
 
     <!--*****************************Accounts Dialog***************************-->
 
-
     <p:dialog header="Fee Startup" draggable="true" widgetVar="feestart" width="100%" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
-
         <ui:include src="/FeeStartUp/FeeStartUpImpl.xhtml" />          
-
     </p:dialog>
-
 
     <p:dialog header="Fee Create" draggable="true" widgetVar="createfee" width="100%" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
-
         <ui:include src="/FeeStartUp/FeeImpl.xhtml" />          
-
     </p:dialog>
 
-
     <p:dialog header="Fee Configure" draggable="true" widgetVar="feeconfig" width="100%" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
-
         <ui:include src="/FeeStartUp/FeeConfigImpl.xhtml" />          
-
     </p:dialog>
 
     <p:dialog header="Student Search" height="700px" draggable="true" widgetVar="stdsrc" width="100%" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
-
         <ui:include src="/FeeCollection/FeeCollectionStep1Impl.xhtml"/>          
-
     </p:dialog>
 
     <p:dialog header="Collect Fee" height="700px" draggable="true" widgetVar="feecollection" width="100%" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
-
         <ui:include src="/FeeCollection/FeeCollectionStep2Impl.xhtml"/>          
-
     </p:dialog>
 
-
     <p:dialog header="Payroll Startup" draggable="true" widgetVar="salarystart" width="100%" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
-
         <ui:include src="/SalaryStartUp/SalaryStartUpImpl.xhtml" />          
-
     </p:dialog>
 
     <p:dialog header="Payroll Create" draggable="true" widgetVar="salarycreate" height="1200px" width="100%"  maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
-
         <ui:include src="/SalaryStartUp/SalaryImpl.xhtml" />          
-
     </p:dialog>
 
     <p:dialog header="Transection Startup" draggable="true" widgetVar="transectionstart" width="100%" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
-
         <ui:include src="/Transection/TransectionStartup/TransectionStartupImpl.xhtml"/>          
-
     </p:dialog>
 
     <p:dialog header="Bank Startup" draggable="true" widgetVar="bankstart" height="700px" width="100%" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
-
         <ui:include src="/Transection/BankStartUp/BankStartUpImpl.xhtml"/>          
-
     </p:dialog>
 
     <p:dialog header="Income Transection" height="700px" draggable="true" widgetVar="income" width="100%" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
-
         <ui:include src="/Transection/IncomeStartUpImpl.xhtml"/>          
-
     </p:dialog>
 
     <p:dialog header="Expense Transection" height="700px" draggable="true" widgetVar="expense" width="100%" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
-
         <ui:include src="/Transection/ExpenseStartUpImpl.xhtml"/>          
-
     </p:dialog>
 
     <p:dialog header="Bank Transection" height="700px" draggable="true" widgetVar="bank" width="100%" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
-
         <ui:include src="/Transection/BankTransectionStartUpImpl.xhtml"/>          
-
     </p:dialog>
-
     <!--*****************************Accounts Dialog End***************************-->
 
 
     <!--*****************************Other Dialog Start***************************-->
-
     <p:dialog header="Committee" height="700px" draggable="true" widgetVar="committeeTab" width="100%" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
-
         <ui:include src="/Others/Gallery/CommitteeTab.xhtml"/>          
-
     </p:dialog>
-
 
     <p:dialog header="Principle" height="700px" draggable="true" widgetVar="principleTab" width="100%" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
-
         <ui:include src="/Others/Gallery/PrincipleTab.xhtml"/>          
-
     </p:dialog>
-
 
     <p:dialog header="Photo Gallery" height="700px" draggable="true" widgetVar="photoTab" width="100%" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
-
         <ui:include src="/Others/Gallery/PhotoGalleria.xhtml"/>          
-
     </p:dialog>
-
 
     <p:dialog header="Notice" height="700px" draggable="true" widgetVar="noticeTable" width="100%" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
-
         <ui:include src="/Others/Notice/NoticeTable.xhtml"/>          
-
     </p:dialog>
-
     <!--*****************************Other Dialog End***************************-->
 
-
     <!--*****************************Message Dialog Start***************************-->
-
     <p:dialog header="Message Template" draggable="true" widgetVar="messagetemplate" width="100%" position="middle top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
-
         <ui:include src="/SMS/SMSTemplateImpl.xhtml" />          
-
     </p:dialog>
-
 
     <p:dialog header="Phonebook" draggable="true" widgetVar="phonebook" width="100%" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
-
         <ui:include src="/Phone/Phone.xhtml" />          
-
     </p:dialog>
-
 
     <p:dialog header="Mail Book" draggable="true" widgetVar="mailbook" width="100%" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
-
         <ui:include src="/Mail/EmailBookCategoryStartUpImpl.xhtml"/>          
-
     </p:dialog>
-
 
     <p:dialog header="Phonebook List" draggable="true" widgetVar="outlookphonebook" width="100%" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
-
         <ui:include src="/SMS/OutLookPhonebookImpl.xhtml" />          
-
     </p:dialog>
-
-
     <!--*****************************Message Dialog End***************************-->
-
-
+    
     <p:dialog header="Transport Startup" draggable="true" width="100%" height="768" widgetVar="transportStartup" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
         <ui:include src="/Facility/Transport/TransportSetup/TransportStartup/TransportStartup.xhtml" />          
     </p:dialog>
