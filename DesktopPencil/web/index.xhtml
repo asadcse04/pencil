@@ -106,6 +106,12 @@
                         </p:submenu>
 
                     </p:submenu>
+                    
+                    
+                    <p:submenu icon="ui-icon-note" label="Notice">
+                        <p:menuitem value="Add" onclick="PF('noticeadd').show();" icon="ui-icon-contact"> </p:menuitem>
+                        <p:menuitem value="Update" onclick="PF('noticeupdate').show();" icon="ui-icon-contact"> </p:menuitem>
+                    </p:submenu>
 
 
                 </p:submenu>
@@ -240,7 +246,7 @@
                         <p:menuitem value="Book List" onclick="PF('subjectUpdate').show();" icon="ui-icon-document"/> 
                         <p:menuitem value="Class Configure" onclick="PF('classConfigure').show();" icon="ui-icon-pin-s"/> 
                     </p:submenu>
-                                        
+
                     <p:submenu icon="ui-icon-person" label="Student">
                         <p:menuitem value="Elective Subject" onclick="PF('subjectAssign').show();" icon="ui-icon-tag"></p:menuitem>   
                     </p:submenu>
@@ -337,8 +343,8 @@
                     </p:submenu>
 
                 </p:submenu> 
-                
-                
+
+
                 <p:submenu label="Inventory">                  
                     <p:menuitem value="Inventory Startup" onclick="PF('InventoryStartup').show();" icon="ui-icon-person"></p:menuitem>      
                     <p:menuitem value="InventoryStockIn" onclick="PF('InventoryStockIn').show();" icon="ui-icon-eject"></p:menuitem>  
@@ -462,6 +468,27 @@
     <p:dialog header="Photo Gallery Update" draggable="true" widgetVar="photoupdate" width="auto" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">     
         <ui:include src="/Gallery/Photo/PhotoUpdate.xhtml" />            
     </p:dialog>
+
+
+    <!-- **********************************************Gallery End Here******************************** -->
+
+    
+    <!-- **********************************************Notice Start Here******************************** -->
+
+    <p:dialog header="Add Notice" draggable="true" widgetVar="noticeadd" height="800px" width="100%" position="middle top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
+       
+         <ui:include src="/Notice/NoticeStartUp/NoticeStartUpImpl.xhtml" />          
+    
+     </p:dialog>
+
+     <p:dialog header="Update Notice" draggable="true" widgetVar="noticeupdate" height="800px" width="100%" position="middle top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
+       
+         <ui:include src="/Notice/NoticeStartUp/NoticeUpdateImpl.xhtml" />          
+    
+     </p:dialog>
+    
+    
+    <!-- **********************************************Notice End Here******************************** -->
 
 
 
@@ -879,7 +906,7 @@
     <p:dialog header="InventoryStartup" draggable="true" width="100%" widgetVar="InventoryStartup" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
         <ui:include src="/Inventory/InventoryStartup/InventoryStartupImpl.xhtml" />          
     </p:dialog>
-    
+
     <p:dialog header="InventoryStockIn" draggable="true" width="100%" widgetVar="InventoryStockIn" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
         <ui:include src="/Inventory/InventoryStockIN/InventoryStockInImpl.xhtml" />          
     </p:dialog>

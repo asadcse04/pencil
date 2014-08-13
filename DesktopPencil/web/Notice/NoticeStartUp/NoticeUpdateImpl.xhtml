@@ -26,6 +26,10 @@
                             #{pblist.noticeHead}   
                         </p:column>
 
+                        <p:column headerText="Notice Deatils">
+                            #{pblist.noticeDetails}   
+                        </p:column>
+
                         <p:column headerText="Rating">
                             <p:rating stars="8" value="#{pblist.rating}" cancel="false" readonly="true"/> 
                         </p:column>
@@ -41,7 +45,7 @@
             </h:form>
 
 
-            <p:dialog widgetVar="updateNotice_dig" header="Notice Update"  hideEffect="drop" showEffect="slide" draggable="true" width="450">
+            <p:dialog widgetVar="updateNotice_dig" header="Notice Update"  hideEffect="drop" showEffect="slide" draggable="true" width="500">
 
                 <h:form id="upNoticeForm" >
                     <p:growl id="upGrl" showDetail="true"/>               
@@ -125,5 +129,6 @@
         </p:layoutUnit>
 
     </p:layout>
+
 
 </ui:composition>
