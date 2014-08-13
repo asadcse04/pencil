@@ -42,15 +42,7 @@ public class AssignStuffTypeController {
         }
     }
 /////////////////////////////////////////////////////////////////
-    public int checkMobileNo(AssignStuffType ass) {
-        
-        if (dao.mobileList(ass).size() > 0) {
-            return 1;
-        } else {
-            return 0;
-        }
-
-    }
+    
 ////////////////////////////////////////////////////////////////////
     public AssignStuffTypeController() {
         this.userTypeList = dao.userList();

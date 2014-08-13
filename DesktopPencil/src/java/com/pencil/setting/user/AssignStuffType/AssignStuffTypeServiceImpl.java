@@ -96,7 +96,7 @@ public class AssignStuffTypeServiceImpl implements AssignStuffTypeService, Seria
 
         try {
 
-            prst = con.prepareStatement("select t.StuffID, t.StuffName, t.Gender, tc.ContactNo from stuff t, stuff_contact_info tc where t.StuffID=tc.StuffID ");
+            prst = con.prepareStatement("select t.StuffID, t.StuffName, t.Gender, tc.ContactNo from stuff t, stuff_contact_info tc where t.StuffID=tc.StuffID and t.StuffID not in (select id from user) ");
 
             rs = prst.executeQuery();
 
@@ -145,7 +145,7 @@ public class AssignStuffTypeServiceImpl implements AssignStuffTypeService, Seria
 
         try {
 
-            prst = con.prepareStatement("SELECT MobileNo FROM assign_user_type");
+            prst = con.prepareStatement("");
 
             rs = prst.executeQuery();
 
