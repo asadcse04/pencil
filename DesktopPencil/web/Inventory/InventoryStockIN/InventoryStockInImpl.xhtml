@@ -82,7 +82,7 @@
                     <p:dataTable id="ss" var="stock" value="#{inventoryStockInController.cartDetails()}" >              
 
                         <p:column headerText="SL">
-                            <h:outputLabel value="auto"/>
+                            <h:outputLabel value="#{stock.serial}"/>
                         </p:column>
 
                         <p:column headerText="Inventory Item">
