@@ -66,12 +66,13 @@
 
             <!-- ******************Main Menu bar Begin Here********************** -->
             <p:menubar>
+
+
                 <p:submenu icon="ui-icon-home" >               
                     <p:menuitem value="About" onclick="PF('info').show();"></p:menuitem>
                 </p:submenu> 
 
                 <p:submenu icon="ui-icon-note" label="Insert">
-
                     <p:submenu icon="ui-icon-person" label="Student">
                         <p:menuitem value="Registration" onclick="PF('studentRegistration').show();" icon="ui-icon-contact"></p:menuitem> 
                         <p:menuitem value="Update" onclick="PF('studentUpdate').show();" icon="ui-icon-script"></p:menuitem> 
@@ -85,104 +86,35 @@
                     <p:submenu icon="ui-icon-person" label="Staff">
                         <p:menuitem value="Registration" onclick="PF('stuffRegistration').show();" icon="ui-icon-bookmark"></p:menuitem> 
                         <p:menuitem value="Update" onclick="PF('stuffUpdate').show();" icon="ui-icon-script"></p:menuitem> 
-                    </p:submenu> 
-
-
-                    <p:submenu icon="ui-icon-note" label="Gallery">
-
-                        <p:submenu icon="ui-icon-note" label="Principle">
-                            <p:menuitem value="Principle Add" onclick="PF('principleadd').show();" icon="ui-icon-contact"></p:menuitem> 
-                            <p:menuitem value="Principle Update" onclick="PF('principleupdate').show();" icon="ui-icon-contact"></p:menuitem> 
-                        </p:submenu>
-
-                        <p:submenu icon="ui-icon-note" label="Committee">
-                            <p:menuitem value="Committee Add" onclick="PF('committeeadd').show();" icon="ui-icon-contact"></p:menuitem> 
-                            <p:menuitem value="Committee Update" onclick="PF('committeeupdate').show();" icon="ui-icon-contact"></p:menuitem> 
-                        </p:submenu>
-
-                        <p:submenu icon="ui-icon-note" label="Photo">
-                            <p:menuitem value="Photo Add" onclick="PF('photoadd').show();" icon="ui-icon-contact"></p:menuitem> 
-                            <p:menuitem value="Photo Update" onclick="PF('photoupdate').show();" icon="ui-icon-contact"></p:menuitem> 
-                        </p:submenu>
-
                     </p:submenu>
-                    
-                    
+
                     <p:submenu icon="ui-icon-note" label="Notice">
                         <p:menuitem value="Add" onclick="PF('noticeadd').show();" icon="ui-icon-contact"> </p:menuitem>
                         <p:menuitem value="Update" onclick="PF('noticeupdate').show();" icon="ui-icon-contact"> </p:menuitem>
                     </p:submenu>
 
+                    <p:submenu icon="ui-icon-note" label="Gallery">
+                        <p:submenu icon="ui-icon-note" label="Book">
+                            <p:menuitem value="Add" onclick="PF('').show();" icon="ui-icon-contact"></p:menuitem> 
+                            <p:menuitem value="Update" onclick="PF('').show();" icon="ui-icon-contact"></p:menuitem> 
+                        </p:submenu>
 
+                        <p:submenu icon="ui-icon-note" label="Principle">
+                            <p:menuitem value="Add" onclick="PF('principleadd').show();" icon="ui-icon-contact"></p:menuitem> 
+                            <p:menuitem value="Update" onclick="PF('principleupdate').show();" icon="ui-icon-contact"></p:menuitem> 
+                        </p:submenu>
+
+                        <p:submenu icon="ui-icon-note" label="Committee">
+                            <p:menuitem value="Add" onclick="PF('committeeadd').show();" icon="ui-icon-contact"></p:menuitem> 
+                            <p:menuitem value="Update" onclick="PF('committeeupdate').show();" icon="ui-icon-contact"></p:menuitem> 
+                        </p:submenu>
+
+                        <p:submenu icon="ui-icon-note" label="Photo Gallery">
+                            <p:menuitem value="Add" onclick="PF('photoadd').show();" icon="ui-icon-contact"></p:menuitem> 
+                            <p:menuitem value="Update" onclick="PF('photoupdate').show();" icon="ui-icon-contact"></p:menuitem> 
+                        </p:submenu>
+                    </p:submenu>
                 </p:submenu>
-
-                <p:submenu icon="ui-icon-person" label="Accounts">
-
-                    <p:submenu icon="ui-icon-note" label="Student Accounts">
-
-                        <p:submenu icon="ui-icon-note" label="Fee Setup">
-                            <p:menuitem value="Fee Start up" onclick="PF('feestart').show();" icon="ui-icon-script"></p:menuitem> 
-                            <p:menuitem value="Fee Create" onclick="PF('createfee').show();" icon="ui-icon-script"></p:menuitem> 
-                            <p:menuitem value="Fee Configure" onclick="PF('feeconfig').show();" icon="ui-icon-script"></p:menuitem> 
-                        </p:submenu> 
-
-                        <p:menuitem value="Fee Collection" onclick="PF('stdsrc').show();" icon="ui-icon-script"></p:menuitem> 
-
-                    </p:submenu> 
-
-                    <p:submenu icon="ui-icon-note" label="Payroll">
-
-                        <p:submenu icon="ui-icon-note" label="Payroll Setup">
-                            <p:menuitem value="Payroll Startup" onclick="PF('salarystart').show();" icon="ui-icon-script"></p:menuitem> 
-                            <p:menuitem value="Payroll Create" onclick="PF('salarycreate').show();" icon="ui-icon-script"></p:menuitem> 
-                        </p:submenu>    
-
-                    </p:submenu>
-
-                    <p:submenu icon="ui-icon-note" label="General Accounts">
-
-                        <p:submenu icon="ui-icon-note" label="Account Setup">
-                            <p:menuitem value="Transection Startup" onclick="PF('transectionstart').show();" icon="ui-icon-script"></p:menuitem> 
-                            <p:menuitem value="Bank Startup" onclick="PF('bankstart').show();" icon="ui-icon-script"></p:menuitem> 
-                        </p:submenu>
-
-                        <p:submenu icon="ui-icon-note" label="Create Transection">
-                            <p:menuitem value="Income Transection" onclick="PF('income').show();" icon="ui-icon-script"></p:menuitem> 
-                            <p:menuitem value="Expense Transection" onclick="PF('expense').show();" icon="ui-icon-script"></p:menuitem> 
-                            <p:menuitem value="Bank Transection" onclick="PF('bank').show();" icon="ui-icon-script"></p:menuitem> 
-                        </p:submenu>
-
-                        <p:submenu icon="ui-icon-note" label="Report">
-
-                            <p:submenu icon="ui-icon-note" label="Transection">
-                                <p:menuitem value="Cash Report" onclick="PF('CashReportDig').show();" icon="ui-icon-tag"></p:menuitem>   
-                            </p:submenu>
-
-                            <p:submenu icon="ui-icon-note" label="Graphical View">
-                                <p:menuitem value="Bank Report Status" onclick="PF('BankReportDig').show();" icon="ui-icon-tag"></p:menuitem>   
-                                <p:menuitem value="Balance Report" onclick="PF('BalanceReportDig').show();" icon="ui-icon-tag"></p:menuitem>   
-                            </p:submenu> 
-
-                        </p:submenu>  
-
-                    </p:submenu>
-
-                </p:submenu> 
-
-
-                <p:submenu icon="ui-icon-note" label="Others">
-
-                    <p:menuitem value="Notice" onclick="PF('noticeTable').show();" icon="ui-icon-contact"></p:menuitem>   
-
-                    <p:submenu icon="ui-icon-note" label="Gallary">
-                        <p:menuitem value="Committee" onclick="PF('committeeTab').show();" icon="ui-icon-person"></p:menuitem>   
-                        <p:menuitem value="Principle" onclick="PF('principleTab').show();" icon="ui-icon-person"></p:menuitem>   
-                        <p:menuitem value="Photo" onclick="PF('photoTab').show();" icon="ui-icon-image"></p:menuitem>   
-                    </p:submenu> 
-
-                </p:submenu> 
-
-
 
                 <p:submenu icon="ui-icon-person" label="Information">     
                     <p:submenu icon="ui-icon-person" label="Student">
@@ -190,14 +122,7 @@
                         <p:menuitem value="At A Glance" onclick="PF('at_A_Glance').show();" icon="ui-icon-person"></p:menuitem>   
                         <p:menuitem value="Basic Info" onclick="PF('studentView').show();" icon="ui-icon-person"></p:menuitem>    
                     </p:submenu>
-
                     <p:menuitem value="Teacher" onclick="PF('teacherView').show();" icon="ui-icon-person"></p:menuitem>
-
-                </p:submenu> 
-
-                <p:submenu icon="ui-icon-print" label="SMS">            
-                    <p:menuitem value="To Student" onclick="PF('toStudentSMS').show();" icon="ui-icon-arrowreturn-1-n"></p:menuitem>                   
-                    <p:menuitem value="To Teacher" onclick="PF('toTeacherSMS').show();" icon="ui-icon-arrowreturnthick-1-n"></p:menuitem>                           
                 </p:submenu> 
 
                 <p:submenu icon="ui-icon-clipboard" label="Attendance">  
@@ -216,29 +141,108 @@
                         <p:menuitem value="Day Wise" onclick="PF('dayWiseView').show();" icon="ui-icon-calendar"/>         
                         <p:menuitem value="Period Wise" onclick="PF('periodWiseView').show();" icon="ui-icon-shuffle"/>                  
                     </p:submenu>  
-                </p:submenu>  
+                </p:submenu> 
 
-
-
+                <p:submenu icon="ui-icon-lightbulb" label="Result">            
+                    <p:menuitem value="Exam Mark Submit" onclick="PF('markSubmit').show();" icon="ui-icon-lightbulb"></p:menuitem>  
+                    <p:menuitem value="Exam Mark Update" onclick="PF('markUpdate').show();" icon="ui-icon-lightbulb"></p:menuitem>  
+                    <p:menuitem value="Print Mark Sheet" onclick="PF('markSheetPrint').show();" icon="ui-icon-lightbulb"></p:menuitem>
+                </p:submenu> 
 
                 <p:submenu icon="ui-icon-note" label="Message">
                     <p:submenu icon="ui-icon-note" label="Add">
                         <p:menuitem value="Template" onclick="PF('messagetemplate').show();" icon="ui-icon-contact"> </p:menuitem>
                         <p:menuitem value="PhoneBook" onclick="PF('phonebook').show();" icon="ui-icon-contact"> </p:menuitem>
                         <p:menuitem value="MailBook" onclick="PF('mailbook').show();" icon="ui-icon-contact"> </p:menuitem>
-
                     </p:submenu>
 
-
-                    <p:submenu icon="ui-icon-note" label="Send SMS">
+                    <p:submenu icon="ui-icon-print" label="Send SMS">
+                        <p:menuitem value="To Student" onclick="PF('toStudentSMS').show();" icon="ui-icon-arrowreturn-1-n"></p:menuitem>                   
+                        <p:menuitem value="To Teacher" onclick="PF('toTeacherSMS').show();" icon="ui-icon-arrowreturnthick-1-n"></p:menuitem>
                         <p:menuitem value="From Phonebook" onclick="PF('outlookphonebook').show();" icon="ui-icon-contact"> </p:menuitem>
                     </p:submenu> 
+                </p:submenu>
 
+                <p:submenu icon="ui-icon-person" label="Accounts">
+                    <p:submenu  label="Student Accounts">
+                        <p:submenu icon="ui-icon-note" label="Fee Setup">
+                            <p:menuitem value="Fee Start up" onclick="PF('feestart').show();" icon="ui-icon-script"></p:menuitem> 
+                            <p:menuitem value="Fee Create" onclick="PF('createfee').show();" icon="ui-icon-script"></p:menuitem> 
+                            <p:menuitem value="Fee Configure" onclick="PF('feeconfig').show();" icon="ui-icon-script"></p:menuitem> 
+                        </p:submenu> 
+
+                        <p:menuitem value="Fee Collection" onclick="PF('stdsrc').show();" icon="ui-icon-script"></p:menuitem> 
+                    </p:submenu> 
+
+                    <p:submenu  label="Payroll">
+                        <p:submenu icon="ui-icon-note" label="Payroll Setup">
+                            <p:menuitem value="Payroll Startup" onclick="PF('salarystart').show();" icon="ui-icon-script"></p:menuitem> 
+                            <p:menuitem value="Payroll Create" onclick="PF('salarycreate').show();" icon="ui-icon-script"></p:menuitem> 
+                        </p:submenu>    
+                    </p:submenu>
+
+                    <p:submenu label="General Accounts">
+                        <p:submenu icon="ui-icon-note" label="Account Setup">
+                            <p:menuitem value="Transection Startup" onclick="PF('transectionstart').show();" ></p:menuitem> 
+                            <p:menuitem value="Bank Startup" onclick="PF('bankstart').show();"></p:menuitem> 
+                        </p:submenu>
+
+                        <p:submenu label="Create Transection">
+                            <p:menuitem value="Income Transection" onclick="PF('income').show();" ></p:menuitem> 
+                            <p:menuitem value="Expense Transection" onclick="PF('expense').show();"></p:menuitem> 
+                            <p:menuitem value="Bank Transection" onclick="PF('bank').show();" ></p:menuitem> 
+                        </p:submenu>
+
+                        <p:submenu label="Report">
+                            <p:submenu icon="ui-icon-note" label="Transection">
+                                <p:menuitem value="Cash Report" onclick="PF('CashReportDig').show();" icon="ui-icon-tag"></p:menuitem>   
+                            </p:submenu>
+
+                            <p:submenu icon="ui-icon-note" label="Graphical View">
+                                <p:menuitem value="Bank Report Status" onclick="PF('BankReportDig').show();" ></p:menuitem>   
+                                <p:menuitem value="Balance Report" onclick="PF('BalanceReportDig').show();" ></p:menuitem>   
+                            </p:submenu> 
+                        </p:submenu>  
+                    </p:submenu>
+                </p:submenu>
+
+                <p:submenu icon="ui-icon-note" label="Others">
+                    <p:menuitem value="Notice" onclick="PF('noticeTable').show();" icon="ui-icon-contact"></p:menuitem>   
+
+                    <p:submenu icon="ui-icon-note" label="Gallary">
+                        <p:menuitem value="Committee" onclick="PF('committeeTab').show();" icon="ui-icon-person"></p:menuitem>   
+                        <p:menuitem value="Principle" onclick="PF('principleTab').show();" icon="ui-icon-person"></p:menuitem>   
+                        <p:menuitem value="Photo" onclick="PF('photoTab').show();" icon="ui-icon-image"></p:menuitem>   
+                    </p:submenu> 
                 </p:submenu> 
 
+                <p:submenu label="Inventory">                  
+                    <p:menuitem value="Inventory Startup" onclick="PF('InventoryStartup').show();" ></p:menuitem>      
+                    <p:menuitem value="InventoryStockIn" onclick="PF('InventoryStockIn').show();" ></p:menuitem>  
+                </p:submenu>
+
+                <p:submenu icon="" label="Facility">
+                    <p:submenu icon="" label="Transport">
+                        <p:submenu icon="" label="Transport Setup">
+                            <p:menuitem value="Transpotr Startup" onclick="PF('transportStartup').show();" icon="ui-icon-gear"/>
+                            <p:menuitem value="Driver" onclick="PF('Driver').show();" icon="ui-icon-gear"/>
+                        </p:submenu>
+                    </p:submenu>
+
+                    <p:submenu label="Hostel">
+                        <p:submenu label="Hostel Setup">
+                            <p:menuitem value="Hostel Startup" onclick="PF('hostel').show();" icon="ui-icon-gear"/>
+                        </p:submenu>
+                    </p:submenu>
+
+                    <p:submenu label="Library">
+                        <p:submenu label="Library Setup">
+                            <p:menuitem value="Library Startup" onclick="PF('library').show();" icon="ui-icon-gear"/>
+                        </p:submenu>
+                    </p:submenu>
+                </p:submenu> 
 
                 <p:submenu icon="ui-icon-wrench" label="Settings">  
-
                     <p:submenu icon="ui-icon-gear" label="Core Settings">
                         <p:menuitem value="Institute Setup" onclick="PF('instituteSetup').show();" icon="ui-icon-tag"/>
                         <p:menuitem value="Start Up" onclick="PF('startUp').show();" icon="ui-icon-tag"/>
@@ -264,32 +268,21 @@
                             <p:menuitem value="Assign" onclick="PF('assignRoutine').show();" icon="ui-icon-circle-check"/> 
                             <p:menuitem value="Update" onclick="PF('updateRoutine').show();" icon="ui-icon-script"/> 
                         </p:submenu> 
-                        <p:submenu icon="ui-icon-lightbulb" label="Exam Routine">
 
+                        <p:submenu icon="ui-icon-lightbulb" label="Exam">
+                            <p:menuitem value="Exam Startup" onclick="PF('examStartup').show();" icon="ui-icon-tag"/>  
+                            <p:menuitem value="Exam Configure" onclick="PF('examConfigure').show();" icon="ui-icon-pin-s"/>  
+                            <p:menuitem value="MeritList Generate" onclick="PF('meritList').show();" icon="ui-icon-pin-s"/> 
                         </p:submenu>
-                    </p:submenu>
-
-                    <p:submenu icon="ui-icon-lightbulb" label="Exam">
-                        <p:menuitem value="Exam Startup" onclick="PF('examStartup').show();" icon="ui-icon-tag"/>  
-                        <p:menuitem value="Exam Configure" onclick="PF('examConfigure').show();" icon="ui-icon-pin-s"/>  
-                        <p:menuitem value="MeritList Generate" onclick="PF('meritList').show();" icon="ui-icon-pin-s"/> 
                     </p:submenu>
 
                     <p:submenu icon="ui-icon-person" label="User">                  
                         <p:menuitem value="Teacher" onclick="PF('forTeacher').show();" icon="ui-icon-person"></p:menuitem>      
                         <p:menuitem value="Stuff" onclick="PF('forStuff').show();" icon="ui-icon-eject"></p:menuitem>  
                     </p:submenu>
-
                 </p:submenu>
 
-                <p:submenu icon="ui-icon-lightbulb" label="Result">            
-                    <p:menuitem value="Exam Mark Submit" onclick="PF('markSubmit').show();" icon="ui-icon-lightbulb"></p:menuitem>  
-                    <p:menuitem value="Exam Mark Update" onclick="PF('markUpdate').show();" icon="ui-icon-lightbulb"></p:menuitem>  
-                    <p:menuitem value="Print Mark Sheet" onclick="PF('markSheetPrint').show();" icon="ui-icon-lightbulb"></p:menuitem>
-                </p:submenu> 
-
                 <p:submenu icon="ui-icon-lightbulb" label="Report">
-
                     <p:submenu icon="ui-icon-suitcase" label="Subject Wise">
                         <p:menuitem value="Details" onclick="PF('details').show();" icon="ui-icon-lightbulb"></p:menuitem>
                         <p:menuitem value="Summary" onclick="PF('subjectreport').show();" icon="ui-icon-eject"></p:menuitem>
@@ -313,45 +306,13 @@
                         <p:menuitem value="Bank Report Status" onclick="PF('BankReportDig').show();" icon="ui-icon-tag"></p:menuitem>   
                         <p:menuitem value="Balance Report" onclick="PF('BalanceReportDig').show();" icon="ui-icon-tag"></p:menuitem>   
                     </p:submenu> 
-
                 </p:submenu>
-
 
                 <p:submenu icon="ui-icon-person" label="User">                  
                     <p:menuitem value="OutLook User" onclick="PF('UserPanel').show();" icon="ui-icon-person"></p:menuitem>      
                     <p:menuitem value="LogOut" onclick="PF('').show();" icon="ui-icon-eject"></p:menuitem>  
                 </p:submenu> 
-
-                <p:submenu icon="" label="Facility">
-                    <p:submenu icon="" label="Transport">
-                        <p:submenu icon="" label="Transport Setup">
-                            <p:menuitem value="Transpotr Startup" onclick="PF('transportStartup').show();" icon="ui-icon-gear"/>
-                            <p:menuitem value="Driver" onclick="PF('Driver').show();" icon="ui-icon-gear"/>
-                        </p:submenu>
-                    </p:submenu>
-
-                    <p:submenu label="Hostel">
-                        <p:submenu label="Hostel Setup">
-                            <p:menuitem value="Hostel Startup" onclick="PF('hostel').show();" icon="ui-icon-gear"/>
-                        </p:submenu>
-                    </p:submenu>
-
-                    <p:submenu label="Library">
-                        <p:submenu label="Library Setup">
-                            <p:menuitem value="Library Startup" onclick="PF('library').show();" icon="ui-icon-gear"/>
-                        </p:submenu>
-                    </p:submenu>
-
-                </p:submenu> 
-
-
-                <p:submenu label="Inventory">                  
-                    <p:menuitem value="Inventory Startup" onclick="PF('InventoryStartup').show();" icon="ui-icon-person"></p:menuitem>      
-                    <p:menuitem value="InventoryStockIn" onclick="PF('InventoryStockIn').show();" icon="ui-icon-eject"></p:menuitem>  
-                </p:submenu>
-
-
-
+                
             </p:menubar>
 
 
@@ -472,22 +433,22 @@
 
     <!-- **********************************************Gallery End Here******************************** -->
 
-    
+
     <!-- **********************************************Notice Start Here******************************** -->
 
     <p:dialog header="Add Notice" draggable="true" widgetVar="noticeadd" height="800px" width="100%" position="middle top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
-       
-         <ui:include src="/Notice/NoticeStartUp/NoticeStartUpImpl.xhtml" />          
-    
-     </p:dialog>
 
-     <p:dialog header="Update Notice" draggable="true" widgetVar="noticeupdate" height="800px" width="100%" position="middle top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
-       
-         <ui:include src="/Notice/NoticeStartUp/NoticeUpdateImpl.xhtml" />          
-    
-     </p:dialog>
-    
-    
+        <ui:include src="/Notice/NoticeStartUp/NoticeStartUpImpl.xhtml" />          
+
+    </p:dialog>
+
+    <p:dialog header="Update Notice" draggable="true" widgetVar="noticeupdate" height="800px" width="100%" position="middle top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
+
+        <ui:include src="/Notice/NoticeStartUp/NoticeUpdateImpl.xhtml" />          
+
+    </p:dialog>
+
+
     <!-- **********************************************Notice End Here******************************** -->
 
 
@@ -551,7 +512,7 @@
     <p:dialog header="Designation Assign" draggable="true" width="100%" height="768" widgetVar="teacherDegAssign" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
         <ui:include src="/Settings/Teacher/DesignationAssign/DesignationAssign.xhtml" />       
     </p:dialog>
-    
+
     <p:dialog header="Designation Assign" draggable="true" width="100%" height="768" widgetVar="stuffDegAssign" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
         <ui:include src="/Settings/Stuff/DesignationAssignStuff/DesignationAssignStuff.xhtml" />       
     </p:dialog>
@@ -910,9 +871,6 @@
     <p:dialog header="InventoryStockIn" draggable="true" width="100%" widgetVar="InventoryStockIn" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
         <ui:include src="/Inventory/InventoryStockIN/InventoryStockInImpl.xhtml" />          
     </p:dialog>
-
-
-
 
 
 </html>
