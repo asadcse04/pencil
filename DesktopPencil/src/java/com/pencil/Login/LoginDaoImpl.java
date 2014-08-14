@@ -16,7 +16,7 @@ import javax.faces.context.FacesContext;
 
 /**
  *
- * @author Mahfuj
+ * @author salim
  */
 public class LoginDaoImpl implements LoginDao {
 

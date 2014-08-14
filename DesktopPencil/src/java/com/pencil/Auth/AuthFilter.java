@@ -35,11 +35,11 @@ public class AuthFilter implements Filter
        
         if(((HttpServletRequest)request).getSession().getAttribute(LoginController.AUTH_KEY)==null
                 
-                && !((HttpServletRequest)request).getRequestURI().endsWith("/Pencil/Login.xhtml") && 
+                && !((HttpServletRequest)request).getRequestURI().endsWith("/DesktopPencil/Login.xhtml") && 
                 
-                !((HttpServletRequest)request).getRequestURI().startsWith(((HttpServletRequest)request).getContextPath()+"/Pencil"+ResourceHandler.RESOURCE_IDENTIFIER))
+                !((HttpServletRequest)request).getRequestURI().startsWith(((HttpServletRequest)request).getContextPath()+"/DesktopPencil"+ResourceHandler.RESOURCE_IDENTIFIER))
         {
-            ((HttpServletResponse)response).sendRedirect(((HttpServletRequest)request).getContextPath()+"/Pencil/Login.xhtml");
+            ((HttpServletResponse)response).sendRedirect(((HttpServletRequest)request).getContextPath()+"/DesktopPencil/Login.xhtml");
         }
         else
         {

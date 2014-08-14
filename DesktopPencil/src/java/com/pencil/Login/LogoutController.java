@@ -10,7 +10,7 @@ import javax.faces.context.FacesContext;
 
 /**
  *
- * @author Mahfuj
+ * @author salim
  */
 @ManagedBean
 @SessionScoped

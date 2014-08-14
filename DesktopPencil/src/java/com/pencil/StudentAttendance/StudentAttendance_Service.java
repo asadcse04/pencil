@@ -5,6 +5,7 @@
 package com.pencil.StudentAttendance;
 
 import com.pencil.Dummy.Student.Student_Registration;
+import com.pencil.ScClassConfig.ScClassConfig;
 import java.util.Date;
 import java.util.List;
 
@@ -14,6 +15,8 @@ import java.util.List;
  */
 public interface StudentAttendance_Service
 {
+    List<ScClassConfig> scClassConfiguration_List();
+    
     List<StudentAttendanceReport> attendanceReport(Date from,Date to,StringBuilder scCnf);
     
     public boolean saveAttendance(StudentAttendance sa);

@@ -194,6 +194,16 @@ public class Student_Registration implements Serializable
         this.studentRoll = studentRoll;
     }
     
+     public Student_Registration(String studentID, String studentName, int studentRoll, String gender, String fatherName, String guardianContactNo) {
+        this.studentID = studentID;
+        this.studentName = studentName;
+        this.studentRoll = studentRoll;
+        this.gender = gender;
+        this.fatherName = fatherName;
+        this.guardianContactNo = guardianContactNo;
+       
+    }
+    
 
     //---------------------------------------------Refactoring start-----------------------------------------------------------------
 

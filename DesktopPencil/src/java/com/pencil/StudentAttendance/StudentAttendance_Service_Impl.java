@@ -8,6 +8,7 @@ import com.pencil.Connection.DB_Connection;
 import com.pencil.Dummy.Student.Student_Registration;
 import com.pencil.SMS.SMS_Service;
 import com.pencil.SMS.SMS_ServiceImpl;
+import com.pencil.ScClassConfig.ScClassConfig;
 import java.io.Serializable;
 import java.sql.CallableStatement;
 import java.sql.Connection;
@@ -477,6 +478,63 @@ public class StudentAttendance_Service_Impl implements Serializable,StudentAtten
         count=0;
         
         return responseCode;
+    }
+
+    @Override
+    public List<ScClassConfig> scClassConfiguration_List()
+    {
+         DB_Connection o=new DB_Connection(); 
+       
+        Connection con=o.getConnection();
+        
+        PreparedStatement prst = null;
+        
+        ResultSet rs = null;
+        
+        List<ScClassConfig> scCnfList=new ArrayList<ScClassConfig>();
+        
+
+        
+        try
+        {
+          
+            
+          prst = con.prepareStatement("SELECT scCnf.AcYrID,c.ClassName,s.ShiftName,sctn.SectionName,count(si.StudentID) as TotalStudentCount" 
+                    +" FROM classconfig scCnf,class c,shift s,section sctn,student_identification si where scCnf.ClassID=c.ClassID" 
+                    +" and scCnf.ShiftID=s.ShiftID and scCnf.SectionID=sctn.SectionID and scCnf.ScConfigID=si.ClassConfigID group by scCnf.AcYrID,c.ClassName,s.ShiftName,sctn.SectionName");
+            
+          rs = prst.executeQuery();
+              
+            while(rs.next())
+            {
+                scCnfList.add(new ScClassConfig(rs.getInt("scCnf.AcYrID"),rs.getString("c.ClassName"),rs.getString("s.ShiftName"),rs.getString("sctn.SectionName"),rs.getInt("TotalStudentCount")));
+            }
+      
+        }
+        catch(SQLException e)
+        {
+            System.out.println(e);
+        }
+        finally
+        {
+            try
+            {
+                if(rs!=null)
+                {
+                    rs.close();
+                }
+                if(prst!=null)
+                {
+                    prst.close();
+                }
+            }
+            catch(SQLException e)
+            {
+                System.out.println(e);
+            }
+        }
+      
+        return scCnfList;
     }
     
 }

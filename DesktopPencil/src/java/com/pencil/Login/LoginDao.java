@@ -8,7 +8,7 @@ import com.pencil.SystemUser.SystemUser;
 
 /**
  *
- * @author Mahfuj
+ * @author salim
  */
 public interface LoginDao
 {   
