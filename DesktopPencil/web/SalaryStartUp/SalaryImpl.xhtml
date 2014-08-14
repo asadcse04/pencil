@@ -18,7 +18,7 @@
                     
                             <p:tab title="Choose salary catgory and name">       
 
-                      <p:growl id="grl" sticky="false" />
+                      <p:growl id="grl" />
    
                       <center>
                     
@@ -45,12 +45,9 @@
                                 <h:outputLabel value="* " styleClass="red"/>
                                 <h:outputLabel value="Fee Category"/>    
                             </p:column><p:column>
-                                <p:selectOneMenu id="salarycat" value="#{salaryController.salaryCatName}" styleClass="inputCombo" style="width: 165px;" required="true" requiredMessage="Category is Required">
-
+                                <p:selectOneMenu id="salarycat" value="#{salaryController.salaryCatName}" styleClass="inputCombo" style="width: 165px;" required="true" requiredMessage="Please Select Category.">
                             <f:selectItem itemLabel="Select Category" itemValue=""/>
-
                             <f:selectItems value="#{salaryController.salaryCatNameList}"/>
-                            
                             <p:ajax event="change" listener="#{salaryController.initSalaryHeadNameList()}" update="shdn"/>
 
                            </p:selectOneMenu>
@@ -63,7 +60,7 @@
                                 <h:outputLabel value="* " styleClass="red"/>
                                 <h:outputLabel value="Salary Name"/>
                             </p:column><p:column>
-                                <p:selectOneMenu id="shdn" value="#{salaryController.salaryHeadName}" styleClass="inputCombo" style="width: 165px;" required="true" requiredMessage="Salary Name is Required">
+                                <p:selectOneMenu id="shdn" value="#{salaryController.salaryHeadName}" styleClass="inputCombo" style="width: 165px;" required="true" requiredMessage="Please Select Salary Name.">
 
                             <f:selectItem itemLabel="Select Salary" itemValue=""/>
 
@@ -127,7 +124,7 @@
                                 <h:outputLabel value="* " styleClass="red"/>
                                 <h:outputLabel value="Fee Category"/>    
                             </p:column><p:column>
-                                <p:selectOneMenu id="salarycat2" value="#{salaryController.salaryCatName}" styleClass="inputCombo" style="width: 165px;" required="true" requiredMessage="Category is Required">
+                                <p:selectOneMenu id="salarycat2" value="#{salaryController.salaryCatName}" styleClass="inputCombo" style="width: 165px;" required="true" requiredMessage="Please Select Category.">
 
                             <f:selectItem itemLabel="Select Category" itemValue=""/>
 
@@ -145,7 +142,7 @@
                                 <h:outputLabel value="* " styleClass="red"/>
                                 <h:outputLabel value="Salary Name"/>
                             </p:column><p:column>
-                             <p:selectOneMenu id="shdn2" value="#{salaryController.salaryHeadName}" styleClass="inputCombo" style="width: 165px;" required="true" requiredMessage="Salary Name is Required">
+                             <p:selectOneMenu id="shdn2" value="#{salaryController.salaryHeadName}" styleClass="inputCombo" style="width: 165px;" required="true" requiredMessage="Please Select Salary Name.">
 
                             <f:selectItem itemLabel="Select Salary" itemValue=""/>
 
