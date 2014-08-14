@@ -1,0 +1,199 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        
+        <title>Pencil</title>
+
+        <style type="text/css">
+            @import "css/style.css";
+            body {
+                background: url(./images/Slide1.png) no-repeat center center fixed;     
+                -webkit-background-size: cover;
+                -moz-background-size: cover;
+                -o-background-size: cover;
+                background-size: cover;
+                margin: 0;
+                padding: 0;
+                font-family: geneva, arial, helvetica, sans-serif;
+                font-size:80%;
+            }
+
+            .ui-menuitem-icon.ui-icon.appleIcon {
+                background: url(./images/macosx/apple.png) no-repeat;
+                width:16px;
+                height:16px;
+                border-radius:0px;
+            }
+            .ui-menu .ui-menu-parent .ui-menu-child {
+                width: 175px;
+            }
+
+            .red{
+                color: red;
+            }
+
+            .ui-layout, .ui-layout-doc, .ui-layout-unit, .ui-layout-wrap, .ui-layout-bd, .ui-layout-hd
+            {
+
+                border:none;
+
+                overflow: hidden;
+
+            }
+
+            .ui-dialog .ui-terminal {
+                border:0;
+            }
+
+            .ui-dialog.terminalDialog .ui-dialog-content {
+                padding:0;
+            }
+            .ui-inputfield, .ui-widget-content .ui-inputfield, .ui-widget-header .ui-inputfield {
+                box-shadow: none!important;
+            }
+        </style>
+    </h:head>
+
+    <h:body>
+
+        <h:form> 
+
+            <p:growl autoUpdate="false" sticky="false" id="grw"/> 
+
+            <!-- ******************Main Menu bar Begin Here********************** -->
+            <p:menubar>
+
+
+                <p:submenu icon="ui-icon-home" >               
+                    <p:menuitem value="About" onclick="PF('info').show();"></p:menuitem>
+                  
+                </p:submenu> 
+
+
+                <p:submenu icon="ui-icon-person" label="Information">     
+                    <p:submenu icon="ui-icon-person" label="Student">
+                        <p:menuitem value="Find A Student" onclick="PF('findStudent').show();" icon="ui-icon-person"></p:menuitem>   
+                        <p:menuitem value="At A Glance" onclick="PF('at_A_Glance').show();" icon="ui-icon-person"></p:menuitem>   
+                        <p:menuitem value="Basic Info" onclick="PF('studentView').show();" icon="ui-icon-person"></p:menuitem>  
+                       
+                    </p:submenu>
+                    <p:menuitem value="Teacher" onclick="PF('teacherView').show();" icon="ui-icon-person"></p:menuitem>
+                </p:submenu> 
+
+
+
+                <p:submenu icon="ui-icon-note" label="Others">
+                    <p:submenu icon="ui-icon-note" label="Gallary">
+                        <p:menuitem value="Committee" onclick="PF('committeeTab').show();" icon="ui-icon-person"></p:menuitem>   
+                        <p:menuitem value="Principle" onclick="PF('principleTab').show();" icon="ui-icon-person"></p:menuitem>   
+                        <p:menuitem value="Photo" onclick="PF('photoTab').show();" icon="ui-icon-image"></p:menuitem>   
+                    </p:submenu> 
+
+
+
+                </p:submenu> 
+
+
+
+                <p:submenu icon="ui-icon-person" label="User">                  
+                    <p:menuitem value="LogOut" action="#{logoutController.logout()}" icon="ui-icon-eject"></p:menuitem>
+                </p:submenu> 
+
+            </p:menubar>
+            <!-- ********************Main Menu bar End Here************************ -->   
+
+            <!-- ...................Right Mouse Click Menus...................... -->   
+            <p:contextMenu>
+                <p:menuitem value="Refresh" icon="ui-icon-arrowrefresh-1-w"/>
+                <p:menuitem value="Update" icon="ui-icon-disk"/>
+                <p:menuitem value="Delete" icon="ui-icon-close"/>
+            </p:contextMenu>
+            <!-- ....................Bottom Dock Hover Toggle Menus.................... --> 
+            <p:dock>
+                <p:menuitem value="Student Registration" icon="/images/desktopTool/Student.png" onclick="PF('studentRegistration').show();"/>
+                <p:menuitem value="Teacher Registration" icon="/images/desktopTool/Teacher.png" onclick="PF('teacherRegistration').show();"/>
+                <p:menuitem value="Attendance" icon="/images/desktopTool/Student-Attendence.png" onclick="PF('').show();"/>
+                <p:menuitem value="Notice board" icon="/images/desktopTool/Notice_board.png" onclick="PF('').show()"/>
+                <p:menuitem value="SMS" icon="/images/desktopTool/Sms.png" onclick="PF('').show();"/>
+                <p:menuitem value="" icon="/images/macosx/ichat.png" onclick="PF('').show();"/>
+            </p:dock>
+            <!-- ...................Right Side Stack Toggle Menus..................... --> 
+            <p:stack icon="/images/stack/stack.png">
+                <p:menuitem value="Student Fee" icon="/images/stack/Student-Fees.png"/>
+                <p:menuitem value="Income" icon="/images/stack/Income.png"/>
+                <p:menuitem value="Expense" icon="/images/stack/Expense.png"/>
+                <p:menuitem value="Bank Transection" icon="/images/stack/Bank-Transection.png"/>
+            </p:stack>
+
+        </h:form>
+
+    </h:body>
+
+
+    <!-- **********************************************Dialog Begin Here********************************************* -->
+
+    <p:dialog header="About This Software" draggable="true" widgetVar="info" showEffect="fade" hideEffect="fade" maximizable="true" minimizable="true">
+        
+        <h:form>
+            <h:panelGrid columns="1" style="width:100%;text-align:center;">
+                <p:graphicImage value="/images/Login/Netizen.png" />
+                <h:outputText value="Pencil" style="font-size:16px"/>
+                <h:outputText value="Version 2.0" />
+                <p:commandButton value="Software Update" async="true" onclick="return false;"/>
+            </h:panelGrid>
+
+            <h:panelGrid columns="2">
+                <h:outputText value="Production by:" style="font-weight:bold"/>
+                <h:outputText value="Netizen Software Solution" />
+                <h:outputText value="Web:" style="font-weight:bold"/>
+                <h:outputText value="www.netizenbd.com" />
+            </h:panelGrid>
+
+        </h:form>
+    </p:dialog>
+
+  <!--*********************************Information View Student And Teacher Start******************************************* -->
+
+    <p:dialog header="Find A Student" draggable="true" widgetVar="findStudent" width="auto" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">     
+        <ui:include src="/Information/Student/FindStudent.xhtml" />            
+    </p:dialog>
+
+    <p:dialog header="Search The Student At A Glance" draggable="true" widgetVar="at_A_Glance" width="auto" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">     
+        <ui:include src="/Information/Student/At_A_Glance/At_A_Glance.xhtml" />            
+    </p:dialog>
+    
+
+    <p:dialog header="View Student" draggable="true" widgetVar="studentView" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
+        <ui:include src="/Registration/Student/OutLookStudent_Impl.xhtml"/> 
+    </p:dialog>
+
+    <p:dialog header="View Teacher" draggable="true" widgetVar="teacherView" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
+        <ui:include src="/Registration/Teacher/OutLookTeacherImpl.xhtml"/> 
+    </p:dialog>
+
+
+   
+
+    <!--*****************************Other Dialog Start***************************-->
+    <p:dialog header="Committee" height="700px" draggable="true" widgetVar="committeeTab" width="100%" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
+        <ui:include src="/Others/Gallery/CommitteeTab.xhtml"/>          
+    </p:dialog>
+
+    <p:dialog header="Principle" height="700px" draggable="true" widgetVar="principleTab" width="100%" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
+        <ui:include src="/Others/Gallery/PrincipleTab.xhtml"/>          
+    </p:dialog>
+
+    <p:dialog header="Photo Gallery" height="700px" draggable="true" widgetVar="photoTab" width="100%" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
+        <ui:include src="/Others/Gallery/PhotoGalleria.xhtml"/>          
+    </p:dialog>
+
+    <!--*****************************Other Dialog End***************************-->
+
+    
+</html>
+

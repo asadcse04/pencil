@@ -64,7 +64,7 @@ public class SystemUserController implements Serializable
         
         this.system_user=null;
         
-        return "/UserPanel/SystemUser.xhtml";
+        return "index.xhtml";
     }
 
     /**
