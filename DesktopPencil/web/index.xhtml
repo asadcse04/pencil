@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
 
         <title>Pencil</title>
@@ -70,6 +71,7 @@
 
                 <p:submenu icon="ui-icon-home" >               
                     <p:menuitem value="About" onclick="PF('info').show();"></p:menuitem>
+                  
                 </p:submenu> 
 
                 <p:submenu icon="ui-icon-note" label="Insert">
@@ -120,7 +122,8 @@
                     <p:submenu icon="ui-icon-person" label="Student">
                         <p:menuitem value="Find A Student" onclick="PF('findStudent').show();" icon="ui-icon-person"></p:menuitem>   
                         <p:menuitem value="At A Glance" onclick="PF('at_A_Glance').show();" icon="ui-icon-person"></p:menuitem>   
-                        <p:menuitem value="Basic Info" onclick="PF('studentView').show();" icon="ui-icon-person"></p:menuitem>    
+                        <p:menuitem value="Basic Info" onclick="PF('studentView').show();" icon="ui-icon-person"></p:menuitem>  
+                        <p:menuitem value="Correction Sheet" onclick="PF('correctionSheet').show();" icon="ui-icon-person"></p:menuitem>    
                     </p:submenu>
                     <p:menuitem value="Teacher" onclick="PF('teacherView').show();" icon="ui-icon-person"></p:menuitem>
                 </p:submenu> 
@@ -313,7 +316,7 @@
 
                 <p:submenu icon="ui-icon-person" label="User">                  
                     <p:menuitem value="OutLook User" onclick="PF('UserPanel').show();" icon="ui-icon-person"></p:menuitem>      
-                    <p:menuitem value="LogOut" onclick="PF('').show();" icon="ui-icon-eject"></p:menuitem>  
+                    <p:menuitem value="LogOut" action="#{logoutController.logout()}" icon="ui-icon-eject"></p:menuitem>
                 </p:submenu> 
 
             </p:menubar>
@@ -350,6 +353,7 @@
     <!-- **********************************************Dialog Begin Here********************************************* -->
 
     <p:dialog header="About This Software" draggable="true" widgetVar="info" showEffect="fade" hideEffect="fade" maximizable="true" minimizable="true">
+        
         <h:form>
             <h:panelGrid columns="1" style="width:100%;text-align:center;">
                 <p:graphicImage value="/images/.png" />
@@ -446,6 +450,10 @@
 
     <p:dialog header="Search The Student At A Glance" draggable="true" widgetVar="at_A_Glance" width="auto" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">     
         <ui:include src="/Information/Student/At_A_Glance/At_A_Glance.xhtml" />            
+    </p:dialog>
+    
+    <p:dialog header="Correction Sheet" draggable="true" widgetVar="correctionSheet" width="100%" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
+        <ui:include src="/Information/Student/CorrectionSheet/StudentBasicView_Impl.xhtml"/> 
     </p:dialog>
 
     <p:dialog header="View Student" draggable="true" widgetVar="studentView" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
