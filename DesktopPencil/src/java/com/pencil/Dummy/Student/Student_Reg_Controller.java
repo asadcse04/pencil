@@ -23,129 +23,138 @@ import org.primefaces.model.UploadedFile;
  */
 @ManagedBean
 @ViewScoped
-public class Student_Reg_Controller implements Serializable
-{
+public class Student_Reg_Controller implements Serializable {
+
     private Student_Registration student;
-    
+
     private UploadedFile photoFile;
-    
-    
+
     private int scCnfID;
-    
+
     private List<String> academicYearList;
-    
+
     private List<String> schoolClassList;
-    
+
     private List<String> departmentList;
-    
+
     private List<String> shiftList;
-    
+
     private List<String> sectionList;
-    
+
     private List<String> elective_SbjList;
-    
-    
-    Student_Reg_Service serviceDao=new Student_Reg_Service_Impl();
-    
-    Sc_ClassConfigService sc_service_dao=new Sc_ClassCofigService_Impl();
-    
-    ImgUpLoad uploadService=new ImgUpload_Impl();
-    
-    Presentation pr=new Presentation();
+
+    Student_Reg_Service serviceDao = new Student_Reg_Service_Impl();
+
+    Sc_ClassConfigService sc_service_dao = new Sc_ClassCofigService_Impl();
+
+    ImgUpLoad uploadService = new ImgUpload_Impl();
+
+    Presentation pr = new Presentation();
 
     /**
      * Creates a new instance of Student_Reg_Controller
      */
-    public Student_Reg_Controller()
-    {
-        this.academicYearList=pr.infoList("acyr");
+    public Student_Reg_Controller() {
+        this.academicYearList = pr.infoList("acyr");
     }
 
     /**
      *
      */
-    public void scClass_List()
-    {
-        this.schoolClassList=sc_service_dao.listScClass(this.student.getAcyr());
+    public void scClass_List() {
+        this.schoolClassList = sc_service_dao.listScClass(this.student.getAcyr());
     }
-    
+
     /**
      *
      */
-    public void deptList()
-    {
-        this.departmentList=sc_service_dao.listScDept(this.student.getAcyr(),this.student.getClassName());
+    public void deptList() {
+        this.departmentList = sc_service_dao.listScDept(this.student.getAcyr(), this.student.getClassName());
     }
-    
+
     /**
      *
      */
-    public void section_List()
-    {
-        this.sectionList=sc_service_dao.listScSection(this.student.getAcyr(),this.student.getDeptName(),this.student.getClassName(),this.student.getShiftName());
+    public void section_List() {
+        this.sectionList = sc_service_dao.listScSection(this.student.getAcyr(), this.student.getDeptName(), this.student.getClassName(), this.student.getShiftName());
     }
-    
+
     /**
      *
      */
-    public void elective_Subject()
-    {
-        this.shiftList=sc_service_dao.listScShift(this.student.getAcyr(),this.student.getDeptName(),this.student.getClassName());
-        
-        this.elective_SbjList=serviceDao.elective_SubjectList(this.student.getAcyr(),this.student.getClassName(),this.student.getDeptName());
+    public void elective_Subject() {
+        this.shiftList = sc_service_dao.listScShift(this.student.getAcyr(), this.student.getDeptName(), this.student.getClassName());
+
+        this.elective_SbjList = serviceDao.elective_SubjectList(this.student.getAcyr(), this.student.getClassName(), this.student.getDeptName());
     }
-    
+
     /**
      *
      */
-    public void Sc_Cnf_ID()
-    {
-        this.scCnfID=sc_service_dao.getScCnfID(this.student.getAcyr(),this.student.getDeptName(),this.student.getClassName(),this.student.getShiftName(),this.student.getSectionName());
+    public void Sc_Cnf_ID() {
+        this.scCnfID = sc_service_dao.getScCnfID(this.student.getAcyr(), this.student.getDeptName(), this.student.getClassName(), this.student.getShiftName(), this.student.getSectionName());
     }
-    
+
     /**
      *
      * @return
      */
-    public String saveStudent()
+    public String saveStudent() {
+        FacesContext context = FacesContext.getCurrentInstance();
+
+        if (photoFile != null) {
+            this.student.setImgPath(photoFile.getFileName());
+
+            if (serviceDao.completeStudentReg(this.student, this.scCnfID)) {
+                uploadService.uploadImg("studentImages", photoFile.getFileName(), photoFile);
+
+                context.addMessage(null, new FacesMessage("Successful", "Student registration complete..."));
+            } else {
+                context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Student registration failed...!", ""));
+            }
+        } else {
+            context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Please select student image...!", ""));
+        }
+
+        this.student = null;
+
+        return "index.xhtml";
+
+    }
+
+    public int checkInitAdditionalInfo(Student_Registration std) {
+
+        if (serviceDao.additionalInfoChak(std).size() > 0) {
+
+            return 1;
+        } else {
+            return 0;
+        }
+
+    }
+
+    public String saveAdditionalInfo(String studentId) 
     {
         FacesContext context = FacesContext.getCurrentInstance();
-        
-        if(photoFile != null)
-        {
-            this.student.setImgPath(photoFile.getFileName());
-            
-            if(serviceDao.completeStudentReg(this.student,this.scCnfID))
-            {
-                uploadService.uploadImg("studentImages",photoFile.getFileName(),photoFile);
-                
-                context.addMessage(null, new FacesMessage("Successful","Student registration complete...")); 
-            }
-            else
-            {
-                context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,"Student registration failed...!",""));
-            }
+
+        if (serviceDao.additionalInfo(this.student, studentId)) {
+            context.addMessage(null, new FacesMessage("Successful", "Add Student Additional Info complete..."));
+        } else {
+            context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Student Additional Info failed...!", ""));
         }
-        
-        else
-        {
-            context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,"Please select student image...!",""));
-        }
-        
-        this.student=null;
-        
+
+        this.student = null;
+
         return "index.xhtml";
-        
+
     }
 
     /**
      * @return the student
      */
-    public Student_Registration getStudent()
-    {
-        if(this.student==null)
-        {
-            this.student=new Student_Registration();
+    public Student_Registration getStudent() {
+        if (this.student == null) {
+            this.student = new Student_Registration();
         }
         return this.student;
     }
@@ -268,5 +277,5 @@ public class Student_Reg_Controller implements Serializable
     public void setScCnfID(int scCnfID) {
         this.scCnfID = scCnfID;
     }
-      
+
 }

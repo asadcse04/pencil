@@ -72,10 +72,11 @@ public class Student_Registration implements Serializable
     private String guardianEmail;
    
     
+       
     /////-----------------------------------Previous Exam Info------------------------------------------------------
+    private int prev_Exam_ID;
     
-    
-   /* private String instituteName;
+    private String instituteName;
     
     private String eductn_board;
     
@@ -95,6 +96,7 @@ public class Student_Registration implements Serializable
     
     
     ///---------------------------------------Previous institute info---------------------------------------------------------
+    private int prev_institute_ID;
     
     private String collegeName;
     
@@ -106,7 +108,7 @@ public class Student_Registration implements Serializable
     
     private int prvs_classRoll;
     
-    private String prvs_edu_board;*/
+    private String prvs_edu_board;
     
     
     //-------------------------------------Student Identification(fixed)-------------------------------------------------------------
@@ -584,4 +586,143 @@ public class Student_Registration implements Serializable
     public void setSectionName(String sectionName) {
         this.sectionName = sectionName;
     }  
+
+    public int getPrev_Exam_ID() {
+        return prev_Exam_ID;
+    }
+
+    public void setPrev_Exam_ID(int prev_Exam_ID) {
+        this.prev_Exam_ID = prev_Exam_ID;
+    }
+
+    public String getInstituteName() {
+        return instituteName;
+    }
+
+    public void setInstituteName(String instituteName) {
+        this.instituteName = instituteName;
+    }
+
+    public String getEductn_board() {
+        return eductn_board;
+    }
+
+    public void setEductn_board(String eductn_board) {
+        this.eductn_board = eductn_board;
+    }
+
+    public String getGroup() {
+        return group;
+    }
+
+    public void setGroup(String group) {
+        this.group = group;
+    }
+
+    public String getP_examName() {
+        return p_examName;
+    }
+
+    public void setP_examName(String p_examName) {
+        this.p_examName = p_examName;
+    }
+
+    public String getExamRoll() {
+        return examRoll;
+    }
+
+    public void setExamRoll(String examRoll) {
+        this.examRoll = examRoll;
+    }
+
+    public String getExamRegNo() {
+        return examRegNo;
+    }
+
+    public void setExamRegNo(String examRegNo) {
+        this.examRegNo = examRegNo;
+    }
+
+    public String getGrade() {
+        return grade;
+    }
+
+    public void setGrade(String grade) {
+        this.grade = grade;
+    }
+
+    public String getCgpa() {
+        return cgpa;
+    }
+
+    public void setCgpa(String cgpa) {
+        this.cgpa = cgpa;
+    }
+
+    public String getPassingYear() {
+        return passingYear;
+    }
+
+    public void setPassingYear(String passingYear) {
+        this.passingYear = passingYear;
+    }
+
+    public int getPrev_institute_ID() {
+        return prev_institute_ID;
+    }
+
+    public void setPrev_institute_ID(int prev_institute_ID) {
+        this.prev_institute_ID = prev_institute_ID;
+    }
+
+    public String getCollegeName() {
+        return collegeName;
+    }
+
+    public void setCollegeName(String collegeName) {
+        this.collegeName = collegeName;
+    }
+
+    public String getAcademicYear() {
+        return academicYear;
+    }
+
+    public void setAcademicYear(String academicYear) {
+        this.academicYear = academicYear;
+    }
+
+    public String getPrvs_className() {
+        return prvs_className;
+    }
+
+    public void setPrvs_className(String prvs_className) {
+        this.prvs_className = prvs_className;
+    }
+
+    public String getPrvs_deptName() {
+        return prvs_deptName;
+    }
+
+    public void setPrvs_deptName(String prvs_deptName) {
+        this.prvs_deptName = prvs_deptName;
+    }
+
+    public int getPrvs_classRoll() {
+        return prvs_classRoll;
+    }
+
+    public void setPrvs_classRoll(int prvs_classRoll) {
+        this.prvs_classRoll = prvs_classRoll;
+    }
+
+    public String getPrvs_edu_board() {
+        return prvs_edu_board;
+    }
+
+    public void setPrvs_edu_board(String prvs_edu_board) {
+        this.prvs_edu_board = prvs_edu_board;
+    }
+    
+    
+    
 }

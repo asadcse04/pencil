@@ -351,5 +351,150 @@ public class Student_Reg_Service_Impl implements Serializable,Student_Reg_Servic
         }
         return student_List;
     }
+
+    @Override
+    public List<Student_Registration> additionalInfoChak(Student_Registration std) 
+    {
+        DB_Connection o = new DB_Connection();
+
+        Connection con = o.getConnection();
+
+        PreparedStatement prst = null;
+
+        ResultSet rs = null;
+
+        List<Student_Registration> additionalChak = new ArrayList<Student_Registration>();
+
+        try {
+
+            prst = con.prepareStatement("select spe.ID,spe.InstituteName,spi.ID"
+                    + " from student_previous_exam_info spe,student_previous_institute_info spi, student_basic_info sb"
+                    + " where sb.StudentID = spi.StudentID and sb.StudentID = spe.StudentID and sb.StudentID = ?");
+
+            prst.setString(1, std.getStudentID());
+
+            rs = prst.executeQuery();
+
+            while (rs.next()) {
+                Student_Registration addstd = new Student_Registration ();
+                addstd.setPrev_Exam_ID(rs.getInt(1));
+                addstd.setInstituteName(rs.getString(2));
+                addstd.setPrev_institute_ID(rs.getInt(3));
+                
+                additionalChak.add(addstd);
+            }
+            
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        } finally {
+            try {
+
+                if (rs != null) {
+
+                    rs.close();
+                }
+
+                if (prst != null) {
+
+                    prst.close();
+                }
+
+                if (con != null) {
+
+                    con.close();
+                }
+
+            } catch (SQLException ex) {
+                System.out.println(ex);
+            }
+
+        }
+
+        return additionalChak;
+    }
+    
+        @Override
+    public boolean additionalInfo(Student_Registration addtionalInfo, String StudentID)
+    {
+       DB_Connection o = new DB_Connection();
+
+        Connection con = o.getConnection();
+
+        PreparedStatement prst = null;
+
+        try {
+            con.setAutoCommit(false);
+
+            prst = con.prepareStatement("insert into student_previous_exam_info values(null,?,?,?,?,?,?,?,?,?,?)");
+
+            prst.setString(1, addtionalInfo.getInstituteName());
+
+            prst.setString(2, addtionalInfo.getEductn_board());
+
+            prst.setString(3, addtionalInfo.getGroup());
+
+            prst.setString(4, addtionalInfo.getExamRoll());
+
+            prst.setString(5, addtionalInfo.getExamRegNo());
+
+            prst.setString(6, addtionalInfo.getGrade());
+
+            prst.setString(7, addtionalInfo.getCgpa());
+
+            prst.setString(8, addtionalInfo.getPassingYear());
+
+            prst.setString(9, StudentID);
+
+            prst.setString(10, addtionalInfo.getP_examName());
+
+            prst.execute();
+
+            prst.close();
+
+            prst = con.prepareStatement("insert into student_previous_institute_info values(null,?,?,?,?,?,?,?)");
+
+            prst.setString(1, addtionalInfo.getCollegeName());
+
+            prst.setString(2, addtionalInfo.getAcademicYear());
+
+            prst.setString(3, addtionalInfo.getPrvs_edu_board());
+
+            prst.setString(4, addtionalInfo.getPrvs_className());
+
+            prst.setInt(5, addtionalInfo.getPrvs_classRoll());
+
+            prst.setString(6, addtionalInfo.getPrvs_deptName());
+
+            prst.setString(7, StudentID);
+
+            prst.execute();
+
+            prst.close();
+
+            con.commit();
+
+            return true;
+
+        } catch (SQLException e) {
+            System.out.println(e);
+        } catch (NumberFormatException n) {
+            System.out.println(n);
+        } finally {
+            try {
+                if (prst != null) {
+                    prst.close();
+                }
+                if (con != null) {
+                    con.close();
+                }
+            } catch (SQLException e) {
+                System.out.println(e);
+            }
+
+            addtionalInfo = null;
+        }
+
+        return false;
+    }
     
 }
