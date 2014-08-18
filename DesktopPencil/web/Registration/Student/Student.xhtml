@@ -87,8 +87,8 @@
 
                     </p:commandButton> 
 
-                     
                 </p:column>
+                
             </p:dataTable> 
 
         </center>
@@ -96,11 +96,11 @@
     </h:form>
     
     <p:dialog header="Additional Info" widgetVar="dialog_additional_info_student" resizable="true" minimizable="true" maximizable="true" width="900" height="400" >
-        <ui:include src="/Registration/Student/StudentAdditionalInfo.xhtml"/>
+        <ui:include src="StudentAdditionalInfo.xhtml"/>
     </p:dialog>
 
-    <p:dialog header="Update Student" widgetVar="dialog_update_student" resizable="true" minimizable="true"  maximizable="true" width="900" height="580" >
-        <ui:include src="/Registration/Student/StudentUpdate.xhtml"/> 
+    <p:dialog header="Update Student" widgetVar="dialog_update_student" width="auto" resizable="true" minimizable="true"  maximizable="true" height="580" >
+        <ui:include src="StudentUpdate.xhtml"/> 
     </p:dialog>
 
 
