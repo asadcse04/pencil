@@ -496,5 +496,178 @@ public class Student_Reg_Service_Impl implements Serializable,Student_Reg_Servic
 
         return false;
     }
+
+    @Override
+    public boolean completeStudentUpdate(Student_Registration stdUpt)
+    {
+      DB_Connection o = new DB_Connection();
+
+        Connection con = o.getConnection();
+
+        PreparedStatement prst = null;
+        try
+        {
+            con.setAutoCommit(false);
+            
+            Long.parseLong(stdUpt.getCntNo());
+            
+            Long.parseLong(stdUpt.getGuardianContactNo());
+
+            prst=con.prepareStatement("update student_basic_info set StudentName=?, StudentRoll=?, CntNo=?, Gender=?, DOB=?, Status=?, ImgPath=?, Religion=?,BloodGroup=?,UserID=? where StudentID=?");
+            
+            prst.setString(1,stdUpt.getStudentName());
+            
+            prst.setInt(2,stdUpt.getStudentRoll());
+            
+            prst.setString(3,stdUpt.getCntNo());
+            
+            prst.setString(4,stdUpt.getGender());
+            
+            prst.setDate(5,new java.sql.Date(stdUpt.getDob().getTime()));
+            
+            prst.setBoolean(6,true);
+            
+            prst.setString(7,stdUpt.getImgPath());
+            
+            prst.setString(8,stdUpt.getReligion());
+            
+            prst.setString(9,stdUpt.getBloodGroup());
+            
+            prst.setInt(10,1);
+            
+            prst.setString(11,stdUpt.getStudentID());
+            
+            prst.execute();
+            
+            prst.close();
+            
+
+            prst=con.prepareStatement("update student_guardian_info set FatherName=?, MotherName=?, GuardianName=?, Relation=?, ContactNo=?, FatherOccuptn=?, MotherOccuptn=?, GuardianOccuptn=?, GuardianIncome=?, GuardianEmail=? where StudentID=?");
+            
+            prst.setString(1,stdUpt.getFatherName());
+            
+            prst.setString(2,stdUpt.getMotherName());
+            
+            prst.setString(3,stdUpt.getGuardianName());
+            
+            prst.setString(4,stdUpt.getRelation());
+            
+            prst.setString(5,stdUpt.getGuardianContactNo());
+  
+            prst.setString(6,stdUpt.getFatherOccupation());
+            
+            prst.setString(7,stdUpt.getMotherOccupation());
+            
+            prst.setString(8,stdUpt.getGuardianOccupation());
+            
+            prst.setDouble(9,stdUpt.getGuardianSalary());
+            
+            prst.setString(10,stdUpt.getGuardianEmail());
+          
+            prst.setString(11,stdUpt.getStudentID());
+            
+            prst.execute();
+            
+            prst.close();
+
+
+            prst=con.prepareStatement("update student_address_detail set Present_Address=?, Permanent_Address=? where StudentID=?");
+            
+            prst.setString(1,stdUpt.getPresentAddress());
+            
+            prst.setString(2,stdUpt.getPermanentAddress());
+            
+            prst.setString(3,stdUpt.getStudentID());
+            
+            prst.execute();
+            
+            prst.close();
+            
+            con.commit();
+            
+            return true;  
+                
+        }
+        catch(SQLException e)
+        {
+            System.out.println(e);
+        }
+        catch(NumberFormatException n)
+        {
+            System.out.println(n);
+        }
+        finally
+        { 
+            try
+            {
+                if(prst!=null) 
+                { 
+                    prst.close(); 
+                } 
+                if(con!=null)
+                { 
+                    con.close(); 
+                } 
+            } 
+            catch(SQLException e) 
+            { 
+                System.out.println(e); 
+            }
+            
+            stdUpt=null;
+        } 
+        
+        return false;
+    }
+
+    @Override
+    public boolean updateAcademicInfo(Student_Registration stdReg, int scCnf_ID) 
+    {
+        DB_Connection o = new DB_Connection();
+
+        Connection con = o.getConnection();
+
+        PreparedStatement prst = null;
+        
+        try {
+
+            prst=con.prepareStatement("update student_identification set ClassConfigID=? where StudentID=?");
+            
+            prst.setInt(1,scCnf_ID);
+            
+            prst.setString(2,stdReg.getStudentID());
+            
+            prst.executeUpdate();
+
+            return true;
+
+        } catch (SQLException ex) {
+
+            System.out.println(ex);
+
+        } finally {
+
+            try {
+
+                if (prst != null) {
+
+                    prst.close();
+
+                }
+
+                if (con != null) {
+
+                    con.close();
+
+                }
+
+            } catch (SQLException ex) {
+
+                System.out.println(ex);
+            }
+
+        }
+        return false;
     
+}
 }

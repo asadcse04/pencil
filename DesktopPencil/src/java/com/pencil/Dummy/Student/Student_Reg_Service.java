@@ -18,6 +18,10 @@ public interface Student_Reg_Service
     
     public List<Student_Registration>additionalInfoChak(Student_Registration std);
     
+    public boolean completeStudentUpdate(Student_Registration stdUpt);
+    
+    public boolean updateAcademicInfo(Student_Registration stdReg,int scCnf_ID);
+    
     public List<String> elective_SubjectList(int acyr,String sc_class,String sc_dept);
     
     public List<Student_Registration> Student_cmplt_List();

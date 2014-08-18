@@ -122,6 +122,58 @@ public class Student_Reg_Controller implements Serializable {
 
     }
 
+    public String updateStudent()
+    {
+        FacesContext context = FacesContext.getCurrentInstance();
+        
+        if (this.photoFile.getFileName().equals("")) 
+        {
+          if (serviceDao.completeStudentUpdate(this.student))
+          {
+             context.addMessage(null, new FacesMessage("Successful", "Student registration update complete..."));
+          }
+          else
+          {
+             context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Student registration update failed...!", ""));
+          }
+        }
+        else
+        {
+            this.student.setImgPath(photoFile.getFileName());
+
+            if (serviceDao.completeStudentUpdate(this.student))
+            {
+                uploadService.uploadImg("studentImages", photoFile.getFileName(), photoFile);
+
+                context.addMessage(null, new FacesMessage("Successful", "Student registration update complete..."));
+            }
+            else 
+            {
+                context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Student registration update failed...!", ""));
+            }
+        }
+
+        this.student = null;
+
+        return "index.xhtml";
+
+    }
+    
+    public String udtAcademicInfo()
+    {
+         FacesContext context = FacesContext.getCurrentInstance();
+         
+         if (serviceDao.updateAcademicInfo(this.student,this.scCnfID))
+          {
+             context.addMessage(null, new FacesMessage("Successful Student academic info update complete...",""));
+          }
+          else
+          {
+             context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Student academic info update failed...!", ""));
+          }
+        return "index.xhtml";
+    }
+
     public int checkInitAdditionalInfo(Student_Registration std) {
 
         if (serviceDao.additionalInfoChak(std).size() > 0) {
@@ -133,8 +185,7 @@ public class Student_Reg_Controller implements Serializable {
 
     }
 
-    public String saveAdditionalInfo(String studentId) 
-    {
+    public String saveAdditionalInfo(String studentId) {
         FacesContext context = FacesContext.getCurrentInstance();
 
         if (serviceDao.additionalInfo(this.student, studentId)) {
