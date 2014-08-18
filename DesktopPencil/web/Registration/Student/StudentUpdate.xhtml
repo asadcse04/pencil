@@ -229,10 +229,9 @@
                     </p:column>
                     
                     <p:column styleClass="label">
-                        <h:outputText value="*" styleClass="red"/>
                         <h:outputText value="Student Roll: "/>
                     </p:column><p:column>
-                        <p:inputText value="#{student_Reg_Controller.student.studentRoll}"  styleClass="inputText" required="true" requiredMessage="Please Enter the Student Roll."/>
+                        <p:inputText value="#{student_Reg_Controller.student.studentRoll}"  styleClass="inputText"/>
                     </p:column>
                 </p:row>
                 
@@ -242,7 +241,6 @@
                 
                 <p:row>
                      <p:column styleClass="label">
-                        <h:outputText value="*" styleClass="red"/>
                         <h:outputText value="Photo: "/>
                      </p:column><p:column>
                          <p:fileUpload value="#{student_Reg_Controller.photoFile}" mode="simple" style="width: 167px;"/>
