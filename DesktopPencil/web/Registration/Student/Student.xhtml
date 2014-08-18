@@ -69,11 +69,13 @@
                
                  <p:column style="width:3%">  
 
-                    <p:commandButton process="@this" update=":additional_info_student" oncomplete="dialog_additional_info_student.show()" icon="ui-icon-pencil" title="additional info">  
+                     <p:commandButton rendered="#{student_Reg_Controller.checkInitAdditionalInfo(student_tbl) eq 0}" process="@this" update=":additional_info_student" oncomplete="dialog_additional_info_student.show()" icon="ui-icon-pencil" title="additional info">  
 
                          <f:setPropertyActionListener value="#{student_tbl}" target="#{studentListController.student}"/>  
 
                     </p:commandButton>  
+                     
+                  <p:commandButton rendered="#{student_Reg_Controller.checkInitAdditionalInfo(student_tbl) eq 1}" process="@this" icon="ui-icon-check" title="additional alredy set."/>  
 
                 </p:column>
                 
@@ -94,11 +96,11 @@
     </h:form>
     
     <p:dialog header="Additional Info" widgetVar="dialog_additional_info_student" resizable="true" minimizable="true" maximizable="true" width="900" height="400" >
-        <ui:include src="StudentAdditionalInfo.xhtml"/>
+        <ui:include src="/Registration/Student/StudentAdditionalInfo.xhtml"/>
     </p:dialog>
 
     <p:dialog header="Update Student" widgetVar="dialog_update_student" resizable="true" minimizable="true"  maximizable="true" width="900" height="580" >
-        <ui:include src="StudentUpdate.xhtml"/> 
+        <ui:include src="/Registration/Student/StudentUpdate.xhtml"/> 
     </p:dialog>
 
 
