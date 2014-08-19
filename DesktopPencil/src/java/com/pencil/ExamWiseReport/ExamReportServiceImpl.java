@@ -37,15 +37,26 @@ public class ExamReportServiceImpl implements Serializable,ExamReportService
         
          try {
              
-            String qr = "SELECT s.subjectid, s.subjectName, (select count(studentId) from student_result where subjectid=s.subjectId and excnfid=?"
-                    +" and  studentid in (select studentid from student_identification where classconfigid=?)) total,"
-                    +" (select count(studentId) from student_result where subjectid=s.subjectId and lettergrade='F' and excnfid=?"
-                    +" and  studentid in (select studentid from student_identification where classconfigid=?)) FAIL,"
-                    +" (select count(studentId) from student_result where subjectid=s.subjectId and lettergrade!='F' and excnfid=?"
-                    +" and  studentid in (select studentid from student_identification where classconfigid=?)) PASS," 
-                    +" (select distinct(teacherid) from student_result where subjectid=s.subjectId  and excnfid=?"
-                    +" and  studentid in (select studentid from student_identification where classconfigid=?)) teacherid"
-                    +" FROM subject s;";
+//            String qr1 = "SELECT s.subjectid, s.subjectName, (select count(studentId) from student_result where subjectid=s.subjectId and excnfid=?"
+//                    +" and  studentid in (select studentid from student_identification where classconfigid=?)) total,"
+//                    +" (select count(studentId) from student_result where subjectid=s.subjectId and lettergrade='F' and excnfid=?"
+//                    +" and  studentid in (select studentid from student_identification where classconfigid=?)) FAIL,"
+//                    +" (select count(studentId) from student_result where subjectid=s.subjectId and lettergrade!='F' and excnfid=?"
+//                    +" and  studentid in (select studentid from student_identification where classconfigid=?)) PASS," 
+//                    +" (select distinct(teacherid) from student_result where subjectid=s.subjectId  and excnfid=?"
+//                    +" and  studentid in (select studentid from student_identification where classconfigid=?)) teacherid"
+//                    +" FROM subject s;";
+             
+             String qr = "SELECT sc.subjectid,s.subjectname,(select count(studentId) from student_result where subjectid=sc.subjectId "
+                     + " and excnfid=?  and  studentid in (select studentid from student_identification where classconfigid=?  )) total, "
+                     + " (select count(studentId) from student_result where subjectid=sc.subjectId and lettergrade='F' "
+                     + " and excnfid=?  and  studentid in (select studentid from student_identification where classconfigid=?  )) FAIL, "
+                     + " (select count(studentId) from student_result where subjectid=sc.subjectId and lettergrade!='F' "
+                     + " and excnfid=?  and  studentid in (select studentid from student_identification where classconfigid=?  )) PASS, "
+                     + " (select distinct(teacherid) from student_result where subjectid=sc.subjectId  and excnfid=? "
+                     + " and  studentid in (select studentid from student_identification where classconfigid=?  )) "
+                     + " teacherid FROM subjectconfig sc, classconfig cg, subject s where s.subjectid=sc.subjectid and sc.deptid=cg.deptid and sc.classid=cg.classid "
+                     + " and cg.scconfigid=? ";
 
             prst = con.prepareStatement(qr);
          
@@ -65,11 +76,14 @@ public class ExamReportServiceImpl implements Serializable,ExamReportService
             
             prst.setInt(8,scCnfID);
             
+            prst.setInt(9,scCnfID);
+            
             rs = prst.executeQuery();
             
 
             while (rs.next()) {
-                exam_mark_List.add(new ExamReport(rs.getInt("s.subjectid"), rs.getString("s.subjectName"), rs.getInt("total"),rs.getInt("FAIL"),rs.getInt("PASS"),rs.getString("teacherid")));
+                //exam_mark_List.add(new ExamReport(rs.getInt("s.subjectid"), rs.getString("s.subjectName"), rs.getInt("total"),rs.getInt("FAIL"),rs.getInt("PASS"),rs.getString("teacherid")));
+                 exam_mark_List.add(new ExamReport(rs.getInt("sc.subjectid"), rs.getString("s.subjectName"), rs.getInt("total"),rs.getInt("FAIL"),rs.getInt("PASS"),rs.getString("teacherid")));
             }
 
             prst.close();

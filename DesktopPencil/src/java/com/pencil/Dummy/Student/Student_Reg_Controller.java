@@ -63,6 +63,7 @@ public class Student_Reg_Controller implements Serializable {
      */
     public void scClass_List() {
         this.schoolClassList = sc_service_dao.listScClass(this.student.getAcyr());
+        this.deptList();
     }
 
     /**
@@ -70,6 +71,7 @@ public class Student_Reg_Controller implements Serializable {
      */
     public void deptList() {
         this.departmentList = sc_service_dao.listScDept(this.student.getAcyr(), this.student.getClassName());
+        this.section_List();
     }
 
     /**
@@ -77,6 +79,7 @@ public class Student_Reg_Controller implements Serializable {
      */
     public void section_List() {
         this.sectionList = sc_service_dao.listScSection(this.student.getAcyr(), this.student.getDeptName(), this.student.getClassName(), this.student.getShiftName());
+        this.elective_Subject();
     }
 
     /**
@@ -86,6 +89,7 @@ public class Student_Reg_Controller implements Serializable {
         this.shiftList = sc_service_dao.listScShift(this.student.getAcyr(), this.student.getDeptName(), this.student.getClassName());
 
         this.elective_SbjList = serviceDao.elective_SubjectList(this.student.getAcyr(), this.student.getClassName(), this.student.getDeptName());
+        this.Sc_Cnf_ID();
     }
 
     /**
