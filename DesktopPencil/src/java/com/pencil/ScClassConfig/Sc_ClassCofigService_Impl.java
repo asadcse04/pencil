@@ -906,4 +906,68 @@ public class Sc_ClassCofigService_Impl implements Serializable,Sc_ClassConfigSer
         }
         return scCnfID;
     }
+   
+    
+    @Override
+    @SuppressWarnings("UnusedAssignment")
+    public ScClassConfig scClassConfig(String studentid)
+    {
+        DB_Connection o=new DB_Connection(); 
+       
+        Connection con=o.getConnection();
+        
+        PreparedStatement prst = null;
+        
+        ResultSet rs = null;
+        
+        ScClassConfig scClassConfig;
+       
+        try
+        {    
+          
+            prst = con.prepareStatement("SELECT cg.scconfigid, cg.acyrid, c.classname, d.departmentname, s.shiftname, sc.sectionname, cg.roomno "
+                    + " FROM classconfig cg, class c, department d, shift s, section sc   "
+                    + " where cg.classid=c.classid and cg.shiftid=s.shiftid and cg.deptid=d.departmentid and cg.sectionid=sc.sectionid  "
+                    + " and scconfigid=(select classconfigid from student_identification where studentid=?) ");
+            prst.setString(1,studentid);
+            
+            rs = prst.executeQuery();
+            
+            while(rs.next())
+            {
+                scClassConfig = new ScClassConfig(rs.getInt("cg.scconfigid"), rs.getInt("cg.acyrid"), rs.getString("c.classname"), rs.getString("d.departmentname"), rs.getString("s.shiftname"), rs.getString("sc.sectionname"),rs.getString("cg.roomno") );
+            }
+        }
+        catch(SQLException e)
+        {
+            System.out.println(e);
+        }
+        finally
+        {
+            try
+            {
+                if(rs!=null)
+                {
+                    rs.close();
+                }
+                if(prst!=null)
+                {
+                    prst.close();
+                }
+                if(con!=null)
+                {
+                    con.close();
+                }
+            }
+            catch(SQLException e)
+            {
+                System.out.println(e);
+            }
+            
+            scClassConfig=null;
+        }
+        
+        return scClassConfig;
+    }
+    
 }

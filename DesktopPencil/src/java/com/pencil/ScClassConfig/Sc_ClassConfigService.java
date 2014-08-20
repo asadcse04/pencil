@@ -40,4 +40,6 @@ public interface Sc_ClassConfigService
     
     public List<String> viewSubjectList(int sclassCnfID);
     
+    public ScClassConfig scClassConfig(String studentid);
+    
 }

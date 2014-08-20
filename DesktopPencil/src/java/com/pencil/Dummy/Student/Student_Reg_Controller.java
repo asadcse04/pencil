@@ -7,6 +7,7 @@ package com.pencil.Dummy.Student;
 import com.pencil.PhotoUpload.ImgUpLoad;
 import com.pencil.PhotoUpload.ImgUpload_Impl;
 import com.pencil.Presentation.Presentation;
+import com.pencil.ScClassConfig.ScClassConfig;
 import com.pencil.ScClassConfig.Sc_ClassCofigService_Impl;
 import com.pencil.ScClassConfig.Sc_ClassConfigService;
 import java.io.Serializable;
@@ -42,6 +43,8 @@ public class Student_Reg_Controller implements Serializable {
     private List<String> sectionList;
 
     private List<String> elective_SbjList;
+    
+    private ScClassConfig scClassConfig;
 
     Student_Reg_Service serviceDao = new Student_Reg_Service_Impl();
 
@@ -56,14 +59,26 @@ public class Student_Reg_Controller implements Serializable {
      */
     public Student_Reg_Controller() {
         this.academicYearList = pr.infoList("acyr");
+       
     }
 
+    public void student_update(){
+         this.academicYearList = pr.infoList("acyr");
+         if(student.getStudentID()!=null){
+         this.scClassConfig = sc_service_dao.scClassConfig(student.getStudentID());
+         this.student.setClassName(scClassConfig.getClassName());
+         this.student.setDeptName(scClassConfig.getDeptName());
+         this.student.setShiftName(scClassConfig.getShiftName());
+         this.student.setSectionName(scClassConfig.getSectionName());
+         this.scClass_List();
+         }
+    }
     /**
      *
      */
     public void scClass_List() {
         this.schoolClassList = sc_service_dao.listScClass(this.student.getAcyr());
-        this.deptList();
+        
     }
 
     /**
@@ -71,7 +86,7 @@ public class Student_Reg_Controller implements Serializable {
      */
     public void deptList() {
         this.departmentList = sc_service_dao.listScDept(this.student.getAcyr(), this.student.getClassName());
-        this.section_List();
+        
     }
 
     /**
@@ -79,7 +94,7 @@ public class Student_Reg_Controller implements Serializable {
      */
     public void section_List() {
         this.sectionList = sc_service_dao.listScSection(this.student.getAcyr(), this.student.getDeptName(), this.student.getClassName(), this.student.getShiftName());
-        this.elective_Subject();
+       
     }
 
     /**
