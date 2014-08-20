@@ -201,7 +201,7 @@
                             <h:outputText value="*" styleClass="red"/>
                             <h:outputText value="Academic Year: "/>
                         </p:column><p:column>
-                            <p:selectOneMenu value="#{student_Reg_Controller.student.acyr}" styleClass="inputCombo" style="width: 165px;" required="true" requiredMessage="Please Select Academic Year.">  
+                            <p:selectOneMenu value="#{student_Reg_Controller.student.acyr}" styleClass="inputCombo" style="width: 165px;">  
                                 <f:selectItem itemLabel="Select Academic Year" itemValue="" />  
                                 <f:selectItems value="#{student_Reg_Controller.academicYearList}" />
                                 <p:ajax event="change" update="std_classID" listener="#{student_Reg_Controller.scClass_List}"/>
@@ -212,7 +212,7 @@
                             <h:outputText value="*" styleClass="red"/>
                             <h:outputText value="Class: "/>
                         </p:column><p:column>
-                            <p:selectOneMenu id="std_classID" value="#{student_Reg_Controller.student.className}" styleClass="inputCombo" style="width: 165px;" required="true" requiredMessage="Please Select the Class." >  
+                            <p:selectOneMenu id="std_classID" value="#{student_Reg_Controller.student.className}" styleClass="inputCombo" style="width: 165px;" >  
                                 <f:selectItem itemLabel="Select Class" itemValue="" />  
                                 <f:selectItems value="#{student_Reg_Controller.schoolClassList}"/>
                                 <p:ajax event="change" update="std_deptID" listener="#{student_Reg_Controller.deptList}"/>
@@ -223,7 +223,7 @@
                             <h:outputText value="*" styleClass="red"/>
                             <h:outputText value="Department: "/>
                         </p:column><p:column>
-                            <p:selectOneMenu id="std_deptID" value="#{student_Reg_Controller.student.deptName}" styleClass="inputCombo" style="width: 165px;" required="true" requiredMessage="Please Select the Department.">  
+                            <p:selectOneMenu id="std_deptID" value="#{student_Reg_Controller.student.deptName}" styleClass="inputCombo" style="width: 165px;" >  
                                 <f:selectItem itemLabel="Select Department" itemValue="" />  
                                 <f:selectItems value="#{student_Reg_Controller.departmentList}"/>  
                                 <p:ajax update="shift" listener="#{student_Reg_Controller.elective_Subject}" />
@@ -234,7 +234,7 @@
                             <h:outputText value="*" styleClass="red"/>
                             <h:outputText value="Shift: "/>
                         </p:column><p:column>
-                            <p:selectOneMenu id="shift" value="#{student_Reg_Controller.student.shiftName}" styleClass="inputCombo" style="width: 165px;" required="true" requiredMessage="Please Select the Shift.">  
+                            <p:selectOneMenu id="shift" value="#{student_Reg_Controller.student.shiftName}" styleClass="inputCombo" style="width: 165px;" >  
                                 <f:selectItem itemLabel="Select Shift" itemValue=""/>  
                                 <f:selectItems value="#{student_Reg_Controller.shiftList}"/> 
                                 <p:ajax update="sctn" listener="#{student_Reg_Controller.section_List}"/>
@@ -247,7 +247,7 @@
                             <h:outputText value="*" styleClass="red"/>
                             <h:outputText value="Section: "/>
                         </p:column><p:column>
-                            <p:selectOneMenu id="sctn" value="#{student_Reg_Controller.student.sectionName}" styleClass="inputCombo" style="width: 165px;" required="true" requiredMessage="Please Select the Section.">  
+                            <p:selectOneMenu id="sctn" value="#{student_Reg_Controller.student.sectionName}" styleClass="inputCombo" style="width: 165px;" >  
                                 <f:selectItem itemLabel="Select Section" itemValue="" />  
                                 <f:selectItems value="#{student_Reg_Controller.sectionList}" /> 
                                 <p:ajax update="sctn" listener="#{student_Reg_Controller.Sc_Cnf_ID}"/>
