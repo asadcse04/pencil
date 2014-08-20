@@ -513,29 +513,27 @@ public class Student_Reg_Service_Impl implements Serializable,Student_Reg_Servic
             
             Long.parseLong(stdUpt.getGuardianContactNo());
 
-            prst=con.prepareStatement("update student_basic_info set StudentName=?, StudentRoll=?, CntNo=?, Gender=?, DOB=?, Status=?, ImgPath=?, Religion=?,BloodGroup=?,UserID=? where StudentID=?");
+            prst=con.prepareStatement("update student_basic_info set StudentName=?, CntNo=?, Gender=?, DOB=?, Status=?, ImgPath=?, Religion=?,BloodGroup=?,UserID=? where StudentID=?");
             
             prst.setString(1,stdUpt.getStudentName());
+               
+            prst.setString(2,stdUpt.getCntNo());
             
-            prst.setInt(2,stdUpt.getStudentRoll());
+            prst.setString(3,stdUpt.getGender());
             
-            prst.setString(3,stdUpt.getCntNo());
+            prst.setDate(4,new java.sql.Date(stdUpt.getDob().getTime()));
             
-            prst.setString(4,stdUpt.getGender());
+            prst.setBoolean(5,true);
             
-            prst.setDate(5,new java.sql.Date(stdUpt.getDob().getTime()));
+            prst.setString(6,stdUpt.getImgPath());
             
-            prst.setBoolean(6,true);
+            prst.setString(7,stdUpt.getReligion());
             
-            prst.setString(7,stdUpt.getImgPath());
+            prst.setString(8,stdUpt.getBloodGroup());
             
-            prst.setString(8,stdUpt.getReligion());
+            prst.setInt(9,1);
             
-            prst.setString(9,stdUpt.getBloodGroup());
-            
-            prst.setInt(10,1);
-            
-            prst.setString(11,stdUpt.getStudentID());
+            prst.setString(10,stdUpt.getStudentID());
             
             prst.execute();
             
@@ -637,6 +635,14 @@ public class Student_Reg_Service_Impl implements Serializable,Student_Reg_Servic
             
             prst.setString(2,stdReg.getStudentID());
             
+            prst.executeUpdate();
+            
+            prst = con.prepareStatement("update student_basic_info set StudentRoll=? where StudentID=?");
+
+            prst.setInt(1, stdReg.getStudentRoll());
+
+            prst.setString(2, stdReg.getStudentID());
+
             prst.executeUpdate();
 
             return true;

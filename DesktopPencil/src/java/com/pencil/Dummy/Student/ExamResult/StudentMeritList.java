@@ -16,11 +16,16 @@ public class StudentMeritList implements Serializable
 {
     //ID, StudentID, ExcnfID, TotalMark, TotalGpa, CGPA, FinalGrade
     
+      
     private int id;
     
     private String studentID;
     
     private String studentName;
+    
+    private int studentRoll;
+    
+    private String grdnCn;
     
     private Double totalMark;
     
@@ -29,6 +34,14 @@ public class StudentMeritList implements Serializable
     private Double CGPA;
     
     private String finalGrade;
+    
+    private String status;
+    
+    private int cP;
+    
+    private int sP;
+    
+    private int secP;
 
     public StudentMeritList() 
     {
@@ -36,7 +49,6 @@ public class StudentMeritList implements Serializable
     }
     
     
-
     public StudentMeritList(String studentID, String studentName, Double totalMark, Double totalGpa, Double CGPA, String finalGrade) {
         this.studentID = studentID;
         this.studentName = studentName;
@@ -45,6 +57,30 @@ public class StudentMeritList implements Serializable
         this.CGPA = CGPA;
         this.finalGrade = finalGrade;
     }
+
+
+    public StudentMeritList(String studentID, String studentName,int studentRoll, Double totalMark, Double totalGpa, Double CGPA, String finalGrade) {
+        this.studentID = studentID;
+        this.studentName = studentName;
+        this.studentRoll=studentRoll;
+        this.totalMark = totalMark;
+        this.totalGpa = totalGpa;
+        this.CGPA = CGPA;
+        this.finalGrade = finalGrade;
+    }
+
+    public StudentMeritList(String studentID,int studentRoll,String grdnCn, Double totalMark, Double CGPA, String finalGrade, String status, int cP, int sP, int secP) {
+        this.studentID = studentID;
+        this.studentRoll=studentRoll;
+        this.grdnCn = grdnCn;
+        this.totalMark = totalMark;
+        this.CGPA = CGPA;
+        this.finalGrade = finalGrade;
+        this.status = status;
+        this.cP = cP;
+        this.sP = sP;
+        this.secP = secP;
+    }//for sending sms
     
     
     
@@ -104,7 +140,89 @@ public class StudentMeritList implements Serializable
     public void setFinalGrade(String finalGrade) {
         this.finalGrade = finalGrade;
     }
-    
-    
+
+    /**
+     * @return the grdnCn
+     */
+    public String getGrdnCn() {
+        return grdnCn;
+    }
+
+    /**
+     * @param grdnCn the grdnCn to set
+     */
+    public void setGrdnCn(String grdnCn) {
+        this.grdnCn = grdnCn;
+    }
+
+    /**
+     * @return the status
+     */
+    public String getStatus() {
+        return status;
+    }
+
+    /**
+     * @param status the status to set
+     */
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    /**
+     * @return the cP
+     */
+    public int getcP() {
+        return cP;
+    }
+
+    /**
+     * @param cP the cP to set
+     */
+    public void setcP(int cP) {
+        this.cP = cP;
+    }
+
+    /**
+     * @return the sP
+     */
+    public int getsP() {
+        return sP;
+    }
+
+    /**
+     * @param sP the sP to set
+     */
+    public void setsP(int sP) {
+        this.sP = sP;
+    }
+
+    /**
+     * @return the secP
+     */
+    public int getSecP() {
+        return secP;
+    }
+
+    /**
+     * @param secP the secP to set
+     */
+    public void setSecP(int secP) {
+        this.secP = secP;
+    }
+
+    /**
+     * @return the studentRoll
+     */
+    public int getStudentRoll() {
+        return studentRoll;
+    }
+
+    /**
+     * @param studentRoll the studentRoll to set
+     */
+    public void setStudentRoll(int studentRoll) {
+        this.studentRoll = studentRoll;
+    }
     
 }
