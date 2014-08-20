@@ -8,7 +8,7 @@ import java.util.List;
 
 /**
  *
- * @author Mahfuj
+ * @author Mahfuj 
  */
 public interface Student_Reg_Service
 {

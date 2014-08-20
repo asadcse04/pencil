@@ -9,7 +9,7 @@ import java.util.Date;
 
 /**
  *
- * @author Mahfuj
+ * @author Mahfuj 
  */
 public class Student_Registration implements Serializable
 {
