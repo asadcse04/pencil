@@ -108,12 +108,12 @@
 
     <h:body styleClass="login_body">
 
-        <p:ajaxStatus onstart="PF('statusDialog').show();" onsuccess="PF('statusDialog').hide();"/>
+        <p:ajaxStatus onstart="PF('statusDialog').show();" onsuccess="PF('statusDialog').hide();" />
 
         <p:dialog modal="true" widgetVar="statusDialog" header="loading...." 
                   draggable="false" closable="true">
 
-            <p:graphicImage value="../images/load.gif" />
+            <p:graphicImage value="/images/Login/load.GIF" />
 
         </p:dialog>
 
@@ -143,7 +143,7 @@
 
                             </h:panelGroup>
 
-                            <p:inputText id="userName" value="#{loginController.system_user.userName}" required="true" label="User Name" title="Enter your User Name"/>
+                            <p:inputText id="userName" value="#{loginController.username}" required="true" label="User Name" title="Enter your User Name"/>
 
                             <p:tooltip for="userName" showEffect="slide" hideEffect="slide"/>
 
@@ -155,7 +155,7 @@
 
                             </h:panelGroup>
 
-                            <p:password id="password" value="#{loginController.system_user.password}" required="true" label="Password" title="Enter your pasword"/>
+                            <p:password id="password" value="#{loginController.password}" required="true" label="Password" title="Enter your password"/>
 
                             <p:tooltip for="password" showEffect="slide" hideEffect="slide"/>
 
@@ -165,19 +165,19 @@
 
                             </h:panelGroup>
 
-                            <p:selectOneMenu value="#{loginController.system_user.role}"  requiredMessage="User Type can not be empty." style="width: 130px;">  
+                            <p:selectOneMenu value="#{loginController.roleName}" required="true"  requiredMessage="User Type can not be empty." style="width: 130px;">  
 
-                                <f:selectItem itemLabel="Select One" itemValue="Select One" />  
+                                <f:selectItem itemLabel="Select One" itemValue="" />  
 
                                 <f:selectItem itemLabel="Admin" itemValue="Admin"/> 
 
-                                <f:selectItem itemLabel="Student" itemValue="Student"/>
-
                                 <f:selectItem itemLabel="Teacher" itemValue="Teacher"/>
+                                
+                                <f:selectItem itemLabel="Student" itemValue="Student"/>
 
                             </p:selectOneMenu> <br/>
    
-                            <p:commandButton id="submitButton" action="#{loginController.checkLogin}" update="loginPanalGrid" value="Login" icon="ui-icon-check" ajax="false"/>
+                            <p:commandButton id="submitButton" action="#{loginController.login()}" update="loginPanalGrid" value="Login" icon="ui-icon-check" ajax="false"/>
 
                             <p:commandLink id="link" value="Forgot password?" action="/Dummy/PasswordMessage.xhtml"/>
 

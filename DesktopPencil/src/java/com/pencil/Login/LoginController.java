@@ -1,124 +1,151 @@
 /*
- * To change this template, choose Tools | Templates
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 package com.pencil.Login;
 
-import com.pencil.SystemUser.SystemUser;
+import java.io.IOException;
 import java.io.Serializable;
-import javax.faces.application.ConfigurableNavigationHandler;
+import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
-import javax.faces.event.ComponentSystemEvent;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+@ManagedBean
+@ViewScoped
 
 /**
  *
  * @author salim
  */
-@ManagedBean
-@RequestScoped
-
 public class LoginController implements Serializable {
 
-    private SystemUser system_user;
+    String username, password;
+    
+    String user;
 
-    /**
-     *
-     */
-    public static String AUTH_KEY = "";
+    String roleName;
 
-    /**
-     * Creates a new instance of LoginController
-     */
-    public LoginController() {
+    public String getRoleName() {
+        return roleName;
+    }
+
+    public void setRoleName(String roleName) {
+        this.roleName = roleName;
+    }
+
+    public String getUser() {
+        return user;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    private String requestedURI;
+
+    @PostConstruct
+    public void init() 
+    {
+        requestedURI = (String) FacesContext.getCurrentInstance().getExternalContext().getRequestMap().get(RequestDispatcher.FORWARD_REQUEST_URI);
+
+        if (requestedURI == null) 
+        {
+            requestedURI = "ErrorPage.xhtml";
+        }
 
     }
 
-    /**
-     *
-     * @return
-     */
-    public String checkLogin() 
+    public void login() 
     {
         FacesContext context = FacesContext.getCurrentInstance();
+        
+        HttpServletRequest request = (HttpServletRequest) context.getExternalContext().getRequest();
 
-        LoginDao dao = new LoginDaoImpl();
-
-        boolean flag = dao.isLogin(this.getSystem_user());
-
-        if (flag)
+        try 
         {
-            if(this.getSystem_user().getRole().equals("Admin")) 
-            {
-                context.getExternalContext().getSessionMap().put("User_Name", this.getSystem_user().getUserName());
-
-                context.getExternalContext().getSessionMap().put(AUTH_KEY, this.getSystem_user().getRole());
-
-                this.system_user = null;
-                
-                return "/index?faces-redirect=true";
-            }
-            else if (this.getSystem_user().getRole().equals("Student"))
-            {
-                context.getExternalContext().getSessionMap().put("User_Name", this.getSystem_user().getUserName());
-
-                context.getExternalContext().getSessionMap().put(AUTH_KEY, this.getSystem_user().getRole());
-
-                this.system_user = null;
-
-                return "/stdindex?faces-redirect=true";
-            }
-             else if (this.getSystem_user().getRole().equals("Teacher"))
-            {
-                context.getExternalContext().getSessionMap().put("User_Name", this.getSystem_user().getUserName());
-
-                context.getExternalContext().getSessionMap().put(AUTH_KEY, this.getSystem_user().getRole());
-
-                this.system_user = null;
-
-                return "/tcrindex?faces-redirect=true";
-            }
+            request.login(this.username, this.password);
+            this.user = request.getUserPrincipal().getName();
+            HttpSession s = request.getSession();
+            s.setAttribute("user", this.user);
 
         } 
-        else {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Invalid System User.", ""));
+        catch (ServletException e) 
+        {
+            context.addMessage(null, new FacesMessage("Login failed."));
+
         }
 
-        return "Login";
-    }
+        try 
+        {
 
-    /**
-     *
-     * @param event
-     */
-    public void isAdmin(ComponentSystemEvent event) {
-        FacesContext fc = FacesContext.getCurrentInstance();
+            if (this.roleName.equals("Admin")) {
 
-        if (!"Admin".equals(fc.getExternalContext().getSessionMap().get(LoginController.AUTH_KEY))) {
-            ConfigurableNavigationHandler nav = (ConfigurableNavigationHandler) fc.getApplication().getNavigationHandler();
+                requestedURI = "admin/index.xhtml";
 
-            nav.performNavigation("/ErrorPage.xhtml?faces-redirect=true");
+            }
+
+            if (this.roleName.equals("Teacher")) {
+
+                requestedURI = "teacher/index.xhtml";
+
+            }
+
+            if (this.roleName.equals("Student")) {
+
+                requestedURI = "student/index.xhtml";
+
+            }
+
+            context.getExternalContext().redirect(requestedURI);
+
+        } 
+        catch (IOException ex)
+        {
+            System.out.println(ex);
         }
+
     }
 
-    /**
-     * @return the system_user
-     */
-    public SystemUser getSystem_user() {
-        if (this.system_user == null) {
-            this.system_user = new SystemUser();
+    public String logout()
+    {
+        FacesContext context = FacesContext.getCurrentInstance();
+        
+        HttpServletRequest request = (HttpServletRequest) context.getExternalContext().getRequest();
+        try
+        {
+            request.logout();
+            
+           return "/Login?faces-redirect=true";
+           
+        } 
+        catch (ServletException e)
+        {
+            context.addMessage(null, new FacesMessage("Logout failed."));
         }
-
-        return this.system_user;
-    }
-
-    /**
-     * @param system_user the system_user to set
-     */
-    public void setSystem_user(SystemUser system_user) {
-        this.system_user = system_user;
+      return "/Login?faces-redirect=true";
     }
 
 }
