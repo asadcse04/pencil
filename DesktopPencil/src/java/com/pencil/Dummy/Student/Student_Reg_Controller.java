@@ -63,22 +63,19 @@ public class Student_Reg_Controller implements Serializable {
     }
 
     public void student_update(){
-         this.academicYearList = pr.infoList("acyr");
-         if(student.getStudentID()!=null){
-         this.scClassConfig = sc_service_dao.scClassConfig(student.getStudentID());
-         this.student.setClassName(scClassConfig.getClassName());
-         this.student.setDeptName(scClassConfig.getDeptName());
-         this.student.setShiftName(scClassConfig.getShiftName());
-         this.student.setSectionName(scClassConfig.getSectionName());
-         this.scClass_List();
+        this.scClass_List();
+         this.section_List();
+         this.deptList();
+         this.elective_Subject();
+         
          }
-    }
+    
     /**
      *
      */
     public void scClass_List() {
         this.schoolClassList = sc_service_dao.listScClass(this.student.getAcyr());
-        
+    
     }
 
     /**
@@ -86,7 +83,7 @@ public class Student_Reg_Controller implements Serializable {
      */
     public void deptList() {
         this.departmentList = sc_service_dao.listScDept(this.student.getAcyr(), this.student.getClassName());
-        
+       
     }
 
     /**
