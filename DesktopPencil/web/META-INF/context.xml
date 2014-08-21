@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Context path="/DesktopPencil">
   <!-- Specify a JDBC datasource -->
- <Resource auth="Container" driverClassName="com.mysql.jdbc.Driver" maxActive="100" maxIdle="4" name="jdbc/pncldb" password="1234" type="javax.sql.DataSource" url="jdbc:mysql://localhost:3306/pencildb" username="root"/>
-  
+  <Resource auth="Container" driverClassName="com.mysql.jdbc.Driver" maxActive="100" maxIdle="4" name="jdbc/pncldb" password="1234" type="javax.sql.DataSource" url="jdbc:mysql://localhost:3306/pencildb" username="root"/>
+    
   <Resource auth="Container" driverClassName="com.mysql.jdbc.Driver" maxActive="100" maxIdle="4" name="jdbc/testdb" password="1234" type="javax.sql.DataSource" url="jdbc:mysql://localhost:3306/test" username="root"/>
-  
+   
+  <Realm className="org.apache.catalina.realm.JDBCRealm"
+           driverName="com.mysql.jdbc.Driver"
+           connectionURL="jdbc:mysql://localhost/test_login?user=root&amp;password=1234"
+           userTable="users" userNameCol="user_name" userCredCol="user_pass"
+           userRoleTable="user_roles" roleNameCol="role_name"/>
+           
 </Context>
+

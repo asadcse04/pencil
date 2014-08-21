@@ -12,7 +12,8 @@ import java.util.List;
  *
  * @author user
  */
-public interface At_A_GlanceService {
+public interface At_A_GlanceService 
+{
     
     public List<At_A_Glance> getStudentAllinfo(String stdID);
     

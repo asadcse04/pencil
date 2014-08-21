@@ -45,7 +45,7 @@ public class At_A_GlanceController implements Serializable
      
      this.studentSearch.setContactNo("");
      
-     this.studentSearch.setAcademicYear(0);
+     this.studentSearch.setAcyr(0);
      
      this.studentSearch.setShiftName("");
      
@@ -68,7 +68,7 @@ public class At_A_GlanceController implements Serializable
      
      this.studentSearch.setContactNo(this.studentlist.get(0).getContactNo());
      
-     this.studentSearch.setAcademicYear(this.studentlist.get(0).getAcademicYear());
+     this.studentSearch.setAcyr(this.studentlist.get(0).getAcyr());
      
      this.studentSearch.setShiftName(this.studentlist.get(0).getShiftName());
      
