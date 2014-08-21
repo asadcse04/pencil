@@ -81,9 +81,10 @@
                 
                  <p:column style="width:3%">  
 
-                    <p:commandButton process="@this" update=":student_update_frm"  actionListener="#{student_Reg_Controller.scClass_List()}"  oncomplete="dialog_update_student.show()" icon="ui-icon-pencil" title="Update">  
+                    <p:commandButton process="@this" update=":student_update_frm"  action="#{student_Reg_Controller.student_update()}"  oncomplete="dialog_update_student.show()" icon="ui-icon-pencil" title="Update">  
 
-                        <f:setPropertyActionListener value="#{student_tbl}" target="#{student_Reg_Controller.student}" />                            
+                        <f:setPropertyActionListener value="#{student_tbl}" target="#{student_Reg_Controller.student}" />  
+                      
 
                     </p:commandButton> 
 

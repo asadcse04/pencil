@@ -149,7 +149,9 @@
 
                     <f:facet name="header">%</f:facet>  
 
-                    <h:outputText value="#{(pass_fail.fail *100) / pass_fail.totalStudent}"/>
+                    <h:outputText value="#{((pass_fail.fail *100) / pass_fail.totalStudent)}" >
+                        <f:convertNumber pattern="#0.00" />
+                    </h:outputText>
 
                 </p:column>
                 
@@ -165,7 +167,9 @@
 
                     <f:facet name="header">%</f:facet>  
 
-                    <h:outputText value="#{(pass_fail.pass * 100) /  pass_fail.totalStudent}"/>
+                    <h:outputText value="#{(pass_fail.pass * 100) /  pass_fail.totalStudent}">
+                        <f:convertNumber pattern="#0.00" />
+                    </h:outputText>
 
                 </p:column>
                 
