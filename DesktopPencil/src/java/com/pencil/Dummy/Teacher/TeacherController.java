@@ -92,11 +92,11 @@ public class TeacherController implements Serializable
         }
         else
         {
-            this.teacher.setImgPath(teacher.getTeacherID()+"_"+photoFile.getFileName());
+            this.teacher.setImgPath(photoFile.getFileName());
             
             if(teacherDao.updateTeacher(teacher))
             {        
-                uploadService.uploadImg("TeacherImages",teacher.getTeacherID()+"_"+photoFile.getFileName(),photoFile);
+                uploadService.uploadImg("teacherImages",photoFile.getFileName(),photoFile);
             
                 FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", "Successfully updated teacher info."));
             }
