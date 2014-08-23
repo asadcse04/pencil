@@ -90,6 +90,7 @@ public class LoginController implements Serializable {
             this.user = request.getUserPrincipal().getName();
             HttpSession s = request.getSession();
             s.setAttribute("user", this.user);
+            System.out.println("hello use,,,,,,,,,,,,,,,,,,,,,,,,,,");
 
         } 
         catch (ServletException e) 
