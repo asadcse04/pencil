@@ -32,6 +32,11 @@
             .ui-menu .ui-menu-parent .ui-menu-child {
                 width: 175px;
             }
+            
+            .tabHeight 
+            {
+                height:550px; 
+            }
 
             .red{
                 color: red;
@@ -452,6 +457,21 @@
         <ui:include src="/Inventory/InventoryStockIN/InventoryStockInImpl.xhtml" />          
     </p:dialog>
 
+    <p:ajaxStatus style="width:64px;height:64px;position:fixed;right:5px;bottom:5px">  
 
+        <f:facet name="start">  
+
+            <p:graphicImage value="/images/Ajax/loading.gif" />  
+
+        </f:facet>  
+
+        <f:facet name="complete">  
+
+            <h:outputText value="" />  
+
+        </f:facet>  
+
+    </p:ajaxStatus>
+    
 </html>
 

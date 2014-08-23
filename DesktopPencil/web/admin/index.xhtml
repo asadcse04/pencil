@@ -10,7 +10,7 @@
         <title>Pencil</title>
 
         <style type="text/css">
-            @import "css/style.css";
+            @import "/css/style.css";
             body {
                 background: url(../images/Slide1.png) no-repeat center center fixed;     
                 -webkit-background-size: cover;
@@ -31,6 +31,11 @@
             }
             .ui-menu .ui-menu-parent .ui-menu-child {
                 width: 175px;
+            }
+            
+            .tabHeight 
+            {
+                height:550px; 
             }
 
             .red{
@@ -275,13 +280,14 @@
                             <p:menuitem value="Assign" onclick="PF('assignRoutine').show();" icon="ui-icon-circle-check"/> 
                             <p:menuitem value="Update" onclick="PF('updateRoutine').show();" icon="ui-icon-script"/> 
                         </p:submenu> 
-
-                        <p:submenu icon="ui-icon-lightbulb" label="Exam">
-                            <p:menuitem value="Exam Startup" onclick="PF('examStartup').show();" icon="ui-icon-tag"/>  
-                            <p:menuitem value="Exam Configure" onclick="PF('examConfigure').show();" icon="ui-icon-pin-s"/>  
-                            <p:menuitem value="MeritList Generate" onclick="PF('meritList').show();" icon="ui-icon-pin-s"/> 
-                        </p:submenu>
                     </p:submenu>
+                    
+                    <p:submenu icon="ui-icon-lightbulb" label="Exam">
+                        <p:menuitem value="Exam Startup" onclick="PF('examStartup').show();" icon="ui-icon-tag"/>  
+                        <p:menuitem value="Exam Configure" onclick="PF('examConfigure').show();" icon="ui-icon-pin-s"/>  
+                        <p:menuitem value="MeritList Generate" onclick="PF('meritList').show();" icon="ui-icon-pin-s"/> 
+                    </p:submenu>
+
 
                     <p:submenu icon="ui-icon-person" label="User">                  
                         <p:menuitem value="Teacher" onclick="PF('forTeacher').show();" icon="ui-icon-person"></p:menuitem>      
@@ -478,7 +484,7 @@
     </p:dialog>
 
     <!-- ............................Exam Startup........................... -->
-    <p:dialog header="Exam Startup" draggable="true" width="100%" widgetVar="examStartup" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
+    <p:dialog header="Exam Startup" draggable="true" width="100%" height="70%" widgetVar="examStartup" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
         <ui:include src="/Settings/Exam/ExamStartup/ExamStartup.xhtml" /> 
     </p:dialog>
 
@@ -744,6 +750,23 @@
         <ui:include src="/Inventory/InventoryStockIN/InventoryStockInImpl.xhtml" />          
     </p:dialog>
 
+    <p:ajaxStatus style="width:64px;height:64px;position:fixed;right:5px;bottom:5px">  
 
+        <f:facet name="start">  
+
+            <p:graphicImage value="/images/Ajax/loading.gif" />  
+
+        </f:facet>  
+
+        <f:facet name="complete">  
+
+            <h:outputText value="" />  
+
+        </f:facet>  
+
+    </p:ajaxStatus>
+    
 </html>
+
+
 
