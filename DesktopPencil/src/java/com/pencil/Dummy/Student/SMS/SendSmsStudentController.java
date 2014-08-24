@@ -8,6 +8,8 @@ package com.pencil.Dummy.Student.SMS;
 import com.pencil.Dummy.Student.Student_Reg_Service;
 import com.pencil.Dummy.Student.Student_Reg_Service_Impl;
 import com.pencil.Dummy.Student.Student_Registration;
+import com.pencil.SMS.SMS_Service;
+import com.pencil.SMS.SMS_ServiceImpl;
 import java.io.Serializable;
 import java.util.List;
 import javax.faces.application.FacesMessage;
@@ -37,12 +39,18 @@ public class SendSmsStudentController implements Serializable
     private List<Student_Registration> student_Filter_List;
     
     private List <Student_Registration> selectedStudentArry;
+    
 
     private String message;
+    
+    private int smsBal;
+    
 
     SendSms_Student_Service  serviceDao = new SendSms_Student_ServiceImpl();
     
     Student_Reg_Service studentService=new Student_Reg_Service_Impl();
+    
+    SMS_Service msgservice=new SMS_ServiceImpl();
 
     /**
      *
@@ -52,6 +60,8 @@ public class SendSmsStudentController implements Serializable
         this.studentList=studentService.Student_cmplt_List();
         
         student_data_model = new StudentDataModel(this.studentList);
+        
+        this.smsBal=msgservice.getSmsCurrent_Ac_Balance(1);//schoolid
     }
 
     /**
@@ -62,7 +72,7 @@ public class SendSmsStudentController implements Serializable
      {
         FacesContext context = FacesContext.getCurrentInstance();
 
-        if (serviceDao.sendSms(this.selectedStudentArry,this.message))
+        if (serviceDao.sendSms(this.selectedStudentArry,this.message,this.smsBal))
         {
             context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", "Successfully send sms."));
         }
@@ -166,5 +176,19 @@ public class SendSmsStudentController implements Serializable
      */
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    /**
+     * @return the smsBal
+     */
+    public int getSmsBal() {
+        return smsBal;
+    }
+
+    /**
+     * @param smsBal the smsBal to set
+     */
+    public void setSmsBal(int smsBal) {
+        this.smsBal = smsBal;
     }
 }

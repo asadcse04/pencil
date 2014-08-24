@@ -426,83 +426,99 @@ public class MeritPositionServiceImpl implements Serializable,MeritPositionServi
         
         boolean flag=false;
         
-        while(itr.hasNext())
+        int smsBal=smsC.getSmsCurrent_Ac_Balance(1);//schoolid
+        
+        if(smsBal!=0)
         {
-            StudentMeritList sml=itr.next();
-            
-            smsBody.append("Student ID-");
-            
-            smsBody.append(sml.getStudentID());
-            
-            smsBody.append("::");
-            
-            smsBody.append("Roll-");
-            
-            smsBody.append(sml.getStudentRoll());
-            
-            smsBody.append("::");
-            
-            smsBody.append("Total Mark-");
-            
-            smsBody.append(sml.getTotalMark());
-            
-            smsBody.append("::");
-            
-            smsBody.append("CGPA-");
-            
-            smsBody.append(sml.getCGPA());
-            
-            smsBody.append(" ");
-            
-            smsBody.append("::Merit Position::");
-            
-            smsBody.append(" ");
-            
-            smsBody.append("CP-");
-            
-            smsBody.append(sml.getcP());
-            
-            smsBody.append("::");
-            
-            smsBody.append("SP-");
-            
-            smsBody.append(sml.getsP());
-            
-            smsBody.append("::");
-            
-            smsBody.append("SecP-");
-            
-            smsBody.append(sml.getSecP());
-            
-            smsBody.append(" ");
-            
-            smsBody.append(" ");
-            
-            smsBody.append("Narsingdi Govt. Girls' School");
-            
-            /*System.out.println("SMS Body::"+smsBody.toString());
-            
-            System.out.println("SMS Body Lenth::"+smsBody.length());
-            
-            System.out.println("--------------------------------");*/
-            
-            if(smsC.sendIndividual_Sms(sml.getGrdnCn(),smsBody.toString())==200)
+            while (itr.hasNext())
             {
-                smsCount=smsCount+1;  
-            }
+                StudentMeritList sml = itr.next();
+
+                smsBody.append("Student ID-");
+
+                smsBody.append(sml.getStudentID());
+
+                smsBody.append("::");
+
+                smsBody.append("Roll-");
+
+                smsBody.append(sml.getStudentRoll());
+
+                smsBody.append("::");
+
+                smsBody.append("Total Mark-");
+
+                smsBody.append(sml.getTotalMark());
+
+                smsBody.append("::");
+
+                smsBody.append("CGPA-");
+
+                smsBody.append(sml.getCGPA());
+                
+                smsBody.append("::");
+
+                smsBody.append("Grade-");
+
+                smsBody.append(sml.getFinalGrade());
+                
+                smsBody.append(" ");
+
+                smsBody.append("::Merit Position::");
+
+                smsBody.append(" ");
+
+                smsBody.append("CP-");
+
+                smsBody.append(sml.getcP());
+
+                smsBody.append("::");
+
+                smsBody.append("SP-");
+
+                smsBody.append(sml.getsP());
+
+                smsBody.append("::");
+
+                smsBody.append("SecP-");
+
+                smsBody.append(sml.getSecP());
+
+                smsBody.append(" ");
+
+                smsBody.append(" ");
+
+                smsBody.append("Narsingdi Govt. Girls' School");
+
+                /*System.out.println("SMS Body::"+smsBody.toString());
             
-            smsBody.setLength(0);                     
+                 System.out.println("SMS Body Lenth::"+smsBody.length());
+            
+                 System.out.println("--------------------------------");*/
+                
+                if (smsC.sendIndividual_Sms(sml.getGrdnCn(), smsBody.toString()) == 200)
+                {
+                    smsCount = smsCount + 1;
+                }
+
+                smsBody.setLength(0);
+                
+                if(smsCount<=smsBal)
+                {
+                    break;
+                }
+            }//end while
+            
+            System.out.println("Result SMS Send::" + smsCount);
+
+            if (smsCount == studentList.size())
+            {
+                flag = true;
+            }
+
+            studentList.clear();
         }
-        
-        System.out.println("Result SMS Send::"+smsCount);
-        
-        if(smsCount==studentList.size())
-        {
-            flag=true;
-        }
-        
-        studentList.clear();
-        
+   
         return flag;
     }
     

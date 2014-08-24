@@ -4,10 +4,10 @@
  * and open the template in the editor.
  */
 
-package com.pencil.Dummy.Student.SMS;
+package com.pencil.Dummy.Teacher.SMS;
 
 import com.pencil.Connection.DB_Connection;
-import com.pencil.Dummy.Student.Student_Registration;
+import com.pencil.Dummy.Teacher.Teacher;
 import com.pencil.SMS.SMS_Service;
 import com.pencil.SMS.SMS_ServiceImpl;
 import java.io.Serializable;
@@ -19,21 +19,21 @@ import java.util.List;
 
 /**
  *
- * @author AR Mamun
+ * @author INSPIRON 5421
  */
-public class SendSms_Student_ServiceImpl implements SendSms_Student_Service,Serializable
-{   
+public class SendSms_Teacher_ServiceImpl implements SendSms_Teacher_Service,Serializable
+{
 
     /**
      *
-     * @param selectedStudentArry
+     * @param selectedTchrArry
      * @param message
      * @param smsBal
      * @return
      */
     @Override
-    public boolean sendSms(List<Student_Registration> selectedStudentArry, String message,int smsBal)
-    {       
+    public boolean sendSms(List<Teacher> selectedTchrArry, String message,int smsBal)
+    {
         DB_Connection o = new DB_Connection();
 
         Connection con = o.getConnection();
@@ -46,7 +46,7 @@ public class SendSms_Student_ServiceImpl implements SendSms_Student_Service,Seri
         
         SMS_Service service=new SMS_ServiceImpl();
         
-        StringBuilder grdn_cntnoList=new StringBuilder();
+        StringBuilder cntnoList=new StringBuilder();
         
         int count=0;
         
@@ -56,33 +56,33 @@ public class SendSms_Student_ServiceImpl implements SendSms_Student_Service,Seri
             {
                 con.setAutoCommit(false);
 
-                prst = con.prepareStatement("insert into student_sms_record values(null,?,?,?,now())");
+                prst = con.prepareStatement("insert into teacher_sms_record values(null,?,?,?,now())");
 
-                for (Student_Registration student : selectedStudentArry)
+                for (Teacher teacher : selectedTchrArry)
                 {
                     if (count <= smsBal)
                     {
-                        prst.setString(1, student.getStudentID());
+                        prst.setInt(1, teacher.getTeacherID());
 
-                        prst.setString(2, student.getGuardianContactNo());
+                        prst.setString(2, teacher.getContactNo());
 
                         prst.setString(3, message);
 
                         prst.addBatch();
 
-                        grdn_cntnoList.append(student.getGuardianContactNo());
+                        cntnoList.append(teacher.getContactNo());
 
-                        grdn_cntnoList.append(",");
+                        cntnoList.append(",");
                     }
 
                     count = count + 1;
                 }
 
-                if (grdn_cntnoList.length() > 0)
+                if (cntnoList.length() > 0)
                 {
-                    grdn_cntnoList.setLength(grdn_cntnoList.length() - 1);
+                    cntnoList.setLength(cntnoList.length() - 1);
 
-                    if (service.sendBulkSms(grdn_cntnoList, message) == 200)
+                    if (service.sendBulkSms(cntnoList,message) == 200)
                     {
                         int[] update = prst.executeBatch();
 
@@ -94,21 +94,23 @@ public class SendSms_Student_ServiceImpl implements SendSms_Student_Service,Seri
 
                         cs.execute();
 
+                        System.out.println("Total number of sms send to the teacher::" + update.length);
+
                         con.commit();
 
                         return true;
                     }
                 }
-            }
+            } 
             catch (SQLException ex)
             {
                 System.out.println(ex);
             } 
             finally
             {
-                try
+                try 
                 {
-                    if (prst != null)
+                    if (prst != null) 
                     {
                         prst.close();
                     }
@@ -121,17 +123,18 @@ public class SendSms_Student_ServiceImpl implements SendSms_Student_Service,Seri
                         con.close();
                     }
                 } 
-                catch (SQLException ex) 
+                catch (SQLException ex)
                 {
                     System.out.println(ex);
                 }
 
-                selectedStudentArry.clear();
+                selectedTchrArry.clear();
 
                 message = null;
             }
         }
-        
+       
         return false;
-    }    
+    }
+    
 }

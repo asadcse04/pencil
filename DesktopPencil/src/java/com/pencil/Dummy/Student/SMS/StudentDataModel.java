@@ -7,6 +7,7 @@
 package com.pencil.Dummy.Student.SMS;
 
 import com.pencil.Dummy.Student.Student_Registration;
+import java.io.Serializable;
 import java.util.List;
 import javax.faces.model.ListDataModel;
 import org.primefaces.model.SelectableDataModel;
@@ -15,7 +16,7 @@ import org.primefaces.model.SelectableDataModel;
  *
  * @author jahangiralamdiu
  */
-public class StudentDataModel extends ListDataModel<Student_Registration> implements SelectableDataModel<Student_Registration>
+public class StudentDataModel extends ListDataModel<Student_Registration> implements SelectableDataModel<Student_Registration>,Serializable
 {
 
     /**

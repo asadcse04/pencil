@@ -15,5 +15,5 @@ import java.util.List;
  */
 public interface SendSms_Student_Service 
 {
-    public boolean sendSms(List<Student_Registration> selectedStudentArry, String message); 
+    public boolean sendSms(List<Student_Registration> selectedStudentArry, String message,int smsBal); 
 }
