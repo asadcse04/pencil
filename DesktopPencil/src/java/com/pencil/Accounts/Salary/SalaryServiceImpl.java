@@ -18,7 +18,7 @@ import java.util.Iterator;
 
 /**
  *
- * @author riad yousuf
+ * @author riad
  */
 public class SalaryServiceImpl implements SalaryService {
     
