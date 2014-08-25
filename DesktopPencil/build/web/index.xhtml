@@ -3,9 +3,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-
+        
         <title>Pencil</title>
 
         <style type="text/css">
@@ -66,12 +67,14 @@
 
             <!-- ******************Main Menu bar Begin Here********************** -->
             <p:menubar>
+
+
                 <p:submenu icon="ui-icon-home" >               
                     <p:menuitem value="About" onclick="PF('info').show();"></p:menuitem>
+                  
                 </p:submenu> 
 
                 <p:submenu icon="ui-icon-note" label="Insert">
-
                     <p:submenu icon="ui-icon-person" label="Student">
                         <p:menuitem value="Registration" onclick="PF('studentRegistration').show();" icon="ui-icon-contact"></p:menuitem> 
                         <p:menuitem value="Update" onclick="PF('studentUpdate').show();" icon="ui-icon-script"></p:menuitem> 
@@ -82,33 +85,116 @@
                         <p:menuitem value="Update" onclick="PF('teacherUpdate').show();" icon="ui-icon-script"></p:menuitem> 
                     </p:submenu>
 
+                    <p:submenu icon="ui-icon-person" label="Staff">
+                        <p:menuitem value="Registration" onclick="PF('stuffRegistration').show();" icon="ui-icon-bookmark"></p:menuitem> 
+                        <p:menuitem value="Update" onclick="PF('stuffUpdate').show();" icon="ui-icon-script"></p:menuitem> 
+                    </p:submenu>
+
+                    <p:submenu icon="ui-icon-note" label="Notice">
+                        <p:menuitem value="Add" onclick="PF('noticeadd').show();" icon="ui-icon-contact"> </p:menuitem>
+                        <p:menuitem value="Update" onclick="PF('noticeupdate').show();" icon="ui-icon-contact"> </p:menuitem>
+                    </p:submenu>
 
                     <p:submenu icon="ui-icon-note" label="Gallery">
+                        <p:submenu icon="ui-icon-note" label="Book">
+                            <p:menuitem value="Add" onclick="PF('').show();" icon="ui-icon-contact"></p:menuitem> 
+                            <p:menuitem value="Update" onclick="PF('').show();" icon="ui-icon-contact"></p:menuitem> 
+                        </p:submenu>
 
                         <p:submenu icon="ui-icon-note" label="Principle">
-                            <p:menuitem value="Principle Add" onclick="PF('principleadd').show();" icon="ui-icon-contact"></p:menuitem> 
-                            <p:menuitem value="Principle Update" onclick="PF('principleupdate').show();" icon="ui-icon-contact"></p:menuitem> 
+                            <p:menuitem value="Add" onclick="PF('principleadd').show();" icon="ui-icon-contact"></p:menuitem> 
+                            <p:menuitem value="Update" onclick="PF('principleupdate').show();" icon="ui-icon-contact"></p:menuitem> 
                         </p:submenu>
 
                         <p:submenu icon="ui-icon-note" label="Committee">
-                            <p:menuitem value="Committee Add" onclick="PF('committeeadd').show();" icon="ui-icon-contact"></p:menuitem> 
-                            <p:menuitem value="Committee Update" onclick="PF('committeeupdate').show();" icon="ui-icon-contact"></p:menuitem> 
+                            <p:menuitem value="Add" onclick="PF('committeeadd').show();" icon="ui-icon-contact"></p:menuitem> 
+                            <p:menuitem value="Update" onclick="PF('committeeupdate').show();" icon="ui-icon-contact"></p:menuitem> 
                         </p:submenu>
 
-                        <p:submenu icon="ui-icon-note" label="Photo">
-                            <p:menuitem value="Photo Add" onclick="PF('photoadd').show();" icon="ui-icon-contact"></p:menuitem> 
-                            <p:menuitem value="Photo Update" onclick="PF('photoupdate').show();" icon="ui-icon-contact"></p:menuitem> 
+                        <p:submenu icon="ui-icon-note" label="Photo Gallery">
+                            <p:menuitem value="Add" onclick="PF('photoadd').show();" icon="ui-icon-contact"></p:menuitem> 
+                            <p:menuitem value="Update" onclick="PF('photoupdate').show();" icon="ui-icon-contact"></p:menuitem> 
                         </p:submenu>
+                    </p:submenu>
+                </p:submenu>
 
+                <p:submenu icon="ui-icon-person" label="Information">     
+                    <p:submenu icon="ui-icon-person" label="Student">
+                        <p:menuitem value="Find A Student" onclick="PF('findStudent').show();" icon="ui-icon-person"></p:menuitem>   
+                        <p:menuitem value="At A Glance" onclick="PF('at_A_Glance').show();" icon="ui-icon-person"></p:menuitem>   
+                        <p:menuitem value="Basic Info" onclick="PF('studentView').show();" icon="ui-icon-person"></p:menuitem>  
+                        <p:menuitem value="Correction Sheet" onclick="PF('correctionSheet').show();" icon="ui-icon-person"></p:menuitem>    
+                    </p:submenu>
+                    <p:menuitem value="Teacher" onclick="PF('teacherView').show();" icon="ui-icon-person"></p:menuitem>
+                </p:submenu> 
+
+                <p:submenu icon="ui-icon-clipboard" label="Attendance">  
+                    <p:submenu icon="ui-icon-arrowthick-1-s" label="Take Attendance">
+                        <p:menuitem value="Student" onclick="PF('studentAttendance').show();" icon="ui-icon-disk"></p:menuitem>                   
+                        <p:menuitem value="Teacher" onclick="PF('teacherAttendance').show();" icon="ui-icon-copy"></p:menuitem>           
+                    </p:submenu> 
+                    <p:submenu icon="ui-icon-bookmark" label="Blank Sheet">
+                        <p:menuitem value="Student" onclick="PF('studentAttendanceSheet').show();" icon="ui-icon-clipboard"></p:menuitem>                   
+                        <p:menuitem value="Teacher" onclick="PF('teacherAttendanceSheet').show();" icon="ui-icon-document"></p:menuitem>           
+                    </p:submenu>
+                </p:submenu> 
+
+                <p:submenu icon="ui-icon-calculator" label="Routine">            
+                    <p:submenu icon="ui-icon-clock" label="Class Routine">
+                        <p:menuitem value="Day Wise" onclick="PF('dayWiseView').show();" icon="ui-icon-calendar"/>         
+                        <p:menuitem value="Period Wise" onclick="PF('periodWiseView').show();" icon="ui-icon-shuffle"/>                  
+                    </p:submenu>  
+                </p:submenu> 
+
+                <p:submenu icon="ui-icon-lightbulb" label="Result"> 
+                    <p:submenu icon="ui-icon-lightbulb" label="Exam Marks">
+                        <p:menuitem value="Submit" onclick="PF('markSubmit').show();" icon="ui-icon-lightbulb"></p:menuitem>  
+                        <p:menuitem value="Update" onclick="PF('markUpdate').show();" icon="ui-icon-lightbulb"></p:menuitem>  
                     </p:submenu>
 
+                    <p:submenu icon="ui-icon-lightbulb" label="Report">
+                        <p:submenu icon="ui-icon-suitcase" label="Subject Wise">
+                            <p:menuitem value="Details" onclick="PF('details').show();" icon="ui-icon-lightbulb"></p:menuitem>
+                            <p:menuitem value="Summary" onclick="PF('subjectreport').show();" icon="ui-icon-eject"></p:menuitem>
+                            <p:menuitem value="Pass/Fail" onclick="PF('pass_fail').show();" icon="ui-icon-eject"></p:menuitem> 
+                            <p:menuitem value="Grading" onclick="PF('grading').show();" icon="ui-icon-eject"></p:menuitem>   
+                        </p:submenu>
 
+                        <p:submenu icon="ui-icon-suitcase" label="Section Wise">
+                            <p:menuitem value="Pass/Fail" onclick="PF('InstituteReport').show();" ></p:menuitem>   
+                            <p:menuitem value="Gradeing" onclick="PF('GradeReport').show();" ></p:menuitem>
+                            <p:menuitem value="Merit List" onclick="PF('section_meritList').show();" icon="ui-icon-eject"></p:menuitem>
+                        </p:submenu>
+
+                        <p:submenu icon="ui-icon-lightbulb" label="Institute Wise">   
+                            <p:menuitem value="Gradeing" onclick="PF('GradeWiseReportDig').show();" ></p:menuitem>   
+                            <p:menuitem value="Pass/Fail" onclick="PF('PassFailReportDig').show();" ></p:menuitem>   
+                        </p:submenu>
+                    </p:submenu>
+
+                    <p:menuitem value="Print Mark Sheet" onclick="PF('markSheetPrint').show();" icon="ui-icon-lightbulb"></p:menuitem>
+                    
+                    <p:menuitem value="Exam Result SMS" onclick="PF('resultSms').show();" icon="ui-icon-lightbulb"></p:menuitem>
+
+                </p:submenu> 
+
+                <p:submenu icon="ui-icon-note" label="Message">
+                    <p:submenu icon="ui-icon-note" label="Add">
+                        <p:menuitem value="Template" onclick="PF('messagetemplate').show();" icon="ui-icon-contact"> </p:menuitem>
+                        <p:menuitem value="PhoneBook" onclick="PF('phonebook').show();" icon="ui-icon-contact"> </p:menuitem>
+                        <p:menuitem value="MailBook" onclick="PF('mailbook').show();" icon="ui-icon-contact"> </p:menuitem>
+                    </p:submenu>
+
+                    <p:submenu icon="ui-icon-print" label="Send SMS">
+                        <p:menuitem value="To Student" onclick="PF('toStudentSMS').show();" icon="ui-icon-arrowreturn-1-n"></p:menuitem>                   
+                        <p:menuitem value="To Teacher" onclick="PF('toTeacherSMS').show();" icon="ui-icon-arrowreturnthick-1-n"></p:menuitem>
+                        <p:menuitem value="From Phonebook" onclick="PF('outlookphonebook').show();" icon="ui-icon-contact"> </p:menuitem>
+                    </p:submenu> 
+                    <p:menuitem value="Balance Status" onclick="PF('BalanceStatus').show();" icon="ui-icon-contact"> </p:menuitem>
                 </p:submenu>
 
                 <p:submenu icon="ui-icon-person" label="Accounts">
-
-                    <p:submenu icon="ui-icon-note" label="Student Accounts">
-
+                    <p:submenu  label="Student Accounts">
                         <p:submenu icon="ui-icon-note" label="Fee Setup">
                             <p:menuitem value="Fee Start up" onclick="PF('feestart').show();" icon="ui-icon-script"></p:menuitem> 
                             <p:menuitem value="Fee Create" onclick="PF('createfee').show();" icon="ui-icon-script"></p:menuitem> 
@@ -116,51 +202,41 @@
                         </p:submenu> 
 
                         <p:menuitem value="Fee Collection" onclick="PF('stdsrc').show();" icon="ui-icon-script"></p:menuitem> 
-
                     </p:submenu> 
 
-                    <p:submenu icon="ui-icon-note" label="Payroll">
-
+                    <p:submenu  label="Payroll">
                         <p:submenu icon="ui-icon-note" label="Payroll Setup">
                             <p:menuitem value="Payroll Startup" onclick="PF('salarystart').show();" icon="ui-icon-script"></p:menuitem> 
                             <p:menuitem value="Payroll Create" onclick="PF('salarycreate').show();" icon="ui-icon-script"></p:menuitem> 
                         </p:submenu>    
-
                     </p:submenu>
 
-                    <p:submenu icon="ui-icon-note" label="General Accounts">
-
+                    <p:submenu label="General Accounts">
                         <p:submenu icon="ui-icon-note" label="Account Setup">
-                            <p:menuitem value="Transection Startup" onclick="PF('transectionstart').show();" icon="ui-icon-script"></p:menuitem> 
-                            <p:menuitem value="Bank Startup" onclick="PF('bankstart').show();" icon="ui-icon-script"></p:menuitem> 
+                            <p:menuitem value="Transection Startup" onclick="PF('transectionstart').show();" ></p:menuitem> 
+                            <p:menuitem value="Bank Startup" onclick="PF('bankstart').show();"></p:menuitem> 
                         </p:submenu>
 
-                        <p:submenu icon="ui-icon-note" label="Create Transection">
-                            <p:menuitem value="Income Transection" onclick="PF('income').show();" icon="ui-icon-script"></p:menuitem> 
-                            <p:menuitem value="Expense Transection" onclick="PF('expense').show();" icon="ui-icon-script"></p:menuitem> 
-                            <p:menuitem value="Bank Transection" onclick="PF('bank').show();" icon="ui-icon-script"></p:menuitem> 
+                        <p:submenu label="Create Transection">
+                            <p:menuitem value="Income Transection" onclick="PF('income').show();" ></p:menuitem> 
+                            <p:menuitem value="Expense Transection" onclick="PF('expense').show();"></p:menuitem> 
+                            <p:menuitem value="Bank Transection" onclick="PF('bank').show();" ></p:menuitem> 
                         </p:submenu>
 
-                        <p:submenu icon="ui-icon-note" label="Report">
-
+                        <p:submenu label="Report">
                             <p:submenu icon="ui-icon-note" label="Transection">
                                 <p:menuitem value="Cash Report" onclick="PF('CashReportDig').show();" icon="ui-icon-tag"></p:menuitem>   
                             </p:submenu>
 
                             <p:submenu icon="ui-icon-note" label="Graphical View">
-                                <p:menuitem value="Bank Report Status" onclick="PF('BankReportDig').show();" icon="ui-icon-tag"></p:menuitem>   
-                                <p:menuitem value="Balance Report" onclick="PF('BalanceReportDig').show();" icon="ui-icon-tag"></p:menuitem>   
+                                <p:menuitem value="Bank Report Status" onclick="PF('BankReportDig').show();" ></p:menuitem>   
+                                <p:menuitem value="Balance Report" onclick="PF('BalanceReportDig').show();" ></p:menuitem>   
                             </p:submenu> 
-
                         </p:submenu>  
-
                     </p:submenu>
-
-                </p:submenu> 
-
+                </p:submenu>
 
                 <p:submenu icon="ui-icon-note" label="Others">
-
                     <p:menuitem value="Notice" onclick="PF('noticeTable').show();" icon="ui-icon-contact"></p:menuitem>   
 
                     <p:submenu icon="ui-icon-note" label="Gallary">
@@ -172,61 +248,7 @@
                 </p:submenu> 
 
 
-
-                <p:submenu icon="ui-icon-person" label="Information">            
-                    <p:menuitem value="Student" onclick="PF('studentView').show();" icon="ui-icon-person"></p:menuitem>                   
-                    <p:menuitem value="Teacher" onclick="PF('teacherView').show();" icon="ui-icon-person"></p:menuitem>
-
-                </p:submenu> 
-
-                <p:submenu icon="ui-icon-print" label="SMS">            
-                    <p:menuitem value="To Student" onclick="PF('toStudentSMS').show();" icon="ui-icon-arrowreturn-1-n"></p:menuitem>                   
-                    <p:menuitem value="To Teacher" onclick="PF('toTeacherSMS').show();" icon="ui-icon-arrowreturnthick-1-n"></p:menuitem>                           
-                </p:submenu> 
-
-                <p:submenu icon="ui-icon-clipboard" label="Attendance">  
-                    <p:submenu icon="ui-icon-arrowthick-1-s" label="Take Attendance">
-                        <p:menuitem value="Student" onclick="PF('studentAttendance').show();" icon="ui-icon-disk"></p:menuitem>                   
-                        <p:menuitem value="Teacher" onclick="PF('teacherAttendance').show();" icon="ui-icon-copy"></p:menuitem>           
-                    </p:submenu> 
-                    <p:submenu icon="ui-icon-bookmark" label="Attendance Sheet">
-                        <p:menuitem value="Student" onclick="PF('studentAttendanceSheet').show();" icon="ui-icon-clipboard"></p:menuitem>                   
-                        <p:menuitem value="Teacher" onclick="PF('teacherAttendanceSheet').show();" icon="ui-icon-document"></p:menuitem>           
-                    </p:submenu>
-                </p:submenu> 
-
-                <p:submenu icon="ui-icon-calculator" label="Routine">            
-                    <p:submenu icon="ui-icon-clock" label="Class Routine">
-                        <p:menuitem value="Day Wise" onclick="PF('dayWiseView').show();" icon="ui-icon-calendar"/>         
-                        <p:menuitem value="Period Wise" onclick="PF('periodWiseView').show();" icon="ui-icon-shuffle"/>                  
-                    </p:submenu>  
-                </p:submenu>  
-
-
-
-
-                <p:submenu icon="ui-icon-note" label="Message">
-
-                    <p:submenu icon="ui-icon-note" label="Add">
-
-                        <p:menuitem value="Template" onclick="PF('messagetemplate').show();" icon="ui-icon-contact"> </p:menuitem>
-                        <p:menuitem value="PhoneBook" onclick="PF('phonebook').show();" icon="ui-icon-contact"> </p:menuitem>
-                        <p:menuitem value="MailBook" onclick="PF('mailbook').show();" icon="ui-icon-contact"> </p:menuitem>
-
-                    </p:submenu>
-
-
-                    <p:submenu icon="ui-icon-note" label="Send SMS">
-
-                        <p:menuitem value="From Phonebook" onclick="PF('outlookphonebook').show();" icon="ui-icon-contact"> </p:menuitem>
-
-                    </p:submenu> 
-
-                </p:submenu> 
-
-
                 <p:submenu icon="ui-icon-wrench" label="Settings">  
-
                     <p:submenu icon="ui-icon-gear" label="Core Settings">
                         <p:menuitem value="Institute Setup" onclick="PF('instituteSetup').show();" icon="ui-icon-tag"/>
                         <p:menuitem value="Start Up" onclick="PF('startUp').show();" icon="ui-icon-tag"/>
@@ -235,8 +257,17 @@
                         <p:menuitem value="Class Configure" onclick="PF('classConfigure').show();" icon="ui-icon-pin-s"/> 
                     </p:submenu>
 
+                    <p:submenu icon="ui-icon-person" label="Student">
+                        <p:menuitem value="Elective Subject" onclick="PF('subjectAssign').show();" icon="ui-icon-tag"></p:menuitem>   
+                    </p:submenu>
+
+                    <p:submenu icon="ui-icon-person" label="Teacher">
+                        <p:menuitem value="Create Designation" onclick="PF('designationcreate').show();" icon="ui-icon-tag"></p:menuitem>   
+                        <p:menuitem value="Assign Designation" onclick="PF('teacherDegAssign').show();" icon="ui-icon-tag"></p:menuitem>   
+                    </p:submenu>
+
                     <p:submenu icon="ui-icon-lightbulb" label="Stuff">
-                        <p:menuitem value="Assign Designation" onclick="PF('designationAssign').show();" icon="ui-icon-tag"/>  
+                        <p:menuitem value="Assign Designation" onclick="PF('stuffDegAssign').show();" icon="ui-icon-tag"/>  
                     </p:submenu>
 
                     <p:submenu icon="ui-icon-copy" label="Routine">
@@ -244,86 +275,29 @@
                             <p:menuitem value="Assign" onclick="PF('assignRoutine').show();" icon="ui-icon-circle-check"/> 
                             <p:menuitem value="Update" onclick="PF('updateRoutine').show();" icon="ui-icon-script"/> 
                         </p:submenu> 
-                        <p:submenu icon="ui-icon-lightbulb" label="Exam Routine">
 
+                        <p:submenu icon="ui-icon-lightbulb" label="Exam">
+                            <p:menuitem value="Exam Startup" onclick="PF('examStartup').show();" icon="ui-icon-tag"/>  
+                            <p:menuitem value="Exam Configure" onclick="PF('examConfigure').show();" icon="ui-icon-pin-s"/>  
+                            <p:menuitem value="MeritList Generate" onclick="PF('meritList').show();" icon="ui-icon-pin-s"/> 
                         </p:submenu>
                     </p:submenu>
 
-                    <p:submenu icon="ui-icon-lightbulb" label="Exam">
-                        <p:menuitem value="Exam Startup" onclick="PF('examStartup').show();" icon="ui-icon-tag"/>  
-                        <p:menuitem value="Exam Configure" onclick="PF('examConfigure').show();" icon="ui-icon-pin-s"/>  
-                        <p:menuitem value="MeritList Generate" onclick="PF('meritList').show();" icon="ui-icon-pin-s"/> 
+                    <p:submenu icon="ui-icon-person" label="User">                  
+                        <p:menuitem value="Teacher" onclick="PF('forTeacher').show();" icon="ui-icon-person"></p:menuitem>      
+                        <p:menuitem value="Stuff" onclick="PF('forStuff').show();" icon="ui-icon-eject"></p:menuitem>  
                     </p:submenu>
-
-                    <p:submenu icon="ui-icon-person" label="Student">
-                        <p:menuitem value="Elective Subject" onclick="PF('subjectAssign').show();" icon="ui-icon-tag"></p:menuitem>   
-                    </p:submenu>
-
                 </p:submenu>
 
-                <p:submenu icon="ui-icon-lightbulb" label="Report">
-
-                    <p:submenu icon="ui-icon-suitcase" label="Subject Wise">
-                        <p:menuitem value="Details" onclick="PF('details').show();" icon="ui-icon-lightbulb"></p:menuitem>
-                        <p:menuitem value="Summary" onclick="PF('subjectreport').show();" icon="ui-icon-eject"></p:menuitem>
-                        <p:menuitem value="Pass/Fail" onclick="PF('pass_fail').show();" icon="ui-icon-eject"></p:menuitem> 
-                        <p:menuitem value="Grading" onclick="PF('grading').show();" icon="ui-icon-eject"></p:menuitem>   
-                    </p:submenu>
-
-                    <p:submenu icon="ui-icon-suitcase" label="Section Wise">
-                        <p:menuitem value="Merit List" onclick="PF('section_meritList').show();" icon="ui-icon-eject"></p:menuitem>
-                    </p:submenu>
-
-                    <p:submenu icon="ui-icon-lightbulb" label="Exam Report">
-                        <p:menuitem value="InstituteWiseReport" onclick="PF('InstituteReport').show();" icon="ui-icon-tag"></p:menuitem>   
-                        <p:menuitem value="Grade Wise Report" onclick="PF('GradeReport').show();" icon="ui-icon-tag"></p:menuitem>   
-                        <p:menuitem value="Total Grade Wise Report" onclick="PF('GradeWiseReportDig').show();" icon="ui-icon-tag"></p:menuitem>   
-                        <p:menuitem value="Total Pass Fail  Report" onclick="PF('PassFailReportDig').show();" icon="ui-icon-tag"></p:menuitem>   
-                    </p:submenu> 
-
-                    <p:submenu icon="ui-icon-lightbulb" label="Account Report">
-                        <p:menuitem value="Cash Report" onclick="PF('CashReportDig').show();" icon="ui-icon-tag"></p:menuitem>   
-                        <p:menuitem value="Bank Report Status" onclick="PF('BankReportDig').show();" icon="ui-icon-tag"></p:menuitem>   
-                        <p:menuitem value="Balance Report" onclick="PF('BalanceReportDig').show();" icon="ui-icon-tag"></p:menuitem>   
-                    </p:submenu> 
-
-                </p:submenu>
 
 
                 <p:submenu icon="ui-icon-person" label="User">                  
                     <p:menuitem value="OutLook User" onclick="PF('UserPanel').show();" icon="ui-icon-person"></p:menuitem>      
-                    <p:menuitem value="LogOut" onclick="PF('').show();" icon="ui-icon-eject"></p:menuitem>  
+                    <p:menuitem value="LogOut" action="#{logoutController.logout()}" icon="ui-icon-eject"></p:menuitem>
                 </p:submenu> 
-
-                <p:submenu icon="" label="Facility">
-                    <p:submenu icon="" label="Transport">
-                        <p:submenu icon="" label="Transport Setup">
-                            <p:menuitem value="Transpotr Startup" onclick="PF('transportStartup').show();" icon="ui-icon-gear"/>
-                            <p:menuitem value="Driver" onclick="PF('Driver').show();" icon="ui-icon-gear"/>
-                        </p:submenu>
-                    </p:submenu>
-
-                    <p:submenu label="Hostel">
-                        <p:submenu label="Hostel Setup">
-                            <p:menuitem value="Hostel Startup" onclick="PF('hostel').show();" icon="ui-icon-gear"/>
-                        </p:submenu>
-                    </p:submenu>
-
-                    <p:submenu label="Library">
-                        <p:submenu label="Library Setup">
-                            <p:menuitem value="Library Startup" onclick="PF('library').show();" icon="ui-icon-gear"/>
-                        </p:submenu>
-                    </p:submenu>
-
-                </p:submenu> 
-
-
 
             </p:menubar>
-
-
             <!-- ********************Main Menu bar End Here************************ -->   
-
 
             <!-- ...................Right Mouse Click Menus...................... -->   
             <p:contextMenu>
@@ -331,24 +305,12 @@
                 <p:menuitem value="Update" icon="ui-icon-disk"/>
                 <p:menuitem value="Delete" icon="ui-icon-close"/>
             </p:contextMenu>
-
             <!-- ....................Bottom Dock Hover Toggle Menus.................... --> 
             <p:dock>
                 <p:menuitem value="Student Registration" icon="/images/desktopTool/Student.png" onclick="PF('studentRegistration').show();"/>
                 <p:menuitem value="Teacher Registration" icon="/images/desktopTool/Teacher.png" onclick="PF('teacherRegistration').show();"/>
-                <p:menuitem value="Attendance" icon="/images/desktopTool/Student-Attendence.png" onclick="PF('').show();"/>
-                <p:menuitem value="Notice board" icon="/images/desktopTool/Notice_board.png" onclick="PF('').show()"/>
-                <p:menuitem value="SMS" icon="/images/desktopTool/Sms.png" onclick="PF('').show();"/>
-                <p:menuitem value="" icon="/images/macosx/ichat.png" onclick="PF('').show();"/>
             </p:dock>
-
             <!-- ...................Right Side Stack Toggle Menus..................... --> 
-            <p:stack icon="/images/stack/stack.png">
-                <p:menuitem value="Student Fee" icon="/images/stack/Student-Fees.png"/>
-                <p:menuitem value="Income" icon="/images/stack/Income.png"/>
-                <p:menuitem value="Expense" icon="/images/stack/Expense.png"/>
-                <p:menuitem value="Bank Transection" icon="/images/stack/Bank-Transection.png"/>
-            </p:stack>
 
         </h:form>
 
@@ -358,9 +320,10 @@
     <!-- **********************************************Dialog Begin Here********************************************* -->
 
     <p:dialog header="About This Software" draggable="true" widgetVar="info" showEffect="fade" hideEffect="fade" maximizable="true" minimizable="true">
+        
         <h:form>
             <h:panelGrid columns="1" style="width:100%;text-align:center;">
-                <p:graphicImage value="/images/.png" />
+                <p:graphicImage value="/images/Login/Netizen.png" />
                 <h:outputText value="Pencil" style="font-size:16px"/>
                 <h:outputText value="Version 2.0" />
                 <p:commandButton value="Software Update" async="true" onclick="return false;"/>
@@ -398,9 +361,16 @@
         <ui:include src="/Registration/Teacher/Teacher.xhtml" />          
     </p:dialog>
 
+    <!-- ..................Stuff Registration and update.................... -->
+    <p:dialog header="Stuff Registration" draggable="true" widgetVar="stuffRegistration" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
+        <ui:include src="/Registration/Stuff/StuffRegistration.xhtml" />          
+    </p:dialog>
+
+    <p:dialog header="Stuff Update" draggable="true" width="73%" widgetVar="stuffUpdate" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
+        <ui:include src="/Registration/Stuff/Stuff.xhtml" />          
+    </p:dialog>
 
     <!-- **********************************************Gallery Start Here******************************** -->
-
 
     <p:dialog header="Principle" draggable="true" widgetVar="principleadd" width="40%" height="auto;" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">     
         <ui:include src="/Gallery/Principle/PrincipleImpl.xhtml" />              
@@ -426,29 +396,39 @@
         <ui:include src="/Gallery/Photo/PhotoUpdate.xhtml" />            
     </p:dialog>
 
+    <!-- **********************************************Gallery End Here******************************** -->
 
+    <!-- **********************************************Notice Start Here******************************** -->
 
+    <p:dialog header="Add Notice" draggable="true" widgetVar="noticeadd" height="800px" width="100%" position="middle top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
+        <ui:include src="/Notice/NoticeStartUp/NoticeStartUpImpl.xhtml" />          
+    </p:dialog>
 
+    <p:dialog header="Update Notice" draggable="true" widgetVar="noticeupdate" height="800px" width="100%" position="middle top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
+        <ui:include src="/Notice/NoticeStartUp/NoticeUpdateImpl.xhtml" />          
+    </p:dialog>
+    <!-- **********************************************Notice End Here******************************** -->
     <!-- *****************************************************Insert End Here********************************************************** -->
-
-
     <!--*********************************Information View Student And Teacher Start******************************************* -->
 
-    <p:dialog header="View Student" draggable="true" widgetVar="studentView" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
-        <ui:include src="/Registration/Student/OutLookStudent_Impl.xhtml"/> 
+    <p:dialog header="Find A Student" draggable="true" widgetVar="findStudent" width="auto" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">     
+        <ui:include src="/Information/Student/FindStudent.xhtml" />            
+    </p:dialog>
+
+    <p:dialog header="Search The Student At A Glance" draggable="true" widgetVar="at_A_Glance" width="auto" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">     
+        <ui:include src="/Information/Student/At_A_Glance/At_A_Glance.xhtml" />            
+    </p:dialog>
+    
+    <p:dialog header="Correction Sheet" draggable="true" widgetVar="correctionSheet" width="100%" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
+        <ui:include src="/Information/Student/CorrectionSheet/StudentBasicView_Impl.xhtml"/> 
     </p:dialog>
 
     <p:dialog header="View Teacher" draggable="true" widgetVar="teacherView" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
         <ui:include src="/Registration/Teacher/OutLookTeacherImpl.xhtml"/> 
     </p:dialog>
-
-
     <!--*********************************Information View Student And Teacher End******************************************* -->
 
-
-
     <!-- ******************************************Setting Start Here************************************************** -->
-
     <!-- ......................Institute Setup........................... -->
     <p:dialog header="Institute Setup" draggable="true" width="auto" height="auto" widgetVar="instituteSetup" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
         <ui:include src="/Settings/CoreSetting/InstituteSetup/InstituteSetup.xhtml" /> 
@@ -475,9 +455,16 @@
     </p:dialog>
 
     <!-- ..........................Designation Assign.......................... -->
+    <p:dialog header="Create Designation" draggable="true" widgetVar="designationcreate" height="800px" width="100%" position="middle top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
+        <ui:include src="/Designation/DesignationStartUp/DesignationStartUpImpl.xhtml" />          
+    </p:dialog>
 
-    <p:dialog header="Designation Assign" draggable="true" width="100%" height="768" widgetVar="designationAssign" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
-        <ui:include src="/Settings/DesignationAssign/DesignationAssign.xhtml" />       
+    <p:dialog header="Designation Assign" draggable="true" width="100%" height="768" widgetVar="teacherDegAssign" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
+        <ui:include src="/Settings/Teacher/DesignationAssign/DesignationAssign.xhtml" />       
+    </p:dialog>
+
+    <p:dialog header="Designation Assign" draggable="true" width="100%" height="768" widgetVar="stuffDegAssign" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
+        <ui:include src="/Settings/Stuff/DesignationAssignStuff/DesignationAssignStuff.xhtml" />       
     </p:dialog>
 
     <!-- ..........................Assign Routine........................... -->
@@ -510,9 +497,15 @@
         <ui:include src="/Settings/Student/ElectiveSubjectSelection/Elective_Sbj_Reg_Impl.xhtml" />          
     </p:dialog>
 
+    <!-- ............................User Type........................... -->
+    <p:dialog header="User Type For Teacher" draggable="true" width="100%" height="auto;" widgetVar="forTeacher" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
+        <ui:include src="/Settings/User/AssignUserType/AssignUserType.xhtml" />          
+    </p:dialog>
+
+    <p:dialog header="User Type For Stuff" draggable="true" width="100%" height="auto;" widgetVar="forStuff" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
+        <ui:include src="/Settings/User/AssignStuffType/AssignStuffType.xhtml" />          
+    </p:dialog>
     <!-- ******************************************Setting End Here************************************************** -->
-
-
 
     <!--**********************************************************Exam******************************************-->
     <p:dialog header="Exam Mark Submit" draggable="true" widgetVar="markSubmit" width="100%" height="590" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">    
@@ -526,6 +519,10 @@
     <p:dialog header="Mark Sheet Print" draggable="true" widgetVar="markSheetPrint" width="100%" height="590" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">    
         <ui:include src="/Exam/PrintMarkSheet/PrintMarkSheet.xhtml" />            
     </p:dialog>  
+    
+    <p:dialog header="Exam Result SMS " draggable="true" widgetVar="resultSms" width="100%" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">    
+        <ui:include src="/Exam/ExamResultSMS/ResultSms.xhtml" />            
+    </p:dialog>
 
 
     <!-- ***************************************************Exam Report ****************************************** --> 
@@ -557,15 +554,14 @@
 
     <p:dialog header="To Teacher" draggable="true" widgetVar="toTeacherSMS" width="100%" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">    
         <ui:include src="/Registration/Teacher/BulkSms/SendSmsTeacherImpl.xhtml" />            
-    </p:dialog>  
-
-
+    </p:dialog> 
+    
+    <p:dialog header="Balance Status" draggable="true" widgetVar="BalanceStatus" width="400" position="center" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">    
+        <ui:include src="/SmsStatus/SmsStatus.xhtml" />            
+    </p:dialog>
     <!-- ******************************************************SMS Penal End Here***************************************************** -->
 
-
-
     <!--*************************************************Student Attendance and Teacher Attendance Start Here************************************* -->
-
     <!-- ............................Take Student Attendance........................... -->
     <p:dialog header="Take Student Attendance" draggable="true" width="100%" widgetVar="studentAttendance" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
         <ui:include src="/Attendance/TakeAttendance/StudentAttendance.xhtml" /> 
@@ -585,13 +581,10 @@
     <p:dialog header="Teacher Attendance Sheet" draggable="true" width="100%" widgetVar="teacherAttendanceSheet" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
         <ui:include src="/Attendance/AttendanceSheet/TcrAttendanceSheetImpl.xhtml" /> 
     </p:dialog>
-
     <!--*************************************************Student Attendance and Teacher Attendance End Here************************************* -->
 
 
-
     <!-- ************************************************** Routine View Start Here*****************************************************-->
-
     <!-- ...........................Day Wise View............................--> 
     <p:dialog header="Day Wise View" draggable="true" width="100%" widgetVar="dayWiseView" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
         <ui:include src="/Routine/ViewDayWise/ViewDayRoutine.xhtml" /> 
@@ -604,12 +597,9 @@
 
     <!-- ************************************************** Routine View End Here*****************************************************-->
 
-
-
     <p:dialog header="User Panel" draggable="true" widgetVar="UserPanel" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
         <ui:include src="/UserPanel/SystemUser.xhtml" /> 
     </p:dialog>
-
 
     <!--*****************************Report Dialog***************************-->
 
@@ -623,184 +613,112 @@
     </p:dialog>
 
     <p:dialog header="Grade Wise Report" height="700px" draggable="true" widgetVar="GradeWiseReportDig" width="100%" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
-
         <ui:include src="/Report/GradeWiseReport.xhtml"/>          
-
     </p:dialog>
 
     <p:dialog header="Pass Fail Report" height="700px" draggable="true" widgetVar="PassFailReportDig" width="100%" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
-
         <ui:include src="/Report/PassFailReport.xhtml"/>          
-
     </p:dialog>
 
-
-
     <p:dialog header="Cash Report" height="700px" draggable="true" widgetVar="CashReportDig" width="100%" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
-
         <ui:include src="/Report/cashReport.xhtml"/>          
-
     </p:dialog>
 
     <p:dialog header="Bank Report Status" height="700px" draggable="true" widgetVar="BankReportDig" width="100%" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
-
         <ui:include src="/Report/BankStatusReport.xhtml"/>          
-
     </p:dialog>
 
     <p:dialog header="Balance Report Status" height="700px" draggable="true" widgetVar="BalanceReportDig" width="100%" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
-
         <ui:include src="/Report/BalanceStatusReport.xhtml"/>          
-
     </p:dialog>
-
-
 
     <!--*****************************Accounts Dialog***************************-->
 
-
     <p:dialog header="Fee Startup" draggable="true" widgetVar="feestart" width="100%" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
-
         <ui:include src="/FeeStartUp/FeeStartUpImpl.xhtml" />          
-
     </p:dialog>
-
 
     <p:dialog header="Fee Create" draggable="true" widgetVar="createfee" width="100%" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
-
         <ui:include src="/FeeStartUp/FeeImpl.xhtml" />          
-
     </p:dialog>
 
-
     <p:dialog header="Fee Configure" draggable="true" widgetVar="feeconfig" width="100%" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
-
         <ui:include src="/FeeStartUp/FeeConfigImpl.xhtml" />          
-
     </p:dialog>
 
     <p:dialog header="Student Search" height="700px" draggable="true" widgetVar="stdsrc" width="100%" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
-
         <ui:include src="/FeeCollection/FeeCollectionStep1Impl.xhtml"/>          
-
     </p:dialog>
 
     <p:dialog header="Collect Fee" height="700px" draggable="true" widgetVar="feecollection" width="100%" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
-
         <ui:include src="/FeeCollection/FeeCollectionStep2Impl.xhtml"/>          
-
     </p:dialog>
 
-
     <p:dialog header="Payroll Startup" draggable="true" widgetVar="salarystart" width="100%" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
-
         <ui:include src="/SalaryStartUp/SalaryStartUpImpl.xhtml" />          
-
     </p:dialog>
 
     <p:dialog header="Payroll Create" draggable="true" widgetVar="salarycreate" height="1200px" width="100%"  maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
-
         <ui:include src="/SalaryStartUp/SalaryImpl.xhtml" />          
-
     </p:dialog>
 
     <p:dialog header="Transection Startup" draggable="true" widgetVar="transectionstart" width="100%" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
-
         <ui:include src="/Transection/TransectionStartup/TransectionStartupImpl.xhtml"/>          
-
     </p:dialog>
 
     <p:dialog header="Bank Startup" draggable="true" widgetVar="bankstart" height="700px" width="100%" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
-
         <ui:include src="/Transection/BankStartUp/BankStartUpImpl.xhtml"/>          
-
     </p:dialog>
 
     <p:dialog header="Income Transection" height="700px" draggable="true" widgetVar="income" width="100%" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
-
         <ui:include src="/Transection/IncomeStartUpImpl.xhtml"/>          
-
     </p:dialog>
 
     <p:dialog header="Expense Transection" height="700px" draggable="true" widgetVar="expense" width="100%" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
-
         <ui:include src="/Transection/ExpenseStartUpImpl.xhtml"/>          
-
     </p:dialog>
 
     <p:dialog header="Bank Transection" height="700px" draggable="true" widgetVar="bank" width="100%" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
-
         <ui:include src="/Transection/BankTransectionStartUpImpl.xhtml"/>          
-
     </p:dialog>
-
     <!--*****************************Accounts Dialog End***************************-->
 
 
     <!--*****************************Other Dialog Start***************************-->
-
     <p:dialog header="Committee" height="700px" draggable="true" widgetVar="committeeTab" width="100%" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
-
         <ui:include src="/Others/Gallery/CommitteeTab.xhtml"/>          
-
     </p:dialog>
-
 
     <p:dialog header="Principle" height="700px" draggable="true" widgetVar="principleTab" width="100%" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
-
         <ui:include src="/Others/Gallery/PrincipleTab.xhtml"/>          
-
     </p:dialog>
-
 
     <p:dialog header="Photo Gallery" height="700px" draggable="true" widgetVar="photoTab" width="100%" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
-
         <ui:include src="/Others/Gallery/PhotoGalleria.xhtml"/>          
-
     </p:dialog>
-
 
     <p:dialog header="Notice" height="700px" draggable="true" widgetVar="noticeTable" width="100%" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
-
         <ui:include src="/Others/Notice/NoticeTable.xhtml"/>          
-
     </p:dialog>
-
     <!--*****************************Other Dialog End***************************-->
 
-
     <!--*****************************Message Dialog Start***************************-->
-
     <p:dialog header="Message Template" draggable="true" widgetVar="messagetemplate" width="100%" position="middle top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
-
         <ui:include src="/SMS/SMSTemplateImpl.xhtml" />          
-
     </p:dialog>
-
 
     <p:dialog header="Phonebook" draggable="true" widgetVar="phonebook" width="100%" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
-
         <ui:include src="/Phone/Phone.xhtml" />          
-
     </p:dialog>
-
 
     <p:dialog header="Mail Book" draggable="true" widgetVar="mailbook" width="100%" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
-
         <ui:include src="/Mail/EmailBookCategoryStartUpImpl.xhtml"/>          
-
     </p:dialog>
-
 
     <p:dialog header="Phonebook List" draggable="true" widgetVar="outlookphonebook" width="100%" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
-
         <ui:include src="/SMS/OutLookPhonebookImpl.xhtml" />          
-
     </p:dialog>
-
-
     <!--*****************************Message Dialog End***************************-->
-
 
     <p:dialog header="Transport Startup" draggable="true" width="100%" height="768" widgetVar="transportStartup" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
         <ui:include src="/Facility/Transport/TransportSetup/TransportStartup/TransportStartup.xhtml" />          
@@ -818,9 +736,13 @@
         <ui:include src="/Facility/Library/LibrarySetup/LibraryStartup/LibraryLayout.xhtml" />          
     </p:dialog>
 
+    <p:dialog header="InventoryStartup" draggable="true" width="100%" widgetVar="InventoryStartup" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
+        <ui:include src="/Inventory/InventoryStartup/InventoryStartupImpl.xhtml" />          
+    </p:dialog>
 
-
-
+    <p:dialog header="InventoryStockIn" draggable="true" width="100%" widgetVar="InventoryStockIn" position="left top" maximizable="true" minimizable="true" showEffect="fade" hideEffect="fade" dynamic="true">
+        <ui:include src="/Inventory/InventoryStockIN/InventoryStockInImpl.xhtml" />          
+    </p:dialog>
 
 
 </html>

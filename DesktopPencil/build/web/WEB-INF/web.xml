@@ -23,6 +23,55 @@
         </session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file>DesktopPencil/index.xhtml</welcome-file>
+        <welcome-file>DesktopPencil/Login.xhtml</welcome-file>
     </welcome-file-list>
+    
+      <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Security Check</web-resource-name>
+            
+            <url-pattern>/DesktopPencil/admin/*</url-pattern>
+
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>admin</role-name>
+        </auth-constraint>
+    </security-constraint>
+    
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Security Check for teacher</web-resource-name>
+            
+            <url-pattern>/DesktopPencil/teacher/*</url-pattern>
+
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>admin</role-name>
+            <role-name>teacher</role-name>
+        </auth-constraint>
+    </security-constraint> 
+     
+    
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Security Check for student</web-resource-name>
+            
+            <url-pattern>/DesktopPencil/student/*</url-pattern>
+
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>admin</role-name>
+            <role-name>teacher</role-name>
+            <role-name>student</role-name>
+        </auth-constraint>
+    </security-constraint> 
+    
+    <login-config>
+        <auth-method>FORM</auth-method>
+        <form-login-config>
+            <form-login-page>/DesktopPencil/Login.xhtml</form-login-page> 
+            <form-error-page>/DesktopPencil/ErrorPage.xhtml</form-error-page>       
+        </form-login-config>
+    </login-config>
+    
 </web-app>

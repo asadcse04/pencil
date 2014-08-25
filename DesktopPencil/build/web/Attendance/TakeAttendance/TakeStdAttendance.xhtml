@@ -5,153 +5,155 @@
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:c="http://java.sun.com/jsp/jstl/core">
 
-        <p:layout style="min-width:1250px;min-height:600px;">
+    <p:layout style="min-width:1250px;min-height:600px;">
 
-            <p:growl showDetail="true" autoUpdate="true" sticky="false" />
+        <p:growl showDetail="true" autoUpdate="true" sticky="false" />
 
-            <p:layoutUnit position="west" size="30%">
+        <p:layoutUnit position="west" size="30%">
 
-                <h:form id="cnfInfo_frm">
+            <h:form id="cnfInfo_frm">
 
-                    <center>
+                <center>
 
-                        <p:panelGrid columns="2" style="width:250px;">
+                    <p:panelGrid columns="2" style="width:250px;">
 
-                            <f:facet name="header">
+                        <f:facet name="header">
 
-                                Information Set
+                            Information Set
 
-                            </f:facet>
+                        </f:facet>
 
-                            <h:outputLabel value="Academic Year"/>
+                        <h:outputLabel value="Academic Year"/>
 
-                            <p:outputLabel value="#{studentAttendanceController.classConfig.acyrID}"/>
+                        <p:outputLabel value="#{studentAttendanceController.classConfig.acyrID}"/>
 
 
-                            <h:outputLabel value="Class Name"/>
+                        <h:outputLabel value="Class Name"/>
 
-                            <p:outputLabel value="#{studentAttendanceController.classConfig.className}"/>
+                        <p:outputLabel value="#{studentAttendanceController.classConfig.className}"/>
 
 
-                            <h:outputLabel value="Shift"/>
+                        <h:outputLabel value="Shift"/>
 
-                            <p:outputLabel value="#{studentAttendanceController.classConfig.shiftName}"/>
+                        <p:outputLabel value="#{studentAttendanceController.classConfig.shiftName}"/>
 
 
-                            <h:outputLabel value="Section"/>
+                        <h:outputLabel value="Section"/>
 
-                            <p:outputLabel value="#{studentAttendanceController.classConfig.sectionName}"/>
+                        <p:outputLabel value="#{studentAttendanceController.classConfig.sectionName}"/>
 
-                        </p:panelGrid>
+                    </p:panelGrid>
 
-                        <p:commandButton value="Reload Page" style="margin-top:2%" icon="ui-icon-refresh"/>
+                </center>
 
-                    </center>
+            </h:form>
 
-                </h:form>
+        </p:layoutUnit>
 
-            </p:layoutUnit>
+        <p:layoutUnit position="center">
 
-            <p:layoutUnit position="center">
+            <h:form id="student_List_4_Attendance_frm">
 
-                <h:form id="student_List_4_Attendance_frm">
+                <center>
 
-                    <center>
+                    <p:panelGrid columns="2" style="margin-bottom:2%;">
 
-                        <p:panelGrid columns="2" style="margin-bottom:2%;">
+                        <h:outputText value="Attendance Date" />
 
-                            <h:outputText value="Attendance Date" />
+                        <p:calendar value="#{studentAttendanceController.student_attendance.attendance_date}">
 
-                            <p:calendar value="#{studentAttendanceController.student_attendance.attendance_date}">
+                            <p:ajax event="dateSelect" listener="#{studentAttendanceController.AttendanceDate(studentAttendanceController.student_attendance.attendance_date)}"/>
 
-                                <p:ajax event="dateSelect" listener="#{studentAttendanceController.AttendanceDate(studentAttendanceController.student_attendance.attendance_date)}"/>
+                        </p:calendar>
 
-                            </p:calendar>
+                        <h:outputText value="Don't want to send sms?" />
 
-                        </p:panelGrid>
+                        <p:selectBooleanCheckbox value="#{studentAttendanceController.sms_with_attendance}"/>
 
-                    </center>
+                    </p:panelGrid>
 
-                    <center>
+                </center>
 
-                        <p:dataTable  value="#{studentAttendanceController.studentList}" var="student_tbl"
+                <center>
 
-                                      paginator="false" style="width:750px;">
+                    <p:dataTable  value="#{studentAttendanceController.studentList}" var="student_tbl"
 
-                            <p:column>
+                                  paginator="false" style="width:750px;">
 
-                                <f:facet name="header">Student ID</f:facet>  
+                        <p:column>
 
-                                <h:outputText value="#{student_tbl.studentID}"/>
+                            <f:facet name="header">Student ID</f:facet>  
 
-                            </p:column> 
+                            <h:outputText value="#{student_tbl.studentID}"/>
 
+                        </p:column> 
 
-                            <p:column>
 
-                                <f:facet name="header">Student Name</f:facet>  
+                        <p:column>
 
-                                <h:outputText value="#{student_tbl.studentName}"/>
+                            <f:facet name="header">Student Name</f:facet>  
 
-                            </p:column> 
+                            <h:outputText value="#{student_tbl.studentName}"/>
 
+                        </p:column> 
 
-                            <p:column>
 
-                                <f:facet name="header">Roll No</f:facet>  
+                        <p:column>
 
-                                <h:outputText value="#{student_tbl.studentRoll}"/>
+                            <f:facet name="header">Roll No</f:facet>  
 
-                            </p:column> 
+                            <h:outputText value="#{student_tbl.studentRoll}"/>
 
+                        </p:column> 
 
-                            <p:column style="width:3%">
 
-                                <f:facet name="header">Absent</f:facet>
+                        <p:column style="width:3%">
 
-                                <center>
+                            <f:facet name="header">Absent</f:facet>
 
-                                    <p:selectBooleanCheckbox value="#{studentAttendanceController.student_attendance.absent}">
+                            <center>
 
-                                        <p:ajax listener="#{studentAttendanceController.Absent(student_tbl,0)}"/>
+                                <p:selectBooleanCheckbox value="#{studentAttendanceController.student_attendance.absent}">
 
-                                    </p:selectBooleanCheckbox>
+                                    <p:ajax listener="#{studentAttendanceController.Absent(student_tbl,0)}"/>
 
-                                </center> 
+                                </p:selectBooleanCheckbox>
 
-                            </p:column>
+                            </center> 
 
-                            <p:column style="width:3%">
+                        </p:column>
 
-                                <f:facet name="header">Remarks</f:facet>
+                        <p:column style="width:3%">
 
-                                <p:selectOneMenu value="#{studentAttendanceController.student_attendance.remarks}" effect="slide">  
+                            <f:facet name="header">Remarks</f:facet>
 
-                                    <f:selectItem itemLabel="Select One" itemValue="" />
+                            <p:selectOneMenu value="#{studentAttendanceController.student_attendance.remarks}" effect="slide">  
 
-                                    <f:selectItem itemLabel="Leave" itemValue="Leave" />  
+                                <f:selectItem itemLabel="Select One" itemValue="" />
 
-                                    <f:selectItem itemLabel="Application" itemValue="Application"/> 
+                                <f:selectItem itemLabel="Leave" itemValue="Leave" />  
 
-                                    <f:selectItem itemLabel="Incomplete" itemValue="Incomplete"/> 
+                                <f:selectItem itemLabel="Application" itemValue="Application"/> 
 
-                                    <p:ajax listener="#{studentAttendanceController.Absent(student_tbl,1)}"/>
+                                <f:selectItem itemLabel="Incomplete" itemValue="Incomplete"/> 
 
-                                </p:selectOneMenu>
+                                <p:ajax listener="#{studentAttendanceController.Absent(student_tbl,1)}"/>
 
-                            </p:column>
+                            </p:selectOneMenu>
 
-                        </p:dataTable>
+                        </p:column>
 
-                    </center>
+                    </p:dataTable>
 
-                    <p:commandButton value="Save Attendance" update="student_List_4_Attendance_frm,:cnfInfo_frm" actionListener="#{studentAttendanceController.finishAttendance}" action="TakeAttendance.xhtml?redirect=true"  style="margin-top:1%;margin-left:40%;" icon="ui-icon-check" ajax="false"/>
+                </center>
 
-                </h:form>
+                <p:commandButton value="Finish Attendance"  action="#{studentAttendanceController.finishAttendance}" ajax="false" style="margin-top:1%;margin-left:40%;" icon="ui-icon-check"/>
 
-            </p:layoutUnit>
+            </h:form>
 
-        </p:layout>
+        </p:layoutUnit>
+
+    </p:layout> 
 
 </ui:composition>
 

@@ -267,22 +267,22 @@
                                 <p:outputLabel id="total_point" style="font-weight: bold;" value="#{markSheetPrintController.markSheetPrint.CGPA}"/>
                             </p:column>
                             <p:column>
-                                <h:outputText value="Position in Section"/>
+                                <h:outputText value="Position in Class"/>
                             </p:column><p:column>
-                                <p:outputLabel id="position_section" style="font-weight: bold;" value="#{markSheetPrintController.markSheetPrint.sectionPosition}"/>
+                                <p:outputLabel id="class_position" style="font-weight: bold;" value="#{markSheetPrintController.markSheetPrint.classPosition}"/>
                             </p:column>
                         </p:row>
                         
                          <p:row>
                             <p:column>
-                                <h:outputText value="Position in Class"/>
-                            </p:column><p:column>
-                                <p:outputLabel id="class_position" style="font-weight: bold;" value="#{markSheetPrintController.markSheetPrint.classPosition}"/>
-                            </p:column>
-                            <p:column>
                                 <h:outputText value="Position in Shift"/>
                             </p:column><p:column>
                                 <p:outputLabel id="shift_position" style="font-weight: bold;" value="#{markSheetPrintController.markSheetPrint.shiftPosition}"/>
+                            </p:column>                                                    
+                            <p:column>
+                                <h:outputText value="Position in Section"/>
+                            </p:column><p:column>
+                                <p:outputLabel id="position_section" style="font-weight: bold;" value="#{markSheetPrintController.markSheetPrint.sectionPosition}"/>
                             </p:column>
                         </p:row>
 
